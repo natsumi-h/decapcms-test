@@ -26,10 +26,12 @@ const { title } = Astro.props;
       ></script> -->
     </body>
     <Header />
-    <slot />
+    <main>
+      <slot />
+    </main>
   </body>
 </html>
-<style is:global>
+<!-- <style is:global>
   :root {
     --accent: 136, 58, 234;
     --accent-light: 224, 204, 250;
@@ -57,4 +59,4 @@ const { title } = Astro.props;
       Courier New,
       monospace;
   }
-</style>
+</style> -->

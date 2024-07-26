@@ -1,5 +1,8 @@
 ---
 import "@/styles/glocal.css";
+import "@/styles/base.css";
+
+const { title } = Astro.props;
 ---
 
 <meta charset="UTF-8" />
@@ -7,7 +10,7 @@ import "@/styles/glocal.css";
 <meta name="viewport" content="width=device-width" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <meta name="generator" content={Astro.generator} />
-<title>D2L</title>
+<title>{title}</title>
 <script is:inline>
   if (window.netlifyIdentity) {
     window.netlifyIdentity.on("init", (user) => {
