@@ -1,0 +1,61 @@
+/* Global css import at Basehead */
+
+:root {
+  --textColor: #333;
+  --primaryColor: #00146e;
+  --secondaryColor: #00abe8;
+  --backgroundColor: #f1f8fb;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  min-height: 100vh;
+  color: var(--textColor);
+  line-height: 1.5;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primaryColor);
+  cursor: pointer;
+}
+
+button {
+  padding: 0;
+}

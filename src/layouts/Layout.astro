@@ -1,4 +1,7 @@
 ---
+import Basehead from "./Basehead.astro";
+import Header from "@/components/Header.astro";
+
 interface Props {
   title: string;
 }
@@ -9,34 +12,20 @@ const { title } = Astro.props;
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-    <script is:inline>
-      if (window.netlifyIdentity) {
-        window.netlifyIdentity.on("init", (user) => {
-          if (!user && window.netlifyIdentity) {
-            window.netlifyIdentity.on("login", () => {
-              document.location.href = "/admin/";
-            });
-          }
-        });
-      }
-    </script>
+    <Basehead title={title} />
   </head>
   <body>
     <body>
       <!-- Include the script that builds the page and powers Decap CMS -->
-      <script
+      <!-- <script
         is:inline
         src="https://unpkg.com/decap-cms@^3.1.2/dist/decap-cms.js"></script>
       <script
-        is:inline src="https://identity.netlify.com/v1/netlify-identity-widget.js"
-      ></script>
+        is:inline
+        src="https://identity.netlify.com/v1/netlify-identity-widget.js"
+      ></script> -->
     </body>
+    <Header />
     <slot />
   </body>
 </html>
