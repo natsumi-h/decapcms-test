@@ -16,5 +16,8 @@
     "decap-cms-app": "^3.1.11",
     "tailwindcss": "^3.4.7",
     "typescript": "^5.5.3"
+  },
+  "devDependencies": {
+    "fluid-tailwind": "^1.0.3"
   }
 }
