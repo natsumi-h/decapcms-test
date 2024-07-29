@@ -32,8 +32,10 @@ export default {
     }),
     colors: {
       green: "#145740",
+      green2: "#6FB460",
       orange: "#F1592B",
       text: "#000000",
+      beige: "#F1EEE9",
       white: "#FFF",
       //   blue: "#1fb6ff",
       //   purple: "#7e5bef",

@@ -1,0 +1,52 @@
+---
+import { Image } from "astro:assets";
+import Inner from "./Inner.astro";
+import service1 from "@/assets/images/service/service1.png";
+
+const { service } = Astro.props;
+---
+
+<div class="text-white bg-beige ~px-[1rem]/[5rem] ~py-[3rem]/[3.75rem]">
+  <Inner>
+    <h2 class="text-[2.8125rem] leading-normal font-bold text-green">
+      How to get involved?
+    </h2>
+    <!-- Cards -->
+    <div
+      class="max-w-[57.75rem] mx-auto mt-[1.25rem] flex flex-col gap-y-[5rem]"
+    >
+      <!-- Card -->
+      {
+        service.map((item: any) => (
+          <div class="rounded-[1.25rem] overflow-hidden w-full">
+            <div class="bg-white py-[2rem] px-[2.1875rem]">
+              <div class="flex items-center gap-x-[2.75rem]">
+                {/* Text */}
+                <div class="w-[53.27%]">
+                  <h3 class="text-green2 italic font-bold leading-none text-[2.8125rem]">
+                    {item.title}
+                  </h3>
+                  <ul class="text-text mt-[1rem] text-[1.25rem] leading-normal px-[1rem]">
+                    {item.description.map((desc: any) => (
+                      <li class="list-['✓']">{desc}</li>
+                    ))}
+                  </ul>
+                </div>
+                {/* Image */}
+                <div class="inline text-text">
+                  <Image src={service1} alt="Waste Management" />
+                </div>
+              </div>
+            </div>
+            <a
+              href="/products"
+              class="bg-green py-[0.625rem] px-[1.125rem] text-right text-[1.25rem] leading-normal italic block"
+            >
+              Learn more...
+            </a>
+          </div>
+        ))
+      }
+    </div>
+  </Inner>
+</div>
