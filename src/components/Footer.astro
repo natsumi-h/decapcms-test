@@ -1,0 +1,87 @@
+---
+import { Image } from "astro:assets";
+import Inner from "./Inner.astro";
+import footerlogo from "@/assets/images/footerlogo.png";
+---
+
+<div
+  class="text-white bg-green ~px-[1rem]/[5rem] ~py-[3rem]/[3.75rem] text-[0.75rem]"
+>
+  <Inner>
+    <!-- Flex -->
+    <div class="flex pb-[4.93rem] justify-between w-[85%]">
+      <!-- Logo -->
+      <div>
+        <a href="/">
+          <Image src={footerlogo} alt="D2L.sg" width={111} height={49} />
+        </a>
+      </div>
+      <!-- Text -->
+      <div class="max-w-[20.3125rem]">
+        <p>
+          D2L.sg is a holistic, one-stop, end-to-end food surplus and waste
+          management social enterprise; managing ALL TYPES of food surplus and
+          waste via proprietary smart-matching AI technology, ensuring that food
+          surplus and waste are matched to their best 2nd life quickly and
+          efficiently.
+        </p>
+      </div>
+
+      <!-- Links Wrapper -->
+      <div class="flex gap-x-[3.625rem]">
+        <!-- Relevant links -->
+        <div>
+          <p class="font-bold uppercase">Relevant Links</p>
+          <ul class="mt-[1rem] two-column-list">
+            <li><a>Home</a></li>
+            <li><a>About Us</a></li>
+            <li><a>Our Services</a></li>
+            <li><a>Join as a DSS</a></li>
+            <li><a>About Food Waste</a></li>
+            <li><a>Blog & Media</a></li>
+          </ul>
+        </div>
+        <!-- Contact us -->
+        <div>
+          <p class="font-bold uppercase">Contact us</p>
+          <ul class="mt-[1rem]">
+            <a href="mailto:hello@d2l.sg">hello@d2l.sg</a>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Copy -->
+    <div>
+      <!-- Links -->
+      <div class="pt-[1rem] border-t opacity-50 leading-normal">
+        <ul class="flex gap-x-[1rem] items-center">
+          <li><a>Accessibility</a></li>
+          <span class="w-[0.0625rem] h-[0.75rem] bg-white block"></span>
+          <li><a>Terms of Service</a></li>
+          <span class="w-[0.0625rem] h-[0.75rem] bg-white block"></span>
+          <li><a>Privacy Policy</a></li>
+          <span class="w-[0.0625rem] h-[0.75rem] bg-white block"></span>
+          <li><a>Cookie Policy</a></li>
+        </ul>
+        <!-- Copyright -->
+        <p class="mt-[0.3rem]">
+          Copyright © 2024 D2L.sg — All Rights Reserved. Protected by reCAPTCHA
+          the <a class="underline">Google Privacy Policy</a> and
+          <a class="underline">Terms of Service</a> apply.
+        </p>
+      </div>
+    </div>
+  </Inner>
+</div>
+<div>footer belt</div>
+
+<style>
+  .two-column-list {
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1rem;
+    row-gap: 0.2rem;
+  }
+</style>

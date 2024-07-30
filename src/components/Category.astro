@@ -1,0 +1,30 @@
+---
+import Inner from "./Inner.astro";
+
+const { category } = Astro.props;
+---
+
+<div class="bg-white ~px-[1rem]/[5rem] ~py-[3rem]/[3.75rem]">
+  <Inner>
+    <h3 class="text-[2.8125rem] text-green leading-none text-center">
+      So, You Think Sustainability is a Hassle?<br />
+      We Say, <span class="font-bold">Challenge Accepted!</span>
+    </h3>
+    <!-- Cards -->
+    <div class="max-w-[78.625rem] mx-auto mt-[2.75rem] flex gap-x-[1.5625rem]">
+      <!-- Card -->
+      {
+        category.map((item: any) => (
+          <div class="rounded-[1.25rem] overflow-hidden drop-shadow-md">
+            <div class="drop-shadow-md bg-orange text-white py-[1.6875rem] text-center px-[2.875rem] text-[1.875rem] leading-none font-bold">
+              <p>{item.title}</p>
+            </div>
+            <div class="bg-beige py-[2rem] px-[2.1875rem] text-[1.25rem] leading-normal">
+              <p>{item.description}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </Inner>
+</div>

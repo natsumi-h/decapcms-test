@@ -4,6 +4,8 @@ import service1 from "@/assets/images/service/service1.png";
 import Layout from "../layouts/Layout.astro";
 import Impact from "@/components/Impact.astro";
 import Service from "@/components/Service.astro";
+import Category from "@/components/Category.astro";
+import Getintouch from "@/components/Getintouch.astro";
 
 const impactData = [
   {
@@ -63,15 +65,45 @@ const serviceData = [
     link: "/products",
   },
 ];
+
+const categoryData = [
+  {
+    title: "Focus on Growing\nYour Business!",
+
+    description:
+      "We handle ALL TYPES of your food surplus and waste, effortlessly so that you can focus growing your business!",
+  },
+  {
+    title: "Focus on Growing\nYour Business!",
+
+    description:
+      "We handle ALL TYPES of your food surplus and waste, effortlessly so that you can focus growing your business!",
+  },
+  {
+    title: "Focus on Growing\nYour Business!",
+
+    description:
+      "We handle ALL TYPES of your food surplus and waste, effortlessly so that you can focus growing your business!",
+  },
+];
 ---
 
 <Layout title="Welcome to Astro.">
   <!--  defaultScreens: ["20rem", theme("screens.lg")],の間（320px-1024px）で、1rem(16px)〜2rem（32px）まで動く -->
   <!-- <div class="~text-[1rem]/[2rem]">Home</div> -->
 
+  <!-- Categories -->
+  <Category category={categoryData} />
+
   <!-- Our Impact -->
   <Impact impact={impactData} />
 
   <!-- How to get involved(Services) -->
   <Service service={serviceData} />
+
+  <!-- Getintouch -->
+  <Getintouch />
+
+  <!-- Partner -->
+  <div>Partner</div>
 </Layout>
