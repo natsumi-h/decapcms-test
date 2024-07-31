@@ -1,7 +1,133 @@
 ---
+import Service from "@/components/Service.astro";
 import Layout from "@/layouts/Layout.astro";
+import service1 from "@/assets/images/service/service1.png";
+import Inner from "@/components/Inner.astro";
+import founder from "@/assets/images/linqinghui.png";
+import { Image } from "astro:assets";
+
+const serviceData = [
+  {
+    title: "Waste Management",
+    image: service1,
+    description: [
+      "Cut & Recoup Cost from Food Surplus/Waste",
+      "Cut & Recoup Cost from Food Surplus/Waste",
+      "Cut & Recoup Cost from Food Surplus/Waste",
+      "Cut & Recoup Cost from Food Surplus/Waste",
+    ],
+    link: "/products",
+  },
+  {
+    title: "Waste Management",
+    image: service1,
+    description: [
+      "Cut & Recoup Cost from Food Surplus/Waste",
+      "Cut & Recoup Cost from Food Surplus/Waste",
+      "Cut & Recoup Cost from Food Surplus/Waste",
+      "Cut & Recoup Cost from Food Surplus/Waste",
+    ],
+    link: "/products",
+  },
+  {
+    title: "Waste Management",
+    image: service1,
+    description: [
+      "Cut & Recoup Cost from Food Surplus/Waste",
+      "Cut & Recoup Cost from Food Surplus/Waste",
+      "Cut & Recoup Cost from Food Surplus/Waste",
+      "Cut & Recoup Cost from Food Surplus/Waste",
+    ],
+    link: "/products",
+  },
+];
 ---
 
 <Layout title="About">
-  <div>About</div>
+  <div class="bg-beige pt-[13.125rem] text-center pb-[4.625rem]">
+    <h2 class="text-[2.8125rem] font-bold text-white underline">About Us</h2>
+  </div>
+
+  <!-- Who we are -->
+
+  <!-- CTA -->
+  <div class="bg-beige ~px-[1rem]/[5rem] ~py-[3rem]/[3.75rem]">
+    <Inner>
+      <div class="flex justify-between items-center">
+        <div>
+          <h3 class="text-green text-[2.8125rem] font-bold">
+            We Envision A<br /> Zero-Waste Singapore
+          </h3>
+          <p class="mt-[2rem]">
+            where private, people, and public entities are working together,
+            stewarding every resource mindfully, consciously, respectfully, and
+            treading lightly on this earth, to achieve zero food waste.
+          </p>
+        </div>
+
+        <Image src={founder} alt="Lin QingHui" width={431} height={271} />
+      </div>
+    </Inner>
+  </div>
+
+  <!-- Our Journey -->
+
+  <!-- How to get involved(Services) -->
+  <Service service={serviceData} />
+
+  <!-- Founder -->
+  <div class="bg-white ~px-[1rem]/[5rem] ~py-[3rem]/[3.75rem]">
+    <Inner>
+      <h3 class="text-center text-green text-[2.8125rem] font-bold">
+        Meet Our Founder!
+      </h3>
+      <div
+        class="flex justify-between items-center gap-x-[3.1875rem] mt-[1rem]"
+      >
+        <Image src={founder} alt="Lin QingHui" width={433} height={399} />
+
+        <div>
+          <p class="text-orange text-[2.8125rem] font-bold italic">
+            Lin QingHui
+          </p>
+          <p class="mt-[1rem]">
+            Stemming from her “pathological hatred” for food waste, she founded
+            D2L.sg back in 2018 by joining the DBS Foundation competition with
+            her peers. She believes that "Zero food waste should be second
+            nature to all of us if we accord the most basic respect to all human
+            life" and “Even if it is not fit for human consumption, there are
+            much higher and better uses that it can be diverted to, other than
+            the digester or bin”. This allowed D2L.sg to continuously grow over
+            the years, and develop various business models for various
+            stakeholders.
+          </p>
+        </div>
+      </div>
+    </Inner>
+  </div>
+
+  <!-- CTA -->
+  <div class="bg-beige ~px-[1rem]/[5rem] ~py-[3rem]/[3.75rem]">
+    <Inner>
+      <div class="flex justify-between items-center">
+        <div>
+          <h3 class="text-green text-[2.8125rem] font-bold">
+            Learn more about food waste!
+          </h3>
+          <div class="mt-[2rem]">
+            <a
+              href="/education"
+              class="inline-block bg-white text-green ~px-[1.25rem]/[2.5rem] ~py-[0.625rem]/[1.25rem] rounded-full font-bold border-[0.1875rem] border-green2"
+            >
+              Learn more
+            </a>
+          </div>
+        </div>
+
+        <Image src={founder} alt="Lin QingHui" width={431} height={271} />
+      </div>
+    </Inner>
+  </div>
+
+  <!-- Media -->
 </Layout>

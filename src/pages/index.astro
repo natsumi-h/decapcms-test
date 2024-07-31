@@ -6,6 +6,8 @@ import Impact from "@/components/Impact.astro";
 import Service from "@/components/Service.astro";
 import Category from "@/components/Category.astro";
 import Getintouch from "@/components/Getintouch.astro";
+import { Image } from "astro:assets";
+import mv from "@/assets/images/mv.png";
 
 const impactData = [
   {
@@ -91,6 +93,33 @@ const categoryData = [
 <Layout title="Welcome to Astro.">
   <!--  defaultScreens: ["20rem", theme("screens.lg")],の間（320px-1024px）で、1rem(16px)〜2rem（32px）まで動く -->
   <!-- <div class="~text-[1rem]/[2rem]">Home</div> -->
+
+  <div class="bg-beige pt-[8.5rem] pb-[4.3125rem]">
+    <!-- MV -->
+    <div
+      class="flex max-w-[73rem] py-[3.125rem] px-[4.375rem] justify-between mx-auto align-middle bg-white rounded-[1.25rem]"
+    >
+      <!-- Text -->
+      <div>
+        <h2 class="text-[4.0625rem] text-green font-bold leading-[110%]">
+          Your One-Stop<br />Food Surplus and<br /> Waste Manager
+        </h2>
+        <p class="text-[1.5rem] leading-normal mt-[1.5rem]">
+          Co-Creating Circularity with Community
+        </p>
+        <div class="mt-[1.75rem]">
+          <a
+            class="py-[0.75rem] px-[1.406rem] bg-orange text-white text-[1.5625rem] leading-normal font-bold rounded-[0.5rem]"
+            >Get Started</a
+          >
+        </div>
+      </div>
+      <!-- Image -->
+      <div>
+        <Image src={mv} alt="D2L" width={336} height={326} />
+      </div>
+    </div>
+  </div>
 
   <!-- Categories -->
   <Category category={categoryData} />
