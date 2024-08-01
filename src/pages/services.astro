@@ -1,5 +1,55 @@
 ---
+import Category from "@/components/Category.astro";
+import Impact from "@/components/Impact.astro";
 import Layout from "@/layouts/Layout.astro";
+import impact1 from "@/assets/images/impact/impact1.png";
+import founder from "@/assets/images/linqinghui.png";
+import Inner from "@/components/Inner.astro";
+import { Image } from "astro:assets";
+
+const categoryData = [
+  {
+    title: "Focus on Growing\nYour Business!",
+
+    description:
+      "We handle ALL TYPES of your food surplus and waste, effortlessly so that you can focus growing your business!",
+  },
+  {
+    title: "Focus on Growing\nYour Business!",
+
+    description:
+      "We handle ALL TYPES of your food surplus and waste, effortlessly so that you can focus growing your business!",
+  },
+  {
+    title: "Focus on Growing\nYour Business!",
+
+    description:
+      "We handle ALL TYPES of your food surplus and waste, effortlessly so that you can focus growing your business!",
+  },
+];
+
+const impactData = [
+  {
+    title: "D2L.sg Surplus Savers (DSS) trained",
+    number: "400+",
+    image: impact1,
+  },
+  {
+    title: "D2L.sg Surplus Savers (DSS) trained",
+    number: "400+",
+    image: impact1,
+  },
+  {
+    title: "D2L.sg Surplus Savers (DSS) trained",
+    number: "400+",
+    image: impact1,
+  },
+  {
+    title: "D2L.sg Surplus Savers (DSS) trained",
+    number: "400+",
+    image: impact1,
+  },
+];
 ---
 
 <Layout title="services">
@@ -7,5 +57,45 @@ import Layout from "@/layouts/Layout.astro";
     <h2 class="text-[2.8125rem] font-bold text-white underline">
       Our Services
     </h2>
+  </div>
+
+  <!-- Categories -->
+  <Category category={categoryData} />
+
+  <!-- Services -->
+  <div>Our Services</div>
+
+  <!-- Our Impact -->
+  <Impact impact={impactData} />
+
+  <!-- CTA -->
+  <div class="bg-white ~px-[1rem]/[5rem] ~py-[3rem]/[3.75rem]">
+    <Inner>
+      <div class="flex justify-between items-center gap-x-[2.75rem]">
+        <div>
+          <h3 class="text-green text-[2.8125rem] font-bold leading-none">
+            Wondering How Much Impact<br />Can One Person Make?
+          </h3>
+          <p class="mt-[2rem] text-orange font-bold text-[3.4375rem]">
+            Join as a DSS!
+          </p>
+          <p class="mt-[2rem]">
+            D2L.sg Surplus Savers, or frequently known as DSS, are a subset of
+            D2L.sg’s team who are trained to divert Surplus/Waste to its highest
+            and best use according to the food recovery hierarchy.
+          </p>
+          <div class="mt-[2rem]">
+            <a
+              href="/education"
+              class="inline-block bg-white text-green ~px-[1.25rem]/[2.5rem] ~py-[0.625rem]/[1.25rem] rounded-full font-bold border-[0.1875rem] border-green2"
+            >
+              Learn more
+            </a>
+          </div>
+        </div>
+
+        <Image src={founder} alt="Lin QingHui" width={480} height={381} />
+      </div>
+    </Inner>
   </div>
 </Layout>

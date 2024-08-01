@@ -1,5 +1,68 @@
 ---
+import Category from "@/components/Category.astro";
+import Service from "@/components/Service.astro";
 import Layout from "@/layouts/Layout.astro";
+import service1 from "@/assets/images/service/service1.png";
+import Inner from "@/components/Inner.astro";
+import { Image } from "astro:assets";
+import founder from "@/assets/images/linqinghui.png";
+
+const categoryData = [
+  {
+    title: "Focus on Growing\nYour Business!",
+
+    description:
+      "We handle ALL TYPES of your food surplus and waste, effortlessly so that you can focus growing your business!",
+  },
+  {
+    title: "Focus on Growing\nYour Business!",
+
+    description:
+      "We handle ALL TYPES of your food surplus and waste, effortlessly so that you can focus growing your business!",
+  },
+  {
+    title: "Focus on Growing\nYour Business!",
+
+    description:
+      "We handle ALL TYPES of your food surplus and waste, effortlessly so that you can focus growing your business!",
+  },
+];
+
+const serviceData = [
+  {
+    title: "Waste Management",
+    image: service1,
+    description: [
+      "Cut & Recoup Cost from Food Surplus/Waste",
+      "Cut & Recoup Cost from Food Surplus/Waste",
+      "Cut & Recoup Cost from Food Surplus/Waste",
+      "Cut & Recoup Cost from Food Surplus/Waste",
+    ],
+    link: "/products",
+  },
+  {
+    title: "Waste Management",
+    image: service1,
+    description: [
+      "Cut & Recoup Cost from Food Surplus/Waste",
+      "Cut & Recoup Cost from Food Surplus/Waste",
+      "Cut & Recoup Cost from Food Surplus/Waste",
+      "Cut & Recoup Cost from Food Surplus/Waste",
+    ],
+    link: "/products",
+  },
+  {
+    title: "Waste Management",
+    image: service1,
+    description: [
+      "Cut & Recoup Cost from Food Surplus/Waste",
+      "Cut & Recoup Cost from Food Surplus/Waste",
+      "Cut & Recoup Cost from Food Surplus/Waste",
+      "Cut & Recoup Cost from Food Surplus/Waste",
+    ],
+    link: "/products",
+  },
+];
 ---
 
 <Layout title="dss">
@@ -7,5 +70,94 @@ import Layout from "@/layouts/Layout.astro";
     <h2 class="text-[2.8125rem] font-bold text-white underline">
       D2L.sg Surplus Savers
     </h2>
+  </div>
+
+  <!-- What is DSS -->
+  <div class="bg-white ~px-[1rem]/[5rem] ~py-[3rem]/[3.75rem]">
+    <Inner>
+      <h3 class="text-green text-[2.8125rem] font-bold">
+        Join the fight against food waste while addressing food<br /> insecurity
+        in Singapore as a D2L.sg Surplus Savers (DSS):
+      </h3>
+      <p class="mt-[1rem] text-[1.25rem]">
+        Gain valuable experience fighting food waste while empowering
+        communities in Singapore with D2L.sg!
+      </p>
+      <div
+        class="flex
+        justify-between
+        items-center
+        gap-x-[2.75rem]
+        mt-[1rem]"
+      >
+        <div>
+          <h3 class="text-green text-[2.8125rem] font-bold mt-[1rem]">
+            What is DSS?
+          </h3>
+          <p class="mt-[2rem]">
+            D2L.sg Surplus Savers, commonly known as DSS, are a citizen-led
+            movement to engage & serve our neighbors in terms of food waste
+            awareness!
+          </p>
+          <p class="mt-[2rem]">
+            Since starting in 2020, our tech partner, GoodHood.sg has over 90K+
+            members & growing, & we’d love for YOU to also play a bigger role in
+            shaping the future of Singapore and bring back the Kampung Spirit in
+            Singapore!
+          </p>
+        </div>
+        <Image src={founder} alt="Lin QingHui" width={480} height={381} />
+      </div>
+    </Inner>
+  </div>
+
+  <!-- What you'll do -->
+  <Category category={categoryData} />
+
+  <!-- What you'll get -->
+  <Service service={serviceData} />
+
+  <!-- CTA What they say -->
+  <div class="bg-white ~px-[1rem]/[5rem] ~py-[3rem]/[3.75rem]">
+    <Inner>
+      <div class="flex justify-between items-center gap-x-[2.75rem]">
+        <Image src={founder} alt="Lin QingHui" width={480} height={381} />
+
+        <div>
+          <p class="text-orange font-bold text-[2.8125rem] italic">
+            What they say...
+          </p>
+
+          <div
+            class="italic bg-beige p-[2.25rem] rounded-[1.25rem] drop-shadow-md"
+          >
+            <p class="text-[1.25rem]">
+              “Being part of DSS is rewarding! Not only can I assist in the food
+              rescue programs, but also with my other skills!”
+            </p>
+            <p class="text-green font-bold text-[1.5625rem] mt-[1rem]">
+              Liza, DSS
+            </p>
+          </div>
+
+          <h3 class="text-green text-[2.8125rem] font-bold mt-[1rem]">
+            Sign Up as a DSS NOW!
+          </h3>
+          <p class="mt-[2rem]">
+            By dedicating your time and efforts to this worthy cause, you can
+            create a meaningful impact on the lives of others while actively
+            working towards a world with zero food waste.
+          </p>
+          <div class="mt-[2rem]">
+            <a
+              href="/education"
+              class="inline-block bg-white text-green ~px-[1.25rem]/[2.5rem] ~py-[0.625rem]/[1.25rem] rounded-full font-bold border-[0.1875rem] border-green2"
+            >
+              Join Us!
+            </a>
+          </div>
+        </div>
+      </div>
+    </Inner>
   </div>
 </Layout>

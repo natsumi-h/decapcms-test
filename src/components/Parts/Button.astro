@@ -1,0 +1,10 @@
+---
+const { text, href } = Astro.props;
+---
+
+<a
+  href={href}
+  class="inline-block bg-white text-green ~px-[1.25rem]/[2.5rem] ~py-[0.625rem]/[0.75rem] rounded-full font-bold border-[0.1875rem] border-green2"
+>
+  {text}
+</a>
