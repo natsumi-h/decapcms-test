@@ -1,38 +1,107 @@
 ---
+import { Image } from "astro:assets";
+import headerlogo from "../assets/images/headerlogo.png";
 ---
 
-<div class="text-white bg-orange text-[1rem] font-bold py-[1.5rem]">
-  ♥ Transform Waste, Transform Lives ♥ ︎ START YOUR FREE TRIAL TODAY ♥
-  Transform Waste, Transform Lives ♥ ︎ START YOUR FREE TRIAL TODAY
+<div class="text-white bg-orange text-[1rem] font-bold py-[1.5rem] belt">
+  <span>
+    ♥ Transform Waste, Transform Lives ♥ START YOUR FREE TRIAL TODAY ♥
+    Transform Waste, Transform Lives ♥ START YOUR FREE TRIAL TODAY ♥
+  </span>
 </div>
-<!-- Menu -->
-<nav>
-  <ul class="flex gap-x-4">
-    <li>
-      <a href="/">Home</a>
-    </li>
-    <li>
-      <a href="/about">About</a>
-    </li>
-    <li>
-      <a href="/services">Our Services</a>
-    </li>
-    <li>
-      <a href="/dss">DSS</a>
-    </li>
-    <li>
-      <a href="/blog">Blog</a>
-    </li>
-    <li>
-      <a href="/contact">Contact</a>
-    </li>
+<!-- Header -->
+<div
+  class="py-[1.25rem] px-[1rem] fixed bg-white z-50 drop-shadow-md rounded-[1.25rem] w-[97.2%] max-w-full top-[4.5rem] left-2/4 translate-x-[-50%]"
+>
+  <div
+    class="flex items-center gap-x-[3.25rem] justify-center max-w-[85.375rem]"
+  >
+    <!-- Logo -->
+    <div>
+      <Image src={headerlogo} alt="D2L Singapore" width="78" height="110" />
+    </div>
 
-    <li>
-      <a href="/education">Education</a>
-    </li>
+    <div>
+      <!-- Buttons -->
+      <div class="text-right">
+        <nav
+          class="bg-beige inline-block rounded-full py-[0.1875rem] px-[0.25rem] drop-shadow-md"
+        >
+          <ul class="flex itens-center gap-x-[0.5rem] bold text-[0.75rem]">
+            <li>
+              <a
+                href="/"
+                class="inline-block text-white bg-orange px-[1rem] py-[0.5rem] rounded-full font-bold border-[0.1875rem] border-orange"
+              >
+                For Businesses
+              </a>
+            </li>
+            <li>
+              <a
+                href="/"
+                class="inline-block text-text hover:text-white hover:bg-orange px-[1rem] py-[0.5rem] rounded-full font-bold border-[0.1875rem] border-beige hover:border-orange"
+              >
+                Join Community
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
 
-    <li>
-      <a href="/terms">terms</a>
-    </li>
-  </ul>
-</nav>
+      <!-- Menu -->
+      <nav class="mt-[0.5625rem]">
+        <ul class="flex gap-x-[1.375rem] items-center justify-between">
+          <li>
+            <a
+              href="/"
+              class="inline-block text-white bg-green ~px-[1.25rem]/[2.5rem] ~py-[0.625rem]/[0.75rem] rounded-full font-bold border-[0.1875rem] border-green"
+            >
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="/about">About Us</a>
+          </li>
+          <li>
+            <a href="/services">Our Services</a>
+          </li>
+          <li>
+            <a href="/dss">DSS</a>
+          </li>
+          <li>
+            <a href="/dss">Food Waste 101</a>
+          </li>
+          <li>
+            <a href="/blog">Blog & Media</a>
+          </li>
+          <li>
+            <a href="/contact">Contact Us</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <style is:global>
+    .belt {
+      overflow: hidden;
+      position: relative;
+      white-space: nowrap;
+    }
+
+    .belt span {
+      display: inline-block;
+      padding-left: 100%;
+      animation: belt 30s linear infinite;
+    }
+
+    @keyframes belt {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(-100%);
+      }
+    }
+  </style>
+</div>
