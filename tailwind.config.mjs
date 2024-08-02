@@ -50,7 +50,8 @@ export default {
     fontFamily: {
       sans: ["Graphik", "sans-serif"],
       serif: ["Merriweather", "serif"],
-      arimo: ["Arimo", "sans-serif"],
+      // arimo: ["Arimo", "sans-serif"],
+      arimo:["Arimo Variable", "sans-serif"]
     },
   },
   plugins: [fluid],

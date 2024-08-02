@@ -1,4 +1,8 @@
 ---
+// Supports weights 400-700
+import "@fontsource-variable/arimo/wght-italic.css";
+// Supports weights 400-700
+import "@fontsource-variable/arimo";
 import Footer from "@/components/Footer.astro";
 import Basehead from "./Basehead.astro";
 import Header from "@/components/Header.astro";
@@ -33,6 +37,12 @@ const { title } = Astro.props;
     <Footer />
   </body>
 </html>
+
+<!-- <style>
+  body {
+    font-family: "Arimo Variable", sans-serif;
+  }
+</style> -->
 <!-- <style is:global>
   :root {
     --accent: 136, 58, 234;
