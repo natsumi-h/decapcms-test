@@ -1,6 +1,9 @@
 ---
 import { Image } from "astro:assets";
 import headerlogo from "../assets/images/headerlogo.png";
+
+const pathname = Astro.url.pathname;
+console.log(pathname);
 ---
 
 <div class="text-white bg-orange text-[1rem] font-bold py-[1.5rem] belt">
@@ -18,7 +21,9 @@ import headerlogo from "../assets/images/headerlogo.png";
   >
     <!-- Logo -->
     <div class="shrink-0">
-      <Image src={headerlogo} alt="D2L Singapore" width="78" height="110" />
+      <a href="/">
+        <Image src={headerlogo} alt="D2L Singapore" width="78" height="110" />
+      </a>
     </div>
     <div class="shrink w-[90.48%]">
       <!-- Top Buttons -->
@@ -38,7 +43,7 @@ import headerlogo from "../assets/images/headerlogo.png";
             <li>
               <a
                 href="/"
-                class="inline-block text-text hover:text-white hover:bg-orange px-[1rem] py-[0.5rem] rounded-full font-bold border-[0.1875rem] border-beige hover:border-orange"
+                class="inline-block text-text hover:text-white hover:bg-orange px-[1rem] py-[0.5rem] rounded-full font-bold border-[0.1875rem] border-beige hover:border-orange hover:transition-all duration-300"
               >
                 Join Community
               </a>
@@ -51,35 +56,35 @@ import headerlogo from "../assets/images/headerlogo.png";
       <nav class="mt-[0.5625rem] text-center">
         <ul class="flex items-center justify-between">
           <li
-            class="shrink w-[9.5625rem] hover:text-white hover:border-green3 hover:bg-green3 text-text bg-white rounded-full border-[0.1875rem] border-white hover:transition-all duration-300"
+            class={`shrink w-[9.5625rem] hover:text-white hover:border-green3 hover:bg-green3 text-text rounded-full border-[0.1875rem] border-white hover:transition-all duration-300 ${pathname == "/" && "text-white bg-green border-green"}`}
           >
             <a href="/" class="~py-[0.625rem]/[0.75rem] block">Home</a>
           </li>
           <li
-            class="shrink w-[9.5625rem] hover:text-white hover:border-green3 hover:bg-green3 text-text bg-white rounded-full border-[0.1875rem] border-white hover:transition-all duration-300"
+            class={`shrink w-[9.5625rem] hover:text-white hover:border-green3 hover:bg-green3 text-text rounded-full border-[0.1875rem] border-white hover:transition-all duration-300 ${pathname == "/about" && "text-white bg-green border-green"}`}
           >
             <a href="/about" class="~py-[0.625rem]/[0.75rem] block">About Us</a>
           </li>
           <li
-            class="shrink w-[9.5625rem] hover:text-white hover:border-green3 hover:bg-green3 text-text bg-white rounded-full border-[0.1875rem] border-white hover:transition-all duration-300"
+            class={`shrink w-[9.5625rem] hover:text-white hover:border-green3 hover:bg-green3 text-text rounded-full border-[0.1875rem] border-white hover:transition-all duration-300 ${pathname == "/services" && "text-white bg-green border-green"}`}
           >
             <a href="/services" class="~py-[0.625rem]/[0.75rem] block"
               >Our Services</a
             >
           </li>
           <li
-            class="shrink w-[9.5625rem] hover:text-white hover:border-green3 hover:bg-green3 text-text bg-white rounded-full border-[0.1875rem] border-white hover:transition-all duration-300"
+            class={`shrink w-[9.5625rem] hover:text-white hover:border-green3 hover:bg-green3 text-text rounded-full border-[0.1875rem] border-white hover:transition-all duration-300 ${pathname == "/dss" && "text-white bg-green border-green"}`}
           >
             <a href="/dss" class="~py-[0.625rem]/[0.75rem] block">DSS</a>
           </li>
           <li
-            class="shrink w-[9.5625rem] hover:text-white hover:border-green3 hover:bg-green3 text-text bg-white rounded-full border-[0.1875rem] border-white hover:transition-all duration-300"
+            class={`shrink w-[9.5625rem] hover:text-white hover:border-green3 hover:bg-green3 text-text rounded-full border-[0.1875rem] border-white hover:transition-all duration-300 ${pathname == "/education" && "text-white bg-green border-green"}`}
           >
             <a href="/" class="~py-[0.625rem]/[0.75rem] block">Food Waste 101</a
             >
           </li>
           <li
-            class="shrink w-[9.5625rem] hover:text-white hover:border-green3 hover:bg-green3 text-text bg-white rounded-full border-[0.1875rem] border-white hover:transition-all duration-300"
+            class={`shrink w-[9.5625rem] hover:text-white hover:border-green3 hover:bg-green3 text-text rounded-full border-[0.1875rem] border-white hover:transition-all duration-300 ${pathname == "/blog" && "text-white bg-green border-green"}`}
           >
             <a href="/blog" class="~py-[0.625rem]/[0.75rem] block"
               >Blog & Media</a
@@ -87,7 +92,7 @@ import headerlogo from "../assets/images/headerlogo.png";
           </li>
 
           <li
-            class="shrink w-[9.5625rem] hover:text-white hover:border-green3 hover:bg-green3 text-text bg-white rounded-full border-[0.1875rem] border-white hover:transition-all duration-300"
+            class={`shrink w-[9.5625rem] hover:text-white hover:border-green3 hover:bg-green3 text-text rounded-full border-[0.1875rem] border-white hover:transition-all duration-300 ${pathname == "/contact" && "text-white bg-green border-green"}`}
           >
             <a href="/contact" class="~py-[0.625rem]/[0.75rem] block"
               >Contact Us</a
