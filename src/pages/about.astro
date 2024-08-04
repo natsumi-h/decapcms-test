@@ -5,6 +5,14 @@ import service1 from "@/assets/images/service/service1.png";
 import Inner from "@/components/Inner.astro";
 import founder from "@/assets/images/linqinghui.png";
 import { Image } from "astro:assets";
+import cta from "@/assets/images/about/cta.png";
+import zerowaste from "@/assets/images/about/zerowaste.png";
+import whoweare from "@/assets/images/about/whoweare.png";
+import Button from "@/components/Parts/Button.astro";
+import ourjourney from "@/assets/images/about/ourjourney.png";
+import others from "@/assets/images/about/publishers/others.png";
+import image from "@/assets/images/about/publishers/image.png";
+import logo from "@/assets/images/about/publishers/logo.png";
 
 const serviceData = [
   {
@@ -41,10 +49,49 @@ const serviceData = [
     link: "/products",
   },
 ];
+
+const publicationData = [
+  {
+    title: "DBS and NEA work together with young adults to combat",
+    image: image,
+    logo: logo,
+    publisher: "The Business Times",
+  },
+  {
+    title: "DBS and NEA work together with young adults to combat",
+    image: image,
+    logo: logo,
+    publisher: "The Business Times",
+  },
+  {
+    title: "DBS and NEA work together with young adults to combat",
+    image: image,
+    logo: logo,
+    publisher: "The Business Times",
+  },
+  {
+    title: "DBS and NEA work together with young adults to combat",
+    image: image,
+    logo: logo,
+    publisher: "The Business Times",
+  },
+  {
+    title: "DBS and NEA work together with young adults to combat",
+    image: image,
+    logo: logo,
+    publisher: "The Business Times",
+  },
+  {
+    title: "DBS and NEA work together with young adults to combat",
+    image: image,
+    logo: logo,
+    publisher: "The Business Times",
+  },
+];
 ---
 
 <Layout title="About">
-  <div class="bg-beige pt-[13.125rem] text-center pb-[4.625rem]">
+  <div class="bg-beige pt-[13.125rem] text-center pb-[4.625rem] bg">
     <h2 class="text-[2.8125rem] font-bold text-white underline">About Us</h2>
   </div>
 
@@ -52,7 +99,7 @@ const serviceData = [
   <div class="bg-white ~px-[1rem]/[5rem] ~py-[3rem]/[3.75rem]">
     <Inner>
       <div class="flex justify-between items-center gap-x-[2.75rem]">
-        <Image src={founder} alt="Lin QingHui" width={480} height={381} />
+        <Image src={whoweare} alt="Lin QingHui" width={460} height={381} />
 
         <div>
           <h3 class="text-green text-[2.8125rem] font-bold">Who we are</h3>
@@ -65,10 +112,12 @@ const serviceData = [
             transparency, creativity, credibility guide everything we do to make
             a real impact towards zero waste.
           </p>
-          <p class="mt-[2rem] text-orange font-bold text-[1.75rem]">
+          <p class="mt-[2rem] text-orange font-bold text-[1.75rem] italic">
             "We just can't bear to see good food go to waste!"
           </p>
-          <p class="text-orange font-bold text-[1.75rem]">- D2L.SG, 2023</p>
+          <p class="text-orange font-bold text-[1.75rem] italic">
+            - D2L.SG, 2023
+          </p>
         </div>
       </div>
     </Inner>
@@ -77,7 +126,7 @@ const serviceData = [
   <!-- CTA -->
   <div class="bg-beige ~px-[1rem]/[5rem] ~py-[3rem]/[3.75rem]">
     <Inner>
-      <div class="flex justify-between items-center">
+      <div class="flex justify-between items-center gap-x-[2.5rem]">
         <div>
           <h3 class="text-green text-[2.8125rem] font-bold">
             We Envision A<br /> Zero-Waste Singapore
@@ -89,13 +138,25 @@ const serviceData = [
           </p>
         </div>
 
-        <Image src={founder} alt="Lin QingHui" width={431} height={271} />
+        <Image src={zerowaste} alt="Lin QingHui" width={517} height={290} />
       </div>
     </Inner>
   </div>
 
   <!-- Our Journey -->
-  <div>Our journey</div>
+  <div class="~py-[3rem]/[3.75rem]">
+    <div class="~px-[1rem]/[5rem]">
+      <Inner>
+        <h2 class="text-[2.8125rem] leading-normal font-bold text-green">
+          Our Journey
+        </h2>
+        <p>FROM PASSION TO IMPACT</p>
+      </Inner>
+    </div>
+    <div class="mt-[2.125rem]">
+      <Image src={ourjourney} alt="Our Journey" />
+    </div>
+  </div>
 
   <!-- How to get involved(Services) -->
   <Service service={serviceData} />
@@ -140,19 +201,84 @@ const serviceData = [
             Learn more about food waste!
           </h3>
           <div class="mt-[2rem]">
-            <a
-              href="/education"
-              class="inline-block bg-white text-green ~px-[1.25rem]/[2.5rem] ~py-[0.625rem]/[1.25rem] rounded-full font-bold border-[0.1875rem] border-green2"
-            >
-              Learn more
-            </a>
+            <Button text="Learn more" href="/education" />
           </div>
         </div>
 
-        <Image src={founder} alt="Lin QingHui" width={431} height={271} />
+        <Image src={cta} alt="Lin QingHui" width={431} height={271} />
       </div>
     </Inner>
   </div>
 
   <!-- Media -->
+  <div class="~px-[1rem]/[5rem] ~py-[3rem]/[3.75rem]">
+    <Inner>
+      <h2 class="text-[2.8125rem] leading-normal font-bold text-green">
+        Trusted by the Best:
+      </h2>
+      <p class="text-[1.875rem] font-bold text-green">
+        D2L.sg Featured in Leading Publications and Platforms
+      </p>
+      <!-- Cards -->
+      <!-- gap-x-[2.625rem] -->
+      <div
+        class="flex mt-[3.625rem] gap-y-[1.9375rem] flex-wrap justify-between"
+      >
+        <!-- Card -->
+        {
+          publicationData.map((item: any) => (
+            <div class="rounded-[1.25rem] overflow-hidden drop-shadow-lg cardwidth">
+              <a href="/" target="_blank">
+                <div>
+                  {/* Image */}
+                  <div class="">
+                    <Image src={item.image} alt="image" class="w-full" />
+                  </div>
+                </div>
+                <div class="bg-beige py-[0.625rem] px-[1.125rem]">
+                  <p class="font-bold text-[1.25rem] leading-none ">
+                    {item.title}
+                  </p>
+                  <div class="flex items-center gap-x-[0.5rem] mt-[1rem]">
+                    <Image
+                      src={item.logo}
+                      alt={item.publisher}
+                      width={39}
+                    />
+                    <p class="italic">{item.publisher}</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          ))
+        }
+      </div>
+
+      <div>
+        <Image
+          src={others}
+          alt="others"
+          width={788}
+          height={150}
+          class="mx-auto mt-[2.9375rem]"
+        />
+      </div>
+      <p class="text-center mt-[1rem] font-bold text-green text-[1.875rem]">
+        and many more...
+      </p>
+    </Inner>
+  </div>
 </Layout>
+
+<style>
+  .bg {
+    background-image: url("/about/mvbg.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+  }
+
+  .cardwidth {
+    width: calc(33% - 2.625rem / 2);
+  }
+</style>
