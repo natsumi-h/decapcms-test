@@ -6,9 +6,9 @@ import service1 from "@/assets/images/service/service1.png";
 const { service } = Astro.props;
 ---
 
-<div class="text-white bg-beige ~px-[1rem]/[5rem] ~py-[3rem]/[3.75rem]">
+<div class="text-white bg ~px-[1rem]/[5rem] ~py-[3rem]/[3.75rem]">
   <Inner>
-    <h2 class="text-[2.8125rem] leading-normal font-bold text-green">
+    <h2 class="text-[2.8125rem] leading-normal font-bold text-white text-center">
       How to get involved?
     </h2>
     <!-- Cards -->
@@ -50,3 +50,12 @@ const { service } = Astro.props;
     </div>
   </Inner>
 </div>
+
+<style>
+  .bg {
+    background-image: url("/home/bg2.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+</style>

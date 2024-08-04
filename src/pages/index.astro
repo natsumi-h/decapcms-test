@@ -6,8 +6,7 @@ import Impact from "@/components/Impact.astro";
 import Service from "@/components/Service.astro";
 import Category from "@/components/Category.astro";
 import Getintouch from "@/components/Getintouch.astro";
-import { Image } from "astro:assets";
-import mv from "@/assets/images/mv.png";
+import Partner from "@/components/Home/Partner.astro";
 
 const impactData = [
   {
@@ -94,10 +93,10 @@ const categoryData = [
   <!--  defaultScreens: ["20rem", theme("screens.lg")],の間（320px-1024px）で、1rem(16px)〜2rem（32px）まで動く -->
   <!-- <div class="~text-[1rem]/[2rem]">Home</div> -->
 
-  <div class="bg-beige pt-[13.0rem] pb-[4.3125rem]">
+  <div class="pt-[13.0rem] pb-[4.3125rem] bg">
     <!-- MV -->
     <div
-      class="flex max-w-[73rem] py-[3.125rem] px-[4.375rem] justify-between mx-auto align-middle bg-white rounded-[1.25rem]"
+      class="max-w-[73rem] py-[3.125rem] px-[4.375rem] mx-auto bg-white rounded-[1.25rem] bg2"
     >
       <!-- Text -->
       <div>
@@ -113,10 +112,6 @@ const categoryData = [
             >Get Started</a
           >
         </div>
-      </div>
-      <!-- Image -->
-      <div>
-        <Image src={mv} alt="D2L" width={336} height={326} />
       </div>
     </div>
   </div>
@@ -134,5 +129,21 @@ const categoryData = [
   <Getintouch />
 
   <!-- Partner -->
-  <div>Partner</div>
+  <Partner />
+
+  <style>
+    .bg {
+      background-image: url("/home/mvbg.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    .bg2 {
+      background-image: url("/home/bg1.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  </style>
 </Layout>

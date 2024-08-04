@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import Inner from "./Inner.astro";
+import Button from "./Parts/Button.astro";
 
 const { impact } = Astro.props;
 ---
@@ -8,7 +9,9 @@ const { impact } = Astro.props;
 <div class="text-white bg-green ~px-[1rem]/[5rem] ~py-[3rem]/[3.75rem]">
   <Inner>
     <h2 class="text-[2.8125rem] leading-normal font-bold">Our Impact</h2>
-    <div class="flex justify-between align-middle text-center mt-[1.25rem]">
+    <div
+      class="flex justify-between align-middle text-center mt-[1.25rem] gap-x-[1rem]"
+    >
       {
         impact.map((item: any) => (
           <div>
@@ -29,12 +32,7 @@ const { impact } = Astro.props;
     </div>
 
     <div class="flex justify-center mt-[2.3125rem]">
-      <a
-        href="/education"
-        class="bg-white text-green ~px-[1.25rem]/[2.5rem] ~py-[0.625rem]/[1.25rem] rounded-full font-bold border-[0.1875rem] border-green2"
-      >
-        Learn more
-      </a>
+      <Button text="Learn more" href="/education" />
     </div>
   </Inner>
 </div>

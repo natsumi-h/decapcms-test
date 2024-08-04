@@ -2,9 +2,10 @@
 import { Image } from "astro:assets";
 import Inner from "./Inner.astro";
 import service1 from "@/assets/images/service/service1.png";
+import Button from "./Parts/Button.astro";
 ---
 
-<div class="bg-white ~px-[1rem]/[5rem] ~py-[3rem]/[3.75rem]">
+<div class="bg-beige ~px-[1rem]/[5rem] ~py-[3rem]/[3.75rem]">
   <Inner>
     <div
       class="flex items-center gap-x-[7.125rem] max-w-[73rem] mx-auto justify-center"
@@ -23,12 +24,7 @@ import service1 from "@/assets/images/service/service1.png";
           <br />Join us in building a zero-waste Singapore.
         </p>
         <div class="mt-[2rem]">
-          <a
-            href="/education"
-            class="inline-block bg-white text-green ~px-[1.25rem]/[2.5rem] ~py-[0.625rem]/[1.25rem] rounded-full font-bold border-[0.1875rem] border-green2"
-          >
-            Contact Us
-          </a>
+          <Button text="Contact Us" href="/contact" />
         </div>
       </div>
     </div>
