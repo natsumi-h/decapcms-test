@@ -3,9 +3,11 @@ import Category from "@/components/Category.astro";
 import Impact from "@/components/Impact.astro";
 import Layout from "@/layouts/Layout.astro";
 import impact1 from "@/assets/images/impact/impact1.png";
-import founder from "@/assets/images/linqinghui.png";
+import cta from "@/assets/images/services/cta.png";
 import Inner from "@/components/Inner.astro";
 import { Image } from "astro:assets";
+import Button from "@/components/Parts/Button.astro";
+import icon1 from "@/assets/images/services/ourservices/icon1.png";
 
 const categoryData = [
   {
@@ -52,8 +54,8 @@ const impactData = [
 ];
 ---
 
-<Layout title="services">
-  <div class="bg-beige pt-[13.125rem] text-center pb-[4.625rem]">
+<Layout title="Our Services">
+  <div class="bg-beige pt-[13.125rem] text-center pb-[4.625rem] bg">
     <h2 class="text-[2.8125rem] font-bold text-white underline">
       Our Services
     </h2>
@@ -63,7 +65,47 @@ const impactData = [
   <Category category={categoryData} />
 
   <!-- Services -->
-  <div>Our Services</div>
+  <div class="bg-beige ~px-[1rem]/[5rem] ~py-[3rem]/[3.75rem]">
+    <Inner>
+      <h2 class="text-[2.8125rem] leading-normal font-bold text-green">
+        Our Services
+      </h2>
+      <!-- Cards Wrapper -->
+      <div class="mt-[1.4375rem]">
+        <!-- Card -->
+        <div>
+          <!-- tag -->
+          <div
+            class="bg-orange p-[1.25rem] text-white font-bold inline-block text-[1.875rem]"
+          >
+            <div class="flex items-center gap-x-[1.2rem]">
+              <Image src={icon1} alt="icon1" width={44.76} />
+              <p>Waste Management</p>
+            </div>
+          </div>
+
+          <!-- div -->
+          <div class="py-[2.5rem] px-[4rem] bg-white drop-shadow-md">
+            <p>What is Waste Management?</p>
+            <p>
+              A waste management system is a streamlined process that
+              organizations use to dispose of, reduce, reuse, and prevent waste.
+            </p>
+            <p>Our ALL-in-1 Smart Management Approach</p>
+            <!-- Cards -->
+            <div>cards</div>
+          </div>
+        </div>
+      </div>
+      <div class="mt-[3.25rem] mx-auto text-center">
+        <a
+          href="/"
+          class="drop-shadow-md py-[0.75rem] px-[1.406rem] bg-orange text-white text-[1.5625rem] leading-normal font-bold rounded-[1.25rem] inline-block w-[33.5625rem] max-w-full"
+          >Get A Quote</a
+        >
+      </div>
+    </Inner>
+  </div>
 
   <!-- Our Impact -->
   <Impact impact={impactData} />
@@ -71,31 +113,33 @@ const impactData = [
   <!-- CTA -->
   <div class="bg-white ~px-[1rem]/[5rem] ~py-[3rem]/[3.75rem]">
     <Inner>
-      <div class="flex justify-between items-center gap-x-[2.75rem]">
+      <h3 class="text-green text-[2.8125rem] font-bold leading-none">
+        Wondering How Much Impact<br />Can One Person Make?
+      </h3>
+      <div class="flex justify-between items-center gap-x-[6rem]">
         <div>
-          <h3 class="text-green text-[2.8125rem] font-bold leading-none">
-            Wondering How Much Impact<br />Can One Person Make?
-          </h3>
-          <p class="mt-[2rem] text-orange font-bold text-[3.4375rem]">
-            Join as a DSS!
-          </p>
+          <p class="text-orange font-bold text-[3.4375rem]">Join as a DSS!</p>
           <p class="mt-[2rem]">
             D2L.sg Surplus Savers, or frequently known as DSS, are a subset of
             D2L.sg’s team who are trained to divert Surplus/Waste to its highest
             and best use according to the food recovery hierarchy.
           </p>
           <div class="mt-[2rem]">
-            <a
-              href="/education"
-              class="inline-block bg-white text-green ~px-[1.25rem]/[2.5rem] ~py-[0.625rem]/[1.25rem] rounded-full font-bold border-[0.1875rem] border-green2"
-            >
-              Learn more
-            </a>
+            <Button text="Learn more" href="/" />
           </div>
         </div>
 
-        <Image src={founder} alt="Lin QingHui" width={480} height={381} />
+        <Image src={cta} alt="Lin QingHui" width={480} height={381} />
       </div>
     </Inner>
   </div>
 </Layout>
+
+<style>
+  .bg {
+    background-image: url("/services/mvbg.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+  }
+</style>
