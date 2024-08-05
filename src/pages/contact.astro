@@ -119,7 +119,7 @@ const faqs = [
                 id={`faq${index + 2}`}
               >
                 {/* <!-- Question --> */}
-                <div class="question py-[1.5625rem] px-[2.1875rem] bg-green text-white font-bold text-[1.875rem] rounded-[1.25rem] flex justify-between items-center">
+                <div class="transition-all duration-300 question py-[1.5625rem] px-[2.1875rem] bg-green text-white font-bold text-[1.875rem] rounded-[1.25rem] flex justify-between items-center">
                   <p>{faq.question}</p>
                   <button class="toggle-button">
                     <Image
@@ -185,6 +185,8 @@ const faqs = [
       </div>
     </Inner>
   </div>
+
+  <!-- <button id="togglebutton"> button </button> -->
 </Layout>
 <style>
   .bg {
@@ -195,47 +197,13 @@ const faqs = [
   }
 </style>
 <script is:inline>
-  document.addEventListener("DOMContentLoaded", () => {
-    const faqItems = document.querySelectorAll(".question");
-
-    faqItems.forEach((item) => {
-      item.addEventListener("click", () => {
-        const parent = item.parentElement;
-        const answer = parent.querySelector(".answer");
-        const toggleButton = item.querySelector(".toggle-button");
-        const hamburgerIcon = toggleButton.querySelector(".hamburger");
-        const arrowIcon = toggleButton.querySelector(".arrow");
-
-        // スライドアップ/ダウンのトグル
-        if (answer.classList.contains("hidden")) {
-          answer.classList.remove("hidden");
-          item.classList.add("bg-orange");
-          item.classList.remove("bg-green");
-          hamburgerIcon.classList.add("hidden");
-          arrowIcon.classList.remove("hidden");
-
-          const height = answer.scrollHeight; // コンテンツの高さを取得
-          answer.style.height = 0;
-          setTimeout(() => {
-            answer.style.transition = "height 0.5s ease-in-out";
-            answer.style.height = `${height}px`;
-          }, 10);
-        } else {
-          console.log("close");
-          item.classList.add("bg-green");
-          item.classList.remove("bg-orange");
-          hamburgerIcon.classList.remove("hidden");
-          arrowIcon.classList.add("hidden");
-          answer.classList.add("hidden");
-
-          // answer.style.maxHeight = "0px";
-          // setTimeout(() => {
-          //   answer.classList.add("hidden");
-          //   answer.style.display = "none";
-          //   answer.style.transition = ""; // transition プロパティをリセット
-          // }, 500); // アニメーションの時間と一致させる
-        }
-      });
+  $(document).ready(function () {
+    $(".toggle-button").click(function () {
+      var answer = $(this).closest("li").find(".answer");
+      answer.slideToggle();
+      $(this).find(".hamburger").toggleClass("hidden");
+      $(this).find(".arrow").toggleClass("hidden");
+      $(this).closest("li").find(".question").toggleClass("bg-green bg-orange");
     });
   });
 </script>
