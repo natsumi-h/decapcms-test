@@ -1,7 +1,213 @@
 ---
+import Inner from "@/components/Inner.astro";
 import Layout from "@/layouts/Layout.astro";
+import { Image } from "astro:assets";
+import surplusfood from "@/assets/images/education/surplusfood.png";
+import joinus from "@/assets/images/education/joinus.png";
+import impact1 from "@/assets/images/impact/impact1.png";
+import Impact from "@/components/Impact.astro";
+
+const impactData = [
+  {
+    title: "D2L.sg Surplus Savers (DSS) trained",
+    number: "400+",
+    image: impact1,
+  },
+  {
+    title: "D2L.sg Surplus Savers (DSS) trained",
+    number: "400+",
+    image: impact1,
+  },
+  {
+    title: "D2L.sg Surplus Savers (DSS) trained",
+    number: "400+",
+    image: impact1,
+  },
+  {
+    title: "D2L.sg Surplus Savers (DSS) trained",
+    number: "400+",
+    image: impact1,
+  },
+];
+
+const joiunusData = [
+  {
+    title: "As a Business",
+    image: joinus,
+    href: "/services",
+  },
+  {
+    title: "As a Business",
+    image: joinus,
+    href: "/dss",
+  },
+];
 ---
 
 <Layout title="Food Waste 101">
-  <div>Food Waste 101</div>
+  <div class="bg-beige pt-[13.125rem] text-center pb-[4.625rem] bg">
+    <h2 class="text-[2.8125rem] font-bold text-white underline">
+      Food Surplus & Waste 101
+    </h2>
+  </div>
+
+  <!-- What is Food Waste? -->
+  <div class="bg-white ~px-[1rem]/[5rem] ~py-[3rem]/[3.75rem]">
+    <Inner>
+      <div>
+        <h3 class="text-green text-[2.8125rem] font-bold">
+          Actually, what is Food Waste?
+        </h3>
+        <p class="mt-[1rem] text-[1.25rem]">
+          Food Waste = Food that could have been consumed or channelled to
+          alternative use if better managed, but are consciously discarded (i.e.
+          scraps, blemished, surplus & unsellable food, or food past best before
+          date & expired food, etc).
+        </p>
+      </div>
+
+      <div class="mt-[1rem]">
+        <h3 class="text-green text-[2.8125rem] font-bold">
+          Why Focus on Surplus Food?
+        </h3>
+
+        <div
+          class="flex
+        justify-between
+        items-center
+        gap-x-[2.75rem]
+        mt-[1rem]"
+        >
+          <div>
+            <Image
+              src={surplusfood}
+              alt="Lin QingHui"
+              width={458}
+              height={427}
+            />
+            <p class="mt-[3.4375rem] text-[1.25rem]">
+              Source: <a class="underline" href="/" target="_blank"
+                >NEA News - Waste Generation And Recycling Rates Increased In
+                2022 As Economic Activity Picked Up</a
+              >
+            </p>
+          </div>
+
+          <div>
+            <div>
+              <p class="text-[1.875rem] text-green font-bold">
+                Environmental Impact
+              </p>
+              <p class="text-[1.25rem]">
+                With food waste being a direct contributor to GHGs, targeting
+                food waste is the most impactful solution for climate change to
+                prevent 2˚C temperature rise by 2100 (Project Drawdown).
+              </p>
+            </div>
+            <div class="mt-[2.4375rem]">
+              <p class="text-[1.875rem] text-green font-bold">
+                Community Impact
+              </p>
+              <p class="text-[1.25rem]">
+                The cost of living in Singapore is set to continue to rise,
+                along with it comes an increased stress on food security.
+              </p>
+              <p class="mt-[2rem] text-[1.25rem]">
+                Diverting even a portion of the food surplus to communities
+                instead of disposing it, will have an impact.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Inner>
+  </div>
+
+  <!-- Impact -->
+  <Impact impact={impactData} />
+
+  <!-- Hierarchy -->
+  <div class="bg-white ~px-[1rem]/[5rem] ~py-[3rem]/[3.75rem]">
+    <Inner>
+      <div>
+        <h3 class="text-green text-[2.8125rem] font-bold leading-none">
+          Do you know that there is an official framework to manage food waste?
+        </h3>
+        <p class="mt-[1rem] text-[1.25rem]">
+          <span class="font-bold">Food recovery hierarchy</span> is a guide to minimize
+          food waste by prioritizing categories. <span class="font-bold"
+            >All Waste Generating Entities</span
+          > are encouraged to adopt recommended practices to prevent food waste and
+          redirect food surplus/waste
+        </p>
+      </div>
+    </Inner>
+  </div>
+
+  <!-- Moving Towards -->
+  <div class="bg-beige ~px-[1rem]/[5rem] ~py-[3rem]/[3.75rem]">
+    <Inner>
+      <div>
+        <h3 class="text-green text-[2.8125rem] font-bold leading-none">
+          Moving Towards...
+        </h3>
+
+      </div>
+    </Inner>
+  </div>
+
+  <!-- Join Us -->
+  <div class="~px-[1rem]/[5rem] ~py-[3rem]/[3.75rem]">
+    <Inner>
+      <h3 class="text-[2.8125rem] font-bold text-green leading-none">
+        Want to contribute towards this goal?<br /> Join us!
+      </h3>
+
+      <!-- Cards -->
+      <div
+        class="flex mt-[3.625rem] flex-wrap justify-between gap-x-[2.0625rem]"
+      >
+        <!-- Card -->
+        {
+          joiunusData.map((item: any) => (
+            <div class="rounded-[1.25rem] overflow-hidden drop-shadow-lg cardwidth cardwidth">
+              <a href={item.href}>
+                <div>
+                  {/* Image */}
+                  <div class="">
+                    <Image
+                      src={item.image}
+                      alt="image"
+                      class="w-full"
+                      width={627}
+                      height={372}
+                      class="bg-cover bg-top"
+                    />
+                  </div>
+                </div>
+                <div class="bg-green py-[1.375rem] px-[1.75rem]">
+                  <p class="font-bold text-[1.875rem] leading-none text-white">
+                    {item.title}
+                  </p>
+                </div>
+              </a>
+            </div>
+          ))
+        }
+      </div>
+    </Inner>
+  </div>
 </Layout>
+<style>
+  .bg {
+    /* TODO: */
+    background-image: url("/contact/mvbg.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+  }
+
+  .cardwidth {
+    width: calc(50% - 2.0625rem / 2);
+  }
+</style>
