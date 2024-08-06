@@ -4,6 +4,37 @@ import headerlogo from "../assets/images/headerlogo.png";
 
 const pathname = Astro.url.pathname;
 console.log(pathname);
+
+const menu = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "About Us",
+    link: "/about",
+  },
+  {
+    name: "Our Services",
+    link: "/services",
+  },
+  {
+    name: "DSS",
+    link: "/dss",
+  },
+  {
+    name: "Food Waste 101",
+    link: "/education",
+  },
+  {
+    name: "Blog & Media",
+    link: "/blog",
+  },
+  {
+    name: "Contact Us",
+    link: "/contact",
+  },
+];
 ---
 
 <div class="text-white bg-orange text-[1rem] font-bold py-[1.5rem] belt">
@@ -56,50 +87,23 @@ console.log(pathname);
       <!-- Menu -->
       <nav class="mt-[0.5625rem] text-center">
         <ul class="flex items-center justify-between">
-          <li
-            class={`shrink w-[9.5625rem] hover:text-white hover:border-green3 hover:bg-green3 text-text rounded-full border-[0.1875rem] border-white hover:transition-all duration-300 ${pathname == "/" && "text-white bg-green border-green"}`}
-          >
-            <a href="/" class="~py-[0.625rem]/[0.75rem] block">Home</a>
-          </li>
-          <li
-            class={`shrink w-[9.5625rem] hover:text-white hover:border-green3 hover:bg-green3 text-text rounded-full border-[0.1875rem] border-white hover:transition-all duration-300 ${pathname == "/about" && "text-white bg-green border-green"}`}
-          >
-            <a href="/about" class="~py-[0.625rem]/[0.75rem] block">About Us</a>
-          </li>
-          <li
-            class={`shrink w-[9.5625rem] hover:text-white hover:border-green3 hover:bg-green3 text-text rounded-full border-[0.1875rem] border-white hover:transition-all duration-300 ${pathname == "/services" && "text-white bg-green border-green"}`}
-          >
-            <a href="/services" class="~py-[0.625rem]/[0.75rem] block"
-              >Our Services</a
-            >
-          </li>
-          <li
-            class={`shrink w-[9.5625rem] hover:text-white hover:border-green3 hover:bg-green3 text-text rounded-full border-[0.1875rem] border-white hover:transition-all duration-300 ${pathname == "/dss" && "text-white bg-green border-green"}`}
-          >
-            <a href="/dss" class="~py-[0.625rem]/[0.75rem] block">DSS</a>
-          </li>
-          <li
-            class={`shrink w-[9.5625rem] hover:text-white hover:border-green3 hover:bg-green3 text-text rounded-full border-[0.1875rem] border-white hover:transition-all duration-300 ${pathname == "/education" && "text-white bg-green border-green"}`}
-          >
-            <a href="/education" class="~py-[0.625rem]/[0.75rem] block"
-              >Food Waste 101</a
-            >
-          </li>
-          <li
-            class={`shrink w-[9.5625rem] hover:text-white hover:border-green3 hover:bg-green3 text-text rounded-full border-[0.1875rem] border-white hover:transition-all duration-300 ${pathname == "/blog" && "text-white bg-green border-green"}`}
-          >
-            <a href="/blog" class="~py-[0.625rem]/[0.75rem] block"
-              >Blog & Media</a
-            >
-          </li>
-
-          <li
-            class={`shrink w-[9.5625rem] hover:text-white hover:border-green3 hover:bg-green3 text-text rounded-full border-[0.1875rem] border-white hover:transition-all duration-300 ${pathname == "/contact" && "text-white bg-green border-green"}`}
-          >
-            <a href="/contact" class="~py-[0.625rem]/[0.75rem] block"
-              >Contact Us</a
-            >
-          </li>
+          {
+            menu.map((item) => (
+              <li
+                class={`shrink w-[9.5625rem]  text-text rounded-full  ${pathname == item.link ? "text-white bg-green" : "hover:text-white  hover:bg-green3 hover:transition-all duration-300"}`}
+              >
+                {pathname == item.link ? (
+                  <span class="py-[0.9375rem] block text-[1.25]">
+                    {item.name}
+                  </span>
+                ) : (
+                  <a href={item.link} class="py-[0.9375rem] block text-[1.25]">
+                    {item.name}
+                  </a>
+                )}
+              </li>
+            ))
+          }
         </ul>
       </nav>
     </div>
