@@ -13,6 +13,7 @@ import ourjourney from "@/assets/images/about/ourjourney.png";
 import others from "@/assets/images/about/publishers/others.png";
 import image from "@/assets/images/about/publishers/image.png";
 import logo from "@/assets/images/about/publishers/logo.png";
+import PageTitleBanner from "@/components/Parts/PageTitleBanner.astro";
 
 const serviceData = [
   {
@@ -91,9 +92,7 @@ const publicationData = [
 ---
 
 <Layout title="About Us">
-  <div class="bg-beige pt-[13.125rem] text-center pb-[4.625rem] bg">
-    <h2 class="text-[2.8125rem] font-bold text-white underline">About Us</h2>
-  </div>
+  <PageTitleBanner title="About Us" bgmv="/about/mvbg.png" />
 
   <!-- Who we are -->
   <div class="bg-white ~px-[1rem]/[5rem] ~py-[3rem]/[3.75rem]">
@@ -240,11 +239,7 @@ const publicationData = [
                     {item.title}
                   </p>
                   <div class="flex items-center gap-x-[0.5rem] mt-[1rem]">
-                    <Image
-                      src={item.logo}
-                      alt={item.publisher}
-                      width={39}
-                    />
+                    <Image src={item.logo} alt={item.publisher} width={39} />
                     <p class="italic">{item.publisher}</p>
                   </div>
                 </div>
@@ -271,13 +266,6 @@ const publicationData = [
 </Layout>
 
 <style>
-  .bg {
-    background-image: url("/about/mvbg.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: bottom;
-  }
-
   .cardwidth {
     width: calc(33% - 2.625rem / 2);
   }

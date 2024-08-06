@@ -8,6 +8,7 @@ import { Image } from "astro:assets";
 import dss from "@/assets/images/dss/dss.png";
 import signup from "@/assets/images/dss/signup.png";
 import Button from "@/components/Parts/Button.astro";
+import PageTitleBanner from "@/components/Parts/PageTitleBanner.astro";
 
 const categoryData = [
   {
@@ -68,11 +69,7 @@ const serviceData = [
 ---
 
 <Layout title="DSS">
-  <div class="bg-beige pt-[13.125rem] text-center pb-[4.625rem] bg">
-    <h2 class="text-[2.8125rem] font-bold text-white underline">
-      D2L.sg Surplus Savers
-    </h2>
-  </div>
+  <PageTitleBanner title="D2L.sg Surplus Savers" bgmv="/dss/mvbg.png" />
 
   <!-- What is DSS -->
   <div class="bg-white ~px-[1rem]/[5rem] ~py-[3rem]/[3.75rem]">
@@ -161,11 +158,4 @@ const serviceData = [
     </Inner>
   </div>
 </Layout>
-<style>
-  .bg {
-    background-image: url("/dss/mvbg.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: bottom;
-  }
-</style>
+

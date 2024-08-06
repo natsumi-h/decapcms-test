@@ -10,6 +10,7 @@ import linkedin from "@/assets/images/linkedin.png";
 import tiktok from "@/assets/images/tiktok.png";
 import toggle from "@/assets/images/contact/toggle.png";
 import arrow from "@/assets/images/contact/arrow.png";
+import PageTitleBanner from "@/components/Parts/PageTitleBanner.astro";
 
 const faqs = [
   {
@@ -41,11 +42,8 @@ const faqs = [
 ---
 
 <Layout title="Contact Us">
-  <div class="bg-beige pt-[13.125rem] text-center pb-[4.625rem] bg">
-    <h2 class="text-[2.8125rem] font-bold text-white underline">
-      Make an Impact with Us!
-    </h2>
-  </div>
+  <PageTitleBanner title="Contact Us" bgmv="/contact/mvbg.png" />
+
   <!-- Food Waste is BIGGER than you think! -->
 
   <!-- CTA -->
@@ -187,14 +185,6 @@ const faqs = [
   </div>
 
 </Layout>
-<style>
-  .bg {
-    background-image: url("/contact/mvbg.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: bottom;
-  }
-</style>
 <script is:inline>
   $(document).ready(function () {
     $(".toggle-button").click(function () {

@@ -16,6 +16,7 @@ import sdg2 from "@/assets/images/education/sdg2.png";
 import sdg3 from "@/assets/images/education/sdg3.png";
 import sdg4 from "@/assets/images/education/sdg4.png";
 import sdg5 from "@/assets/images/education/sdg5.png";
+import PageTitleBanner from "@/components/Parts/PageTitleBanner.astro";
 
 const impactData = [
   {
@@ -88,11 +89,7 @@ const process = [
 ---
 
 <Layout title="Food Waste 101">
-  <div class="bg-beige pt-[13.125rem] text-center pb-[4.625rem] bg">
-    <h2 class="text-[2.8125rem] font-bold text-white underline">
-      Food Surplus & Waste 101
-    </h2>
-  </div>
+  <PageTitleBanner title="Food Surplus & Waste 101" bgmv="/education/mvbg.png" />
 
   <!-- What is Food Waste? -->
   <div class="bg-white ~px-[1rem]/[5rem] ~py-[3rem]/[3.75rem]">
@@ -464,13 +461,6 @@ const process = [
   </div>
 </Layout>
 <style>
-  .bg {
-    background-image: url("/education/mvbg.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: bottom;
-  }
-
   .cardwidth {
     width: calc(50% - 2.0625rem / 2);
   }

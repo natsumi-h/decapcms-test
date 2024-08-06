@@ -1,0 +1,18 @@
+---
+const { title, bgmv } = Astro.props;
+
+const bgurl = `url(${bgmv})`;
+---
+
+<div class="bg-beige pt-[13.125rem] text-center pb-[4.625rem] bg">
+  <h2 class="text-[2.8125rem] font-bold text-white underline">{title}</h2>
+</div>
+
+<style define:vars={{ bgurl }}>
+  .bg {
+    background-image: var(--bgurl);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+  }
+</style>

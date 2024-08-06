@@ -10,6 +10,7 @@ import Button from "@/components/Parts/Button.astro";
 import icon1 from "@/assets/images/services/ourservices/icon1.png";
 import approach1 from "@/assets/images/services/ourservices/approach1.png";
 import csr from "@/assets/images/services/ourservices/csr.png";
+import PageTitleBanner from "@/components/Parts/PageTitleBanner.astro";
 
 const categoryData = [
   {
@@ -90,11 +91,7 @@ const wastemanagementData = [
 ---
 
 <Layout title="Our Services">
-  <div class="bg-beige pt-[13.125rem] text-center pb-[4.625rem] bg">
-    <h2 class="text-[2.8125rem] font-bold text-white underline">
-      Our Services
-    </h2>
-  </div>
+  <PageTitleBanner title="Our Services" bgmv="/services/mvbg.png" />
 
   <!-- Categories -->
   <Category category={categoryData} />
@@ -269,13 +266,6 @@ const wastemanagementData = [
 </Layout>
 
 <style>
-  .bg {
-    background-image: url("/services/mvbg.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: bottom;
-  }
-
   .tagradius {
     border-radius: 1.25rem 1.25rem 0 0;
   }
