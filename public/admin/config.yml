@@ -3,7 +3,7 @@ backend:
   branch: main # Branch to update (optional; defaults to master)
 
 media_folder: "/src/assets/images/content/blog" # Location where files will be stored in the repo
-public_folder: "src/assets/images/content/blog" # The src attribute for uploaded media
+public_folder: "/src/assets/images/content/blog" # The src attribute for uploaded media
 
 collections:
   - name: "blog" # Used in routes, e.g., /admin/collections/blog
