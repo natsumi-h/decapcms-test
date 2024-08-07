@@ -11,47 +11,20 @@ import facebook from "@/assets/images/facebook.png";
 import linkedin from "@/assets/images/linkedin.png";
 import recentevent1 from "@/assets/images/blog/recentevent1.png";
 import recentevent2 from "@/assets/images/blog/recentevent2.png";
-import image from "@/assets/images/about/publishers/image.png";
-import logo from "@/assets/images/about/publishers/logo.png";
+import avator from "@/assets/images/blog/avator.png";
+import type { ImageMetadata } from "astro";
+const allPosts = await Astro.glob("@/content/blog/*.md");
 
-const blogData = [
-  {
-    title: "DBS and NEA work together with young adults to combat",
-    image: image,
-    logo: logo,
-    publisher: "The Business Times",
-  },
-  {
-    title: "DBS and NEA work together with young adults to combat",
-    image: image,
-    logo: logo,
-    publisher: "The Business Times",
-  },
-  {
-    title: "DBS and NEA work together with young adults to combat",
-    image: image,
-    logo: logo,
-    publisher: "The Business Times",
-  },
-  {
-    title: "DBS and NEA work together with young adults to combat",
-    image: image,
-    logo: logo,
-    publisher: "The Business Times",
-  },
-  {
-    title: "DBS and NEA work together with young adults to combat",
-    image: image,
-    logo: logo,
-    publisher: "The Business Times",
-  },
-  {
-    title: "DBS and NEA work together with young adults to combat",
-    image: image,
-    logo: logo,
-    publisher: "The Business Times",
-  },
-];
+const sortedPostsByDate = allPosts.sort((a: any, b: any) => {
+  return (new Date(b.frontmatter.date) as any) - (new Date(a.frontmatter.date) as any);
+});
+
+const getSlug = (file: string) => {
+  return file.replace(/^.*[\\\/]/, "").replace(/.md$/, "");
+};
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/images/content/blog/*.{jpeg,jpg,png,gif}"
+);
 ---
 
 <Layout title="Blog & Media">
@@ -171,31 +144,39 @@ const blogData = [
       </h2>
       <!-- Cards Wrapper -->
       <div
-        class="mt-[1.4375rem] flex gap-y-[1.9375rem] flex-wrap justify-between"
+        class="mt-[1.4375rem] flex gap-y-[1.9375rem] flex-wrap justify-between items-stretch"
       >
         <!-- Card -->
         {
-          blogData.map((item: any) => (
-            <div class="rounded-[1.25rem] overflow-hidden drop-shadow-lg cardwidth">
-              <a href="/" target="_blank">
-                <div>
-                  {/* Image */}
-                  <div class="">
-                    <Image src={item.image} alt="image" class="w-full" />
-                  </div>
+          sortedPostsByDate.slice(0, 6).map((item: any) => (
+            <div class="rounded-[1.25rem] overflow-hidden drop-shadow-lg cardwidth flex flex-col">
+              <a
+                href={`/blog/${getSlug(item.file)}`}
+                class="hover:opacity-80 transition-all duration-300"
+              >
+                {/* Image */}
+                <div class="w-full pt-[56.25%] relative">
+                  <Image
+                    src={images[item.frontmatter.image]()}
+                    alt={item.frontmatter.imageAlt}
+                    class="w-full absolute top-0 left-0 object-cover h-full"
+                    width={404}
+                    height={254}
+                  />
                 </div>
-                <div class="bg-beige py-[0.625rem] px-[1.125rem]">
-                  <p class="font-bold text-[1.25rem] leading-none ">
-                    {item.title}
+
+                <div class="bg-beige py-[1.25rem] px-[1.125rem] flex flex-col flex-grow min-h-[11.375rem] justify-between">
+                  <p class="font-bold text-[1.5625rem] leading-none line-clamp-3">
+                    {item.frontmatter.title}
                   </p>
-                  <div class="flex items-center gap-x-[0.5rem] mt-[1rem] ">
+                  <div class="flex items-center gap-x-[0.5rem] ">
                     <Image
-                      src={item.logo}
-                      alt={item.publisher}
+                      src={avator}
+                      alt={item.frontmatter.author}
                       width={30}
                       height={30}
                     />
-                    <p class="italic">{item.publisher}</p>
+                    <p class="italic">{item.frontmatter.author}</p>
                   </div>
                 </div>
 

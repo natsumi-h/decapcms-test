@@ -1,0 +1,32 @@
+---
+import Inner from "@/components/Inner.astro";
+import PageTitleBanner from "@/components/Parts/PageTitleBanner.astro";
+import Socialmedia from "@/components/Socialmedia.astro";
+import Layout from "@/layouts/Layout.astro";
+
+export const getStaticPaths = async () => {
+  const allPosts: Array<any> = await Astro.glob("@/content/blog/*.md");
+  const getSlug = (file: string) => {
+    return file.replace(/^.*[\\\/]/, "").replace(/.md$/, "");
+  };
+  return allPosts.map((post: any) => {
+    const slug = getSlug(post.file);
+    return { params: { slug: slug } };
+  });
+};
+
+const { slug } = Astro.params;
+---
+
+<Layout title="Blog & Media">
+  <PageTitleBanner title="Blog & Media" bgmv="/blog/mvbg.png" />
+
+  <div class="bg-white ~px-[1rem]/[5rem] ~py-[3rem]/[3.75rem]">
+    <Inner>
+      <div>{slug}</div>
+    </Inner>
+  </div>
+
+  <!-- Social -->
+  <Socialmedia />
+</Layout>

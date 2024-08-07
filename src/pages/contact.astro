@@ -4,13 +4,10 @@ import Button from "@/components/Parts/Button.astro";
 import Layout from "@/layouts/Layout.astro";
 import { Image } from "astro:assets";
 import image1 from "@/assets/images/contact/image1.png";
-import instagram from "@/assets/images/instagram.png";
-import facebook from "@/assets/images/facebook.png";
-import linkedin from "@/assets/images/linkedin.png";
-import tiktok from "@/assets/images/tiktok.png";
 import toggle from "@/assets/images/contact/toggle.png";
 import arrow from "@/assets/images/contact/arrow.png";
 import PageTitleBanner from "@/components/Parts/PageTitleBanner.astro";
+import Socialmedia from "@/components/Socialmedia.astro";
 
 const faqs = [
   {
@@ -160,30 +157,7 @@ const faqs = [
   </div>
 
   <!-- Social Media -->
-  <div class="bg-white ~px-[1rem]/[5rem] ~py-[3rem]/[3.75rem]">
-    <Inner>
-      <h3 class="text-green2 text-[1.875rem] font-bold text-center">
-        Follow us on Social Media!
-      </h3>
-      <div
-        class="flex items-center max-w-[37.5rem] justify-between mx-[auto] mt-[2rem]"
-      >
-        <a href="https://www.instagram.com/d2l.sg/?hl=en" target="_blank">
-          <Image src={instagram} alt="Instagram" width={70} height={70} />
-        </a>
-        <a target="_blank" href="https://www.facebook.com/D2L.sg">
-          <Image src={facebook} alt="Facebook" width={70} height={70} />
-        </a>
-        <a target="_blank" href="https://www.linkedin.com/company/d2lsg/">
-          <Image src={linkedin} alt="LinkedIn" width={70} height={70} />
-        </a>
-        <a target="_blank">
-          <Image src={tiktok} alt="TikTok" width={70} height={70} />
-        </a>
-      </div>
-    </Inner>
-  </div>
-
+  <Socialmedia />
 </Layout>
 <script is:inline>
   $(document).ready(function () {

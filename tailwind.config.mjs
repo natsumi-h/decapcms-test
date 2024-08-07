@@ -25,6 +25,10 @@ export default {
     // }
     // space 4 === 1rem ==== 16px
     fontSize,
+    // fontSize: {
+    //   ...fontSize,
+    //   base: ["1.25rem", "1.5"],
+    // },
     extend: {},
     /** @type {import('fluid-tailwind').FluidThemeConfig} */
     fluid: ({ theme }) => ({
@@ -33,7 +37,7 @@ export default {
     colors: {
       green: "#145740",
       green2: "#6FB460",
-      green3:"#6FB460",
+      green3: "#6FB460",
       orange: "#F1592B",
       text: "#000000",
       beige: "#F1EEE9",
@@ -43,7 +47,7 @@ export default {
       sans: ["Graphik", "sans-serif"],
       serif: ["Merriweather", "serif"],
       // arimo: ["Arimo", "sans-serif"],
-      arimo:["Arimo Variable", "sans-serif"]
+      arimo: ["Arimo Variable", "sans-serif"],
     },
   },
   plugins: [fluid],

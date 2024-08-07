@@ -20,21 +20,18 @@ const { title } = Astro.props;
     <Basehead title={title} />
   </head>
   <body class="font-arimo">
-    <body>
-      <!-- Include the script that builds the page and powers Decap CMS -->
-      <!-- <script
-        is:inline
-        src="https://unpkg.com/decap-cms@^3.1.2/dist/decap-cms.js"></script>
-      <script
-        is:inline
-        src="https://identity.netlify.com/v1/netlify-identity-widget.js"
-      ></script> -->
-    </body>
     <Header />
     <main>
       <slot />
     </main>
     <Footer />
+
+    <!-- Include the script that builds the page and powers Decap CMS -->
+    <!-- <script is:inline src="https://unpkg.com/decap-cms@^3.1.2/dist/decap-cms.js"
+    ></script> -->
+    <!-- <script
+      is:inline
+      src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script> -->
   </body>
 </html>
 

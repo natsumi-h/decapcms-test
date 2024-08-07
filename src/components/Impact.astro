@@ -8,9 +8,11 @@ const { impact } = Astro.props;
 
 <div class="text-white bg-green ~px-[1rem]/[5rem] ~py-[3rem]/[3.75rem]">
   <Inner>
-    <h2 class="text-[2.8125rem] leading-normal font-bold">Our Impact</h2>
+    <h2 class="~text-[2rem]/[2.8125rem] leading-normal font-bold">
+      Our Impact
+    </h2>
     <div
-      class="flex justify-between align-middle text-center mt-[1.25rem] gap-x-[1rem]"
+      class="flex justify-between align-middle text-center mt-[1.25rem] gap-[1rem] flex-col md:flex-row"
     >
       {
         impact.map((item: any) => (
