@@ -28,6 +28,10 @@ const getSlug = (file: string) => {
 const images = import.meta.glob<{ default: ImageMetadata }>(
   "/src/assets/images/content/blog/*.{jpeg,jpg,png,gif}"
 );
+
+const getFormattedImagePath = (imagePath: string) => {
+  return `/${imagePath}`;
+};
 ---
 
 <Layout title="Blog & Media">
@@ -160,7 +164,9 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
                 {/* Image */}
                 <div class="w-full pt-[62.87%] relative">
                   <Image
-                    src={images[item.frontmatter.image]()}
+                    src={images[
+                      getFormattedImagePath(item.frontmatter.image)
+                    ]()}
                     alt={item.frontmatter.imageAlt}
                     class="w-full absolute top-0 left-0 object-cover h-full"
                     width={404}

@@ -6,7 +6,7 @@ author: Ahammed Yousuf
 date: 2024-02-15T04:56:32.175Z
 tags:
   - post
-image: /src/assets/images/content/blog/imgonline-com-ua-resize-vy33felppnlae.jpg
+image: src/assets/images/content/blog/imgonline-com-ua-resize-vy33felppnlae.jpg
 imageAlt: zero food waste food surplus management no waste food singapore food
   rescue singapore food waste
 ---

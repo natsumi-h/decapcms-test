@@ -6,7 +6,7 @@ author: Ahammed Yousuf
 date: 2024-06-09T10:10:00.000Z
 tags:
   - post
-image: /src/assets/images/content/blog/front-view-smiley-people-group-therapy-session.jpg
+image: src/assets/images/content/blog/front-view-smiley-people-group-therapy-session.jpg
 imageAlt: zero food waste food surplus management no waste food singapore food
   rescue singapore food waste
 ---
