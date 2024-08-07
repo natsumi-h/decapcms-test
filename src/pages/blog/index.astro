@@ -16,7 +16,10 @@ import type { ImageMetadata } from "astro";
 const allPosts = await Astro.glob("@/content/blog/*.md");
 
 const sortedPostsByDate = allPosts.sort((a: any, b: any) => {
-  return (new Date(b.frontmatter.date) as any) - (new Date(a.frontmatter.date) as any);
+  return (
+    (new Date(b.frontmatter.date) as any) -
+    (new Date(a.frontmatter.date) as any)
+  );
 });
 
 const getSlug = (file: string) => {

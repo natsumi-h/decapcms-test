@@ -5,7 +5,7 @@ author: Natsumi.H
 date: 2024-08-07T21:25:00.000Z
 tags:
   - post
-image: src/assets/images/content/blog/onur-binay-auf3gwpvaom-unsplash.jpg
+image: /src/assets/images/content/blog/onur-binay-auf3gwpvaom-unsplash.jpg
 imageAlt: image caption
 ---
 # heding1
