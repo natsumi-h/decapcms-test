@@ -3,6 +3,9 @@ import Inner from "@/components/Inner.astro";
 import PageTitleBanner from "@/components/Parts/PageTitleBanner.astro";
 import Socialmedia from "@/components/Socialmedia.astro";
 import Layout from "@/layouts/Layout.astro";
+import avator from "@/assets/images/blog/avator.png";
+import { Image } from "astro:assets";
+import Prose from "@/components/Prose.astro";
 
 export const getStaticPaths = async () => {
   const allPosts: Array<any> = await Astro.glob("@/content/blog/*.md");
@@ -11,11 +14,31 @@ export const getStaticPaths = async () => {
   };
   return allPosts.map((post: any) => {
     const slug = getSlug(post.file);
-    return { params: { slug: slug } };
+    return { params: { slug: slug }, props: { post } };
   });
 };
 
-const { slug } = Astro.params;
+const { post } = Astro.props;
+const { Content } = Astro.props.post;
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/images/content/blog/*.{jpeg,jpg,png,gif}"
+);
+
+const getFormattedDate = (isoDateString: string) => {
+  // Convert the ISO date string to a Date object
+  const date = new Date(isoDateString);
+  // Define options for toLocaleDateString to get the desired format
+  const options: Intl.DateTimeFormatOptions = {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+    timeZone: "Asia/Singapore",
+  };
+
+  // Convert the Date object to the desired format
+  const formattedDate: string = date.toLocaleDateString("en-SG", options);
+  return formattedDate;
+};
 ---
 
 <Layout title="Blog & Media">
@@ -23,10 +46,46 @@ const { slug } = Astro.params;
 
   <div class="bg-white ~px-[1rem]/[5rem] ~py-[3rem]/[3.75rem]">
     <Inner>
-      <div>{slug}</div>
+      <!-- Title -->
+      <h2 class="text-[2.8125rem] leading-normal font-bold text-green">
+        {post.frontmatter.title}
+      </h2>
+      <!-- Key Visual -->
+      <div class="max-w-[40.3125rem]">
+        <div
+          class="w-full pt-[62.87%] relative rounded-[1.25rem] overflow-hidden mt-[3.8125rem]"
+        >
+          <Image
+            src={images[post.frontmatter.image]()}
+            alt={post.frontmatter.imageAlt}
+            class="w-full absolute top-0 left-0 object-cover h-full"
+            width={645}
+            height={411}
+          />
+        </div>
+      </div>
+      <!-- Author / Date -->
+      <div class="flex items-center gap-x-[1.25rem] mt-[1.5rem]">
+        <Image
+          src={avator}
+          alt={post.frontmatter.author}
+          width={50}
+          height={50}
+        />
+        <p class="italic text-[1.25rem]">
+          {post.frontmatter.author} -
+          {getFormattedDate(post.frontmatter.date)}
+        </p>
+      </div>
+
+      <div class="mt-[1.5625rem]">
+        <Prose>
+          <Content />
+        </Prose>
+      </div>
+
+      <!-- Social -->
+      <Socialmedia />
     </Inner>
   </div>
-
-  <!-- Social -->
-  <Socialmedia />
 </Layout>

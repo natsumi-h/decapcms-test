@@ -50,5 +50,5 @@ export default {
       arimo: ["Arimo Variable", "sans-serif"],
     },
   },
-  plugins: [fluid],
+  plugins: [fluid, require("@tailwindcss/typography")],
 };
