@@ -92,11 +92,11 @@ const menu = [
                 class={`shrink w-[9.5625rem]  text-text rounded-full  ${pathname == item.link ? "text-white bg-green" : "hover:text-white  hover:bg-green3 hover:transition-all duration-300"}`}
               >
                 {pathname == item.link ? (
-                  <span class="py-[0.9375rem] block text-[1.25]">
+                  <span class="py-[0.9375rem] block text-[1.25rem]">
                     {item.name}
                   </span>
                 ) : (
-                  <a href={item.link} class="py-[0.9375rem] block text-[1.25]">
+                  <a href={item.link} class="py-[0.9375rem] block text-[1.25rem]">
                     {item.name}
                   </a>
                 )}
