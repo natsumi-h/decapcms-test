@@ -34,7 +34,7 @@ const { title } = Astro.props;
 <!-- TODO: -->
 <meta name="robots" content="noindex" />
 <title>{title}</title>
-<script is:inline>
+<!-- <script is:inline>
   if (window.netlifyIdentity) {
     window.netlifyIdentity.on("init", (user) => {
       if (!user && window.netlifyIdentity) {
@@ -44,5 +44,5 @@ const { title } = Astro.props;
       }
     });
   }
-</script>
+</script> -->
 <script is:inline src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
