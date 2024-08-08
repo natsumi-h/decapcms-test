@@ -3,6 +3,7 @@ import { Image } from "astro:assets";
 import headerlogo from "../assets/images/headerlogo.png";
 
 const pathname = Astro.url.pathname;
+console.log(pathname);
 
 const menu = [
   {
@@ -27,13 +28,25 @@ const menu = [
   },
   {
     name: "Blog & Media",
-    link: "/blog",
+    link: "/blog/",
   },
   {
     name: "Contact Us",
-    link: "/contact",
+    link: "/contact/",
   },
 ];
+
+const isCurrentPath = (itemlink: string) => {
+  console.log(`itemlink: ${itemlink}`);
+
+  if (pathname.includes("/blog/") && itemlink === "/blog/") {
+    return true;
+  } else if (pathname === itemlink) {
+    return true;
+  }
+
+  return false;
+};
 ---
 
 <div class="text-white bg-orange text-[1rem] font-bold py-[1.5rem] belt">
@@ -89,14 +102,17 @@ const menu = [
           {
             menu.map((item) => (
               <li
-                class={`shrink w-[9.5625rem]  text-text rounded-full  ${pathname == item.link ? "text-white bg-green" : "hover:text-white  hover:bg-green3 hover:transition-all duration-300"}`}
+                class={`shrink w-[9.5625rem]  text-text rounded-full  ${isCurrentPath(item.link) ? "text-white bg-green" : "hover:text-white  hover:bg-green3 hover:transition-all duration-300"}`}
               >
                 {pathname == item.link ? (
                   <span class="py-[0.9375rem] block text-[1.25rem]">
                     {item.name}
                   </span>
                 ) : (
-                  <a href={item.link} class="py-[0.9375rem] block text-[1.25rem]">
+                  <a
+                    href={item.link}
+                    class="py-[0.9375rem] block text-[1.25rem]"
+                  >
                     {item.name}
                   </a>
                 )}
