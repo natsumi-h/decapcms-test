@@ -37,111 +37,6 @@ const getFormattedImagePath = (imagePath: string) => {
 <Layout title="Blog & Media">
   <PageTitleBanner title="Blog & Media" bgmv="/blog/mvbg.png" />
 
-  <!-- Recent Events -->
-  <div class="bg-beige ~px-[1rem]/[5rem] ~py-[3rem]/[3.75rem]">
-    <Inner>
-      <h2 class="text-[2.8125rem] leading-normal font-bold text-green">
-        Recent Events
-      </h2>
-      <!-- Cards Wrapper -->
-      <div class="mt-[1.4375rem] flex flex-col gap-y-[2.875rem]">
-        <!-- Card1 -->
-        <div>
-          <!-- tag -->
-          <div
-            class="bg-orange p-[1.25rem] text-white font-bold inline-block text-[1.875rem] tagradius"
-          >
-            <div class="flex items-center gap-x-[1.2rem]">
-              <p>Go Green SG Launch</p>
-            </div>
-          </div>
-
-          <!-- body -->
-          <div class="py-[2.5rem] px-[4rem] bg-white drop-shadow-md radius">
-            <div class="flex gap-x-[2.9375rem]">
-              <div>
-                <p class="text-[1.25rem]">
-                  “Divert for 2nd Life, a community group, works with businesses
-                  like restaurants and supermarkets to channel excess food to
-                  needy communities in Singapore. This has helped reduce our
-                  food waste. Mee Toh school, our host today, is yet another
-                  good example. To nurture a stronger awareness of
-                  sustainability, Mee Toh has integrated environmental
-                  activities like recycling and sustainable farming into its
-                  curriculum.  And it has a group of students called Environment
-                  Champions who organise their own green projects and encourage
-                  their classmates to take up environmentally friendly habits.”
-                  - DPM Lawrence Wong at the Go Green SG Launch
-                </p>
-                <div class="mt-[1rem]">
-                  <Button
-                    text="Read more"
-                    href="https://www.pmo.gov.sg/Newsroom/DPM-Lawrence-Wong-at-the-Go-Green-SG-Launch"
-                    targetblank="true"
-                  />
-                </div>
-              </div>
-
-              <Image
-                src={recentevent1}
-                alt="Recent Event 1"
-                width={282}
-                height={320}
-              />
-            </div>
-          </div>
-        </div>
-
-        <!-- Card2 -->
-        <div class="text-right">
-          <!-- tag -->
-          <div
-            class="bg-orange p-[1.25rem] text-white font-bold inline-block text-[1.875rem] tagradius"
-          >
-            <div class="flex items-center gap-x-[1.2rem]">
-              <p>Go Green SG Launch</p>
-            </div>
-          </div>
-
-          <!-- body -->
-          <div
-            class="py-[2.5rem] px-[4rem] bg-white drop-shadow-md radius text-left radiusright"
-          >
-            <div class="flex gap-x-[2.9375rem]">
-              <Image
-                src={recentevent2}
-                alt="Recent Event 2"
-                width={345}
-                height={317}
-              />
-              <div>
-                <p class="text-[1.25rem]">
-                  “Divert for 2nd Life, a community group, works with businesses
-                  like restaurants and supermarkets to channel excess food to
-                  needy communities in Singapore. This has helped reduce our
-                  food waste. Mee Toh school, our host today, is yet another
-                  good example. To nurture a stronger awareness of
-                  sustainability, Mee Toh has integrated environmental
-                  activities like recycling and sustainable farming into its
-                  curriculum.  And it has a group of students called Environment
-                  Champions who organise their own green projects and encourage
-                  their classmates to take up environmentally friendly habits.”
-                  - DPM Lawrence Wong at the Go Green SG Launch
-                </p>
-                <div class="mt-[1rem] text-right">
-                  <Button
-                    text="Read more"
-                    href="https://sokasingapore.org/awards-commendations/sgs-awarded-the-peoples-association-community-spirit-merit-award-2023/"
-                    targetblank="true"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </Inner>
-  </div>
 
   <!-- Blog -->
   <div class="bg-white ~px-[1rem]/[5rem] ~py-[3rem]/[3.75rem]">
@@ -155,7 +50,7 @@ const getFormattedImagePath = (imagePath: string) => {
       >
         <!-- Card -->
         {
-          sortedPostsByDate.slice(0, 6).map((item: any) => (
+          sortedPostsByDate.map((item: any) => (
             <div class="rounded-[1.25rem] overflow-hidden drop-shadow-lg cardwidth flex flex-col">
               <a
                 href={`/blog/${getSlug(item.file)}`}
@@ -198,9 +93,6 @@ const getFormattedImagePath = (imagePath: string) => {
         }
       </div>
 
-      <div class="text-center mt-[3.125rem]">
-        <Button text="Show More" href="/blog/all" />
-      </div>
     </Inner>
   </div>
 
