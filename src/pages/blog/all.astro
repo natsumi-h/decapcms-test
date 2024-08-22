@@ -1,5 +1,5 @@
 ---
-import Inner from "@/components/Inner.astro";
+import Inner from "@/components/Parts/Inner.astro";
 import Button from "@/components/Parts/Button.astro";
 import PageTitleBanner from "@/components/Parts/PageTitleBanner.astro";
 import Layout from "@/layouts/Layout.astro";
@@ -9,8 +9,6 @@ import { Image } from "astro:assets";
 import instagram from "@/assets/images/instagram.png";
 import facebook from "@/assets/images/facebook.png";
 import linkedin from "@/assets/images/linkedin.png";
-import recentevent1 from "@/assets/images/blog/recentevent1.png";
-import recentevent2 from "@/assets/images/blog/recentevent2.png";
 import avator from "@/assets/images/blog/avator.png";
 import type { ImageMetadata } from "astro";
 const allPosts = await Astro.glob("@/content/blog/*.md");

@@ -1,0 +1,27 @@
+---
+import Inner from "./Inner.astro";
+
+interface Props {
+  bg: string;
+  text?: string;
+}
+
+const { bg, text } = Astro.props;
+---
+
+<section
+  class=`bg-${bg} ~px-[1rem]/[5rem] ~py-[3rem]/[3.75rem] ${text === "white"?
+  "text-white":"text-text"}`
+>
+  <Inner>
+    <slot />
+  </Inner>
+</section>
+<style>
+  .bg-bg {
+    background-image: url("/home/bg2.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+</style>
