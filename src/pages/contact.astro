@@ -1,5 +1,4 @@
 ---
-import Inner from "@/components/Parts/Inner.astro";
 import Button from "@/components/Parts/Button.astro";
 import Layout from "@/layouts/Layout.astro";
 import { Image } from "astro:assets";
@@ -8,6 +7,8 @@ import toggle from "@/assets/images/contact/toggle.png";
 import arrow from "@/assets/images/contact/arrow.png";
 import PageTitleBanner from "@/components/Parts/PageTitleBanner.astro";
 import Socialmedia from "@/components/Socialmedia.astro";
+import Section from "@/components/Parts/Section.astro";
+import SectionTitle from "@/components/Parts/SectionTitle.astro";
 
 const faqs = [
   {
@@ -42,119 +43,109 @@ const faqs = [
   <PageTitleBanner title="Contact Us" bgmv="/contact/mvbg.png" />
 
   <!-- Food Waste is BIGGER than you think! -->
+  <Section bg="white">
+    <SectionTitle textalign="center" color="green">
+      Food Waste is BIGGER than you think!
+    </SectionTitle>
 
-  <!-- CTA -->
-  <div class="bg-white ~px-[1rem]/[5rem] ~py-[3rem]/[3.75rem]">
-    <Inner>
-      <h3
-        class="text-green text-[2.8125rem] font-bold leading-none text-center"
-      >
-        Food Waste is BIGGER than you think!
-      </h3>
-
-      <div class="flex justify-between items-center mt-[3rem]">
-        <Image
-          src={image1}
-          alt="Lin QingHui"
-          width={480}
-          height={282}
-          class="w-[38.21%]"
-        />
-        <div class="w-[49%]">
-          <p class="text-orange font-bold text-[1.5625rem] leading-none">
-            D2L.sg is a holistic one-stop food surplus/waste management social
-            enterprise
-          </p>
-          <p class="mt-[2rem]">
-            We manage ALL TYPES of food surplus and waste via proprietary
-            smart-matching AI technology, ensuring that food surplus and waste
-            are matched to their best 2nd life quickly and efficiently.
-          </p>
-          <p class="mt-[2rem]">
-            This diverts the food from the incinerator/digestor for higher and
-            better leases of life.
-          </p>
-          <div class="mt-[2rem]">
-            <Button text="Our Services" href="/services" />
-          </div>
+    <div class="flex justify-between items-center mt-[3rem]">
+      <Image
+        src={image1}
+        alt="Lin QingHui"
+        width={480}
+        height={282}
+        class="w-[38.21%]"
+      />
+      <div class="w-[49%]">
+        <p class="text-orange font-bold text-[1.5625rem] leading-none">
+          D2L.sg is a holistic one-stop food surplus/waste management social
+          enterprise
+        </p>
+        <p class="mt-[2rem]">
+          We manage ALL TYPES of food surplus and waste via proprietary
+          smart-matching AI technology, ensuring that food surplus and waste are
+          matched to their best 2nd life quickly and efficiently.
+        </p>
+        <p class="mt-[2rem]">
+          This diverts the food from the incinerator/digestor for higher and
+          better leases of life.
+        </p>
+        <div class="mt-[2rem]">
+          <Button text="Our Services" href="/services" />
         </div>
       </div>
-    </Inner>
-  </div>
+    </div>
+  </Section>
 
   <!-- Partner with Us Today! -->
-  <div class="bg-beige ~px-[1rem]/[5rem] ~py-[3rem]/[3.75rem]">
-    <Inner>
-      <h3 class="text-green text-[2.8125rem] font-bold">
-        Partner with Us Today!
-      </h3>
-      <p class="mt-[1rem]">
-        Partner with us to align your business practices with Singapore's
-        Resource Sustainability Act, demonstrating your commitment to
-        sustainability.<br /> Fill in the form below and we’ll get back to you! Or
-        email us your inquiry at hello@d2l.sg, and we will get in touch!
-      </p>
-    </Inner>
-  </div>
+  <Section bg="beige">
+    <SectionTitle color="green" textalign="left">
+      Partner with Us Today!
+    </SectionTitle>
+    <p class="mt-[1rem]">
+      Partner with us to align your business practices with Singapore's Resource
+      Sustainability Act, demonstrating your commitment to sustainability.<br />
+      Fill in the form below and we’ll get back to you! Or email us your inquiry
+      at hello@d2l.sg, and we will get in touch!
+    </p>
+  </Section>
 
   <!-- Frequently Asked Questions -->
-  <div class="bg-white ~px-[1rem]/[5rem] ~py-[3rem]/[3.75rem]">
-    <Inner>
-      <h3 class="text-green text-[2.8125rem] font-bold">
-        Frequently Asked Questions
-      </h3>
+  <Section bg="white">
+    <SectionTitle textalign="left" color="green">
+      Frequently Asked Questions
+    </SectionTitle>
 
-      <!-- FAQs -->
-      <div class="mt-[2.875rem]">
-        <ul class="flex flex-col gap-y-[1.976rem]">
-          {
-            faqs.map((faq, index) => (
-              <li
-                class="drop-shadow-lg bg-beige rounded-[1.25rem]"
-                id={`faq${index + 2}`}
-              >
-                {/* <!-- Question --> */}
-                <div class="transition-all duration-300 question py-[1.5625rem] px-[2.1875rem] bg-green text-white font-bold text-[1.875rem] rounded-[1.25rem] flex justify-between items-center">
-                  <p>{faq.question}</p>
-                  <button class="toggle-button">
-                    <Image
-                      src={toggle}
-                      alt="Toggle"
-                      width={32}
-                      height={32}
-                      class="hamburger"
-                    />
-                    <Image
-                      src={arrow}
-                      alt="Toggle"
-                      width={32}
-                      height={32}
-                      class="arrow hidden"
-                    />
-                  </button>
-                </div>
-                {/* <!-- Answer --> */}
-                <div class="answer px-[2.875rem] py-[1.8125rem] hidden">
-                  <p>
-                    {/* {faq.answer} */}
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    <br />
-                    Nullam a metus nec nunc ultrices. Nullam a metus nec nunc
-                    ultrices.Lorem ipsum dolor sit amet, consectetur adipiscing
-                    elit. Nullam a metus nec nunc ultrices.
-                    <br /> Nullam a metus nec nunc ultrices.Lorem ipsum dolor
-                    sit amet, consectetur adipiscing elit. Nullam a metus nec
-                    nunc ultrices.
-                    <br /> Nullam a metus nec nunc ultrices.
-                  </p>
-                </div>
-              </li>
-            ))
-          }
-        </ul>
-      </div>
-    </Inner>
-  </div>
+    <!-- FAQs -->
+    <div class="mt-[2.875rem]">
+      <ul class="flex flex-col gap-y-[1.976rem]">
+        {
+          faqs.map((faq, index) => (
+            <li
+              class="drop-shadow-lg bg-beige rounded-[1.25rem]"
+              id={`faq${index + 2}`}
+            >
+              {/* <!-- Question --> */}
+              <div class="transition-all duration-300 question py-[1.5625rem] px-[2.1875rem] bg-green text-white font-bold text-[1.875rem] rounded-[1.25rem] flex justify-between items-center">
+                <p>{faq.question}</p>
+                <button class="toggle-button">
+                  <Image
+                    src={toggle}
+                    alt="Toggle"
+                    width={32}
+                    height={32}
+                    class="hamburger"
+                  />
+                  <Image
+                    src={arrow}
+                    alt="Toggle"
+                    width={32}
+                    height={32}
+                    class="arrow hidden"
+                  />
+                </button>
+              </div>
+              {/* <!-- Answer --> */}
+              <div class="answer px-[2.875rem] py-[1.8125rem] hidden">
+                <p>
+                  {/* {faq.answer} */}
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  <br />
+                  Nullam a metus nec nunc ultrices. Nullam a metus nec nunc
+                  ultrices.Lorem ipsum dolor sit amet, consectetur adipiscing
+                  elit. Nullam a metus nec nunc ultrices.
+                  <br /> Nullam a metus nec nunc ultrices.Lorem ipsum dolor sit
+                  amet, consectetur adipiscing elit. Nullam a metus nec nunc
+                  ultrices.
+                  <br /> Nullam a metus nec nunc ultrices.
+                </p>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </Section>
 
   <!-- Social Media -->
   <Socialmedia />

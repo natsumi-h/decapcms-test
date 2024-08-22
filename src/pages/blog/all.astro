@@ -11,6 +11,8 @@ import facebook from "@/assets/images/facebook.png";
 import linkedin from "@/assets/images/linkedin.png";
 import avator from "@/assets/images/blog/avator.png";
 import type { ImageMetadata } from "astro";
+import Section from "@/components/Parts/Section.astro";
+import SectionTitle from "@/components/Parts/SectionTitle.astro";
 const allPosts = await Astro.glob("@/content/blog/*.md");
 
 const sortedPostsByDate = allPosts.sort((a: any, b: any) => {
@@ -35,73 +37,65 @@ const getFormattedImagePath = (imagePath: string) => {
 <Layout title="Blog & Media">
   <PageTitleBanner title="Blog & Media" bgmv="/blog/mvbg.png" />
 
-
   <!-- Blog -->
-  <div class="bg-white ~px-[1rem]/[5rem] ~py-[3rem]/[3.75rem]">
-    <Inner>
-      <h2 class="text-[2.8125rem] leading-normal font-bold text-green">
-        Blog Posts
-      </h2>
-      <!-- Cards Wrapper -->
-      <div
-        class="mt-[1.4375rem] flex gap-y-[1.9375rem] flex-wrap justify-between items-stretch"
-      >
-        <!-- Card -->
-        {
-          sortedPostsByDate.map((item: any) => (
-            <div class="rounded-[1.25rem] overflow-hidden drop-shadow-lg cardwidth flex flex-col">
-              <a
-                href={`/blog/${getSlug(item.file)}`}
-                class="hover:opacity-80 transition-all duration-300"
-              >
-                {/* Image */}
-                <div class="w-full pt-[62.87%] relative">
+  <Section bg="white">
+    <SectionTitle color="green" textalign="left"> Blog Posts </SectionTitle>
+    <!-- Cards Wrapper -->
+    <div
+      class="mt-[1.4375rem] flex gap-y-[1.9375rem] flex-wrap justify-between items-stretch"
+    >
+      <!-- Card -->
+      {
+        sortedPostsByDate.map((item: any) => (
+          <div class="rounded-[1.25rem] overflow-hidden drop-shadow-lg cardwidth flex flex-col">
+            <a
+              href={`/blog/${getSlug(item.file)}`}
+              class="hover:opacity-80 transition-all duration-300"
+            >
+              {/* Image */}
+              <div class="w-full pt-[62.87%] relative">
+                <Image
+                  src={images[getFormattedImagePath(item.frontmatter.image)]()}
+                  alt={item.frontmatter.imageAlt}
+                  class="w-full absolute top-0 left-0 object-cover h-full"
+                  width={404}
+                  height={254}
+                />
+              </div>
+
+              <div class="bg-beige py-[1.25rem] px-[1.125rem] flex flex-col flex-grow min-h-[11.375rem] justify-between">
+                <p class="font-bold text-[1.5625rem] leading-none line-clamp-3">
+                  {item.frontmatter.title}
+                </p>
+                <div class="flex items-center gap-x-[0.5rem] ">
                   <Image
-                    src={images[
-                      getFormattedImagePath(item.frontmatter.image)
-                    ]()}
-                    alt={item.frontmatter.imageAlt}
-                    class="w-full absolute top-0 left-0 object-cover h-full"
-                    width={404}
-                    height={254}
+                    src={avator}
+                    alt={item.frontmatter.author}
+                    width={30}
+                    height={30}
                   />
+                  <p class="italic">{item.frontmatter.author}</p>
                 </div>
+              </div>
 
-                <div class="bg-beige py-[1.25rem] px-[1.125rem] flex flex-col flex-grow min-h-[11.375rem] justify-between">
-                  <p class="font-bold text-[1.5625rem] leading-none line-clamp-3">
-                    {item.frontmatter.title}
-                  </p>
-                  <div class="flex items-center gap-x-[0.5rem] ">
-                    <Image
-                      src={avator}
-                      alt={item.frontmatter.author}
-                      width={30}
-                      height={30}
-                    />
-                    <p class="italic">{item.frontmatter.author}</p>
-                  </div>
-                </div>
-
-                <div class="bg-green py-[0.625rem] px-[1.125rem] text-white text-right">
-                  Read more
-                </div>
-              </a>
-            </div>
-          ))
-        }
-      </div>
-
-    </Inner>
-  </div>
+              <div class="bg-green py-[0.625rem] px-[1.125rem] text-white text-right">
+                Read more
+              </div>
+            </a>
+          </div>
+        ))
+      }
+    </div>
+  </Section>
 
   <!-- Social Media -->
-  <div class="bg-green ~px-[1rem]/[5rem] ~pt-[3rem]/[3.75rem]">
+  <section class="bg-green ~px-[1rem]/[5rem] ~pt-[3rem]/[3.75rem]">
     <Inner>
       <div class="flex justify-between items-center">
         <div class="~pb-[3rem]/[3.75rem]">
-          <h3 class="text-white text-[2.8125rem] font-bold">
+          <SectionTitle color="white" textalign="left">
             Follow us on Social Media!
-          </h3>
+          </SectionTitle>
           <div class="mt-[2rem]">
             <!-- SNS -->
             <div class="flex items-center gap-x-[1.75rem]">
@@ -127,30 +121,28 @@ const getFormattedImagePath = (imagePath: string) => {
         />
       </div>
     </Inner>
-  </div>
+  </section>
 
   <!-- CTA -->
-  <div class="bg-white ~px-[1rem]/[5rem] ~py-[3rem]/[3.75rem]">
-    <Inner>
-      <div class="flex justify-between items-center">
-        <div>
-          <h3 class="text-green text-[2.8125rem] font-bold">
-            Become our partner today!
-          </h3>
-          <div class="mt-[2rem]">
-            <Button text="Learn more" href="/education" />
-          </div>
+  <Section bg="white">
+    <div class="flex justify-between items-center">
+      <div>
+        <SectionTitle color="green" textalign="left">
+          Become our partner today!
+        </SectionTitle>
+        <div class="mt-[2rem]">
+          <Button text="Learn more" href="/education" />
         </div>
-
-        <Image
-          src={cta}
-          alt="Become our partner today!"
-          width={476}
-          height={304}
-        />
       </div>
-    </Inner>
-  </div>
+
+      <Image
+        src={cta}
+        alt="Become our partner today!"
+        width={476}
+        height={304}
+      />
+    </div>
+  </Section>
 </Layout>
 <style>
   .tagradius {

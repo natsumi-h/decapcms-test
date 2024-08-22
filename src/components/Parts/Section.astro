@@ -4,14 +4,16 @@ import Inner from "./Inner.astro";
 interface Props {
   bg: string;
   text?: string;
+  id?: string;
 }
 
-const { bg, text } = Astro.props;
+const { bg, text, id } = Astro.props;
 ---
 
 <section
   class=`bg-${bg} ~px-[1rem]/[5rem] ~py-[3rem]/[3.75rem] ${text === "white"?
   "text-white":"text-text"}`
+  id={id}
 >
   <Inner>
     <slot />

@@ -1,11 +1,12 @@
 ---
-import Inner from "@/components/Parts/Inner.astro";
 import PageTitleBanner from "@/components/Parts/PageTitleBanner.astro";
 import Socialmedia from "@/components/Socialmedia.astro";
 import Layout from "@/layouts/Layout.astro";
 import avator from "@/assets/images/blog/avator.png";
 import { Image } from "astro:assets";
 import Prose from "@/components/Prose.astro";
+import Section from "@/components/Parts/Section.astro";
+import SectionTitle from "@/components/Parts/SectionTitle.astro";
 
 export const getStaticPaths = async () => {
   const allPosts: Array<any> = await Astro.glob("@/content/blog/*.md");
@@ -48,47 +49,45 @@ const getFormattedImagePath = (imagePath: string) => {
 <Layout title="Blog & Media">
   <PageTitleBanner title="Blog & Media" bgmv="/blog/mvbg.png" />
 
-  <div class="bg-white ~px-[1rem]/[5rem] ~py-[3rem]/[3.75rem]">
-    <Inner>
-      <!-- Title -->
-      <h2 class="text-[2.8125rem] leading-normal font-bold text-green">
-        {post.frontmatter.title}
-      </h2>
-      <!-- Key Visual -->
-      <div class="max-w-[40.3125rem]">
-        <div
-          class="w-full pt-[62.87%] relative rounded-[1.25rem] overflow-hidden mt-[3.8125rem]"
-        >
-          <Image
-            src={images[getFormattedImagePath(post.frontmatter.image)]()}
-            alt={post.frontmatter.imageAlt}
-            class="w-full absolute top-0 left-0 object-cover h-full"
-            width={645}
-            height={411}
-          />
-        </div>
-      </div>
-      <!-- Author / Date -->
-      <div class="flex items-center gap-x-[1.25rem] mt-[1.5rem]">
+  <Section bg="white">
+    <!-- Title -->
+    <SectionTitle color="green" textalign="left">
+      {post.frontmatter.title}
+    </SectionTitle>
+    <!-- Key Visual -->
+    <div class="max-w-[40.3125rem]">
+      <div
+        class="w-full pt-[62.87%] relative rounded-[1.25rem] overflow-hidden mt-[3.8125rem]"
+      >
         <Image
-          src={avator}
-          alt={post.frontmatter.author}
-          width={50}
-          height={50}
+          src={images[getFormattedImagePath(post.frontmatter.image)]()}
+          alt={post.frontmatter.imageAlt}
+          class="w-full absolute top-0 left-0 object-cover h-full"
+          width={645}
+          height={411}
         />
-        <p class="italic text-[1.25rem]">
-          {post.frontmatter.author} -
-          {getFormattedDate(post.frontmatter.date)}
-        </p>
       </div>
+    </div>
+    <!-- Author / Date -->
+    <div class="flex items-center gap-x-[1.25rem] mt-[1.5rem]">
+      <Image
+        src={avator}
+        alt={post.frontmatter.author}
+        width={50}
+        height={50}
+      />
+      <p class="italic text-[1.25rem]">
+        {post.frontmatter.author} -
+        {getFormattedDate(post.frontmatter.date)}
+      </p>
+    </div>
 
-      <div class="mt-[1.5625rem]">
-        <Prose>
-          <Content />
-        </Prose>
-      </div>
-    </Inner>
-  </div>
+    <div class="mt-[1.5625rem]">
+      <Prose>
+        <Content />
+      </Prose>
+    </div>
+  </Section>
 
   <!-- Social -->
   <Socialmedia />

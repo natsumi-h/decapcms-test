@@ -1,91 +1,89 @@
 ---
-import Inner from "@/components/Parts/Inner.astro";
 import Button from "@/components/Parts/Button.astro";
 import Layout from "@/layouts/Layout.astro";
+import PageTitleBanner from "@/components/Parts/PageTitleBanner.astro";
+import Section from "@/components/Parts/Section.astro";
+import SectionTitle from "@/components/Parts/SectionTitle.astro";
 ---
 
 <Layout title="Terms & Conditions">
-  <div class="bg-beige pt-[13.125rem] text-center pb-[4.625rem]">
-    <h2 class="text-[2.8125rem] font-bold text-white underline">
-      Terms & Conditions
-    </h2>
-  </div>
+  <PageTitleBanner title="Terms & Conditions" />
 
-  <div class="bg-white ~px-[1rem]/[5rem] ~py-[3rem]/[3.75rem]">
-    <Inner>
-      <!-- Nav -->
-      <div>
-        <nav>
-          <ul class="flex gap-x-[0.875rem] items-center">
-            <li>
-              <Button text="T&C" href="#terms" />
-            </li>
-            <li>
-              <Button text="Privacy" href="#privacy" />
-            </li>
-            <li>
-              <Button text="Cookies" href="#cookies" />
-            </li>
-          </ul>
-        </nav>
-      </div>
-      <!-- Terms -->
-      <div id="terms" class="py-[1.8125rem] text-[1.25rem]">
-        <h3 class="text-green text-[2.8125rem] font-bold">Terms & Conditons</h3>
-        <p>
-          This website is operated by D2L.sg ("D2L.sg"). By accessing and using
-          this website, you agree to be bound by the following terms and
-          conditions of use ("Terms"). Please read them carefully before using
-          the website. If you do not agree with any part of these Terms, your
-          sole and exclusive remedy is to discontinue using this website.
+  <Section bg="white">
+    <nav>
+      <ul class="flex gap-x-[0.875rem] items-center">
+        <li>
+          <Button text="T&C" href="#terms" />
+        </li>
+        <li>
+          <Button text="Privacy" href="#privacy" />
+        </li>
+        <li>
+          <Button text="Cookies" href="#cookies" />
+        </li>
+      </ul>
+    </nav>
+  </Section>
+
+  <!-- Terms -->
+  <Section bg="white" id="terms">
+    <SectionTitle color="green" textalign="left">
+      Terms & Conditons
+    </SectionTitle>
+    <p>
+      This website is operated by D2L.sg ("D2L.sg"). By accessing and using this
+      website, you agree to be bound by the following terms and conditions of
+      use ("Terms"). Please read them carefully before using the website. If you
+      do not agree with any part of these Terms, your sole and exclusive remedy
+      is to discontinue using this website.
+    </p>
+    <ul class="mt-[1rem] flex flex-col gap-y-[1rem]">
+      <li>
+        <h4 class="text-orange font-bold">Use of Terms and Definitions</h4>
+        <p class="mt-[1rem]">
+          For simplicity and convenience, terms like "D2L.sg," "our," "we," and
+          "us" are used throughout this document to refer to D2L.sg and its
+          affiliates. The terms "you" and "your" refer to any users or visitors
+          of this website.
         </p>
-        <ul class="mt-[1rem] flex flex-col gap-y-[1rem]">
-          <li>
-            <h4 class="text-orange font-bold">Use of Terms and Definitions</h4>
-            <p class="mt-[1rem]">
-              For simplicity and convenience, terms like "D2L.sg," "our," "we,"
-              and "us" are used throughout this document to refer to D2L.sg and
-              its affiliates. The terms "you" and "your" refer to any users or
-              visitors of this website.
-            </p>
-          </li>
-          <li>
-            <h4 class="text-orange font-bold">Use of Terms and Definitions</h4>
-            <p class="mt-[1rem]">
-              For simplicity and convenience, terms like "D2L.sg," "our," "we,"
-              and "us" are used throughout this document to refer to D2L.sg and
-              its affiliates. The terms "you" and "your" refer to any users or
-              visitors of this website.
-            </p>
-          </li>
-          <li>
-            <h4 class="text-orange font-bold">Use of Terms and Definitions</h4>
-            <p class="mt-[1rem]">
-              For simplicity and convenience, terms like "D2L.sg," "our," "we,"
-              and "us" are used throughout this document to refer to D2L.sg and
-              its affiliates. The terms "you" and "your" refer to any users or
-              visitors of this website.
-            </p>
-          </li>
-          <li>
-            <h4 class="text-orange font-bold">Use of Terms and Definitions</h4>
-            <p class="mt-[1rem]">
-              For simplicity and convenience, terms like "D2L.sg," "our," "we,"
-              and "us" are used throughout this document to refer to D2L.sg and
-              its affiliates. The terms "you" and "your" refer to any users or
-              visitors of this website.
-            </p>
-          </li>
-        </ul>
-      </div>
-      <!-- PP -->
-      <div id="privacy" class="py-[1.8125rem] text-[1.25rem]">
-        <h3 class="text-green text-[2.8125rem] font-bold">Privacy Policy</h3>
-      </div>
-      <!-- Cookies -->
-      <div id="cookies" class="py-[1.8125rem] text-[1.25rem]">
-        <h3 class="text-green text-[2.8125rem] font-bold">Cookies Policy</h3>
-      </div>
-    </Inner>
-  </div>
+      </li>
+      <li>
+        <h4 class="text-orange font-bold">Use of Terms and Definitions</h4>
+        <p class="mt-[1rem]">
+          For simplicity and convenience, terms like "D2L.sg," "our," "we," and
+          "us" are used throughout this document to refer to D2L.sg and its
+          affiliates. The terms "you" and "your" refer to any users or visitors
+          of this website.
+        </p>
+      </li>
+      <li>
+        <h4 class="text-orange font-bold">Use of Terms and Definitions</h4>
+        <p class="mt-[1rem]">
+          For simplicity and convenience, terms like "D2L.sg," "our," "we," and
+          "us" are used throughout this document to refer to D2L.sg and its
+          affiliates. The terms "you" and "your" refer to any users or visitors
+          of this website.
+        </p>
+      </li>
+      <li>
+        <h4 class="text-orange font-bold">Use of Terms and Definitions</h4>
+        <p class="mt-[1rem]">
+          For simplicity and convenience, terms like "D2L.sg," "our," "we," and
+          "us" are used throughout this document to refer to D2L.sg and its
+          affiliates. The terms "you" and "your" refer to any users or visitors
+          of this website.
+        </p>
+      </li>
+    </ul>
+  </Section>
+
+  <!-- PP -->
+  <Section bg="white" id="privacy">
+    <SectionTitle color="green" textalign="left"> Privacy Policy </SectionTitle>
+  </Section>
+
+  <!-- Cookies -->
+  <Section bg="white" id="cookies">
+    <SectionTitle color="green" textalign="left">Cookies Policy</SectionTitle>
+  </Section>
 </Layout>

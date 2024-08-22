@@ -9,6 +9,7 @@ import dss from "@/assets/images/dss/dss.png";
 import signup from "@/assets/images/dss/signup.png";
 import Button from "@/components/Parts/Button.astro";
 import PageTitleBanner from "@/components/Parts/PageTitleBanner.astro";
+import SectionTitle from "@/components/Parts/SectionTitle.astro";
 
 const categoryData = [
   {
@@ -72,12 +73,12 @@ const serviceData = [
   <PageTitleBanner title="D2L.sg Surplus Savers" bgmv="/dss/mvbg.png" />
 
   <!-- What is DSS -->
-  <div class="bg-white ~px-[1rem]/[5rem] ~py-[3rem]/[3.75rem]">
+  <section class="bg-white ~px-[1rem]/[5rem] ~py-[3rem]/[3.75rem]">
     <Inner>
-      <h3 class="text-green text-[2.8125rem] font-bold">
-        Join the fight against food waste while addressing food<br /> insecurity
-        in Singapore as a D2L.sg Surplus Savers (DSS):
-      </h3>
+      <SectionTitle color="green" textalign="left">
+        Join the fight against food waste while addressing food insecurity in
+        Singapore as a D2L.sg Surplus Savers (DSS):
+      </SectionTitle>
       <p class="mt-[1rem] text-[1.25rem]">
         Gain valuable experience fighting food waste while empowering
         communities in Singapore with D2L.sg!
@@ -90,9 +91,9 @@ const serviceData = [
         mt-[1rem]"
       >
         <div>
-          <h3 class="text-green text-[2.8125rem] font-bold mt-[1rem]">
+          <h4 class="text-green text-[2.8125rem] font-bold mt-[1rem]">
             What is DSS?
-          </h3>
+          </h4>
           <p class="mt-[2rem]">
             D2L.sg Surplus Savers, commonly known as DSS, are a citizen-led
             movement to engage & serve our neighbors in terms of food waste
@@ -108,7 +109,7 @@ const serviceData = [
         <Image src={dss} alt="Lin QingHui" width={458} height={427} />
       </div>
     </Inner>
-  </div>
+  </section>
 
   <!-- What you'll do -->
   <Category category={categoryData} />
@@ -117,10 +118,16 @@ const serviceData = [
   <Service service={serviceData} />
 
   <!-- CTA What they say -->
-  <div class="bg-white ~px-[1rem]/[5rem] ~pt-[3rem]/[3.75rem]">
+  <section class="bg-white ~px-[1rem]/[5rem] ~pt-[3rem]/[3.75rem]">
     <Inner>
       <div class="flex justify-between items-end gap-x-[2.75rem]">
-        <Image src={signup} alt="Lin QingHui" width={480} height={381} class="w-full"/>
+        <Image
+          src={signup}
+          alt="Lin QingHui"
+          width={480}
+          height={381}
+          class="w-full"
+        />
 
         <div class="~pb-[3rem]/[3.75rem]">
           <p class="text-orange font-bold text-[2.8125rem] italic">
@@ -139,9 +146,9 @@ const serviceData = [
             </p>
           </div>
 
-          <h3 class="text-green text-[2.8125rem] font-bold mt-[1rem]">
+          <SectionTitle color="green" textalign="left">
             Sign Up as a DSS NOW!
-          </h3>
+          </SectionTitle>
           <p class="mt-[2rem]">
             By dedicating your time and efforts to this worthy cause, you can
             create a meaningful impact on the lives of others while actively
@@ -156,6 +163,5 @@ const serviceData = [
         </div>
       </div>
     </Inner>
-  </div>
+  </section>
 </Layout>
-

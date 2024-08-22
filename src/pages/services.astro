@@ -4,13 +4,14 @@ import Impact from "@/components/Impact.astro";
 import Layout from "@/layouts/Layout.astro";
 import impact1 from "@/assets/images/impact/impact1.png";
 import cta from "@/assets/images/services/cta.png";
-import Inner from "@/components/Parts/Inner.astro";
 import { Image } from "astro:assets";
 import Button from "@/components/Parts/Button.astro";
 import icon1 from "@/assets/images/services/ourservices/icon1.png";
 import approach1 from "@/assets/images/services/ourservices/approach1.png";
 import csr from "@/assets/images/services/ourservices/csr.png";
 import PageTitleBanner from "@/components/Parts/PageTitleBanner.astro";
+import Section from "@/components/Parts/Section.astro";
+import SectionTitle from "@/components/Parts/SectionTitle.astro";
 
 const categoryData = [
   {
@@ -97,172 +98,171 @@ const wastemanagementData = [
   <Category category={categoryData} />
 
   <!-- Services -->
-  <div class="bg-beige ~px-[1rem]/[5rem] ~py-[3rem]/[3.75rem]">
-    <Inner>
-      <h2 class="text-[2.8125rem] leading-normal font-bold text-green">
-        Our Services
-      </h2>
-      <!-- Cards Wrapper -->
-      <div class="mt-[1.4375rem] flex flex-col gap-y-[2.875rem]">
-        <!-- Card1 -->
-        <div>
-          <!-- tag -->
-          <div
-            class="bg-orange p-[1.25rem] text-white font-bold inline-block text-[1.875rem] tagradius"
-          >
-            <div class="flex items-center gap-x-[1.2rem]">
-              <Image src={icon1} alt="icon1" width={44.76} />
-              <p>Waste Management</p>
-            </div>
-          </div>
-
-          <!-- div -->
-          <div class="py-[2.5rem] px-[4rem] bg-white drop-shadow-md radius">
-            <p class="font-bold text-[1.875rem] text-green">
-              What is Waste Management?
-            </p>
-            <p class="mt-[0.5rem]">
-              A waste management system is a streamlined process that
-              organizations use to dispose of, reduce, reuse, and prevent waste.
-            </p>
-            <p
-              class="font-bold text-[1.875rem] text-green text-center mt-[1.5rem]"
-            >
-              Our ALL-in-1 Smart Management Approach
-            </p>
-            <!-- Cards -->
-            <div
-              class="mt-[1.25rem] flex items-center flex-wrap justify-between gap-y-[1.875rem]"
-            >
-              <!-- Card -->
-              {
-                wastemanagementData.map((data: any) => (
-                  <div class="w-[20.625rem] cardwidth">
-                    <Image
-                      src={data.image}
-                      alt="icon1"
-                      width={90}
-                      height={90}
-                      class="mx-auto"
-                    />
-                    <p class="mt-[2rem] text-[1.25rem]">{data.desctiprion}</p>
-                  </div>
-                ))
-              }
-            </div>
+  <Section bg="beige">
+    <SectionTitle textalign="left" color="green"> Our Services </SectionTitle>
+    <!-- Cards Wrapper -->
+    <div class="mt-[1.4375rem] flex flex-col gap-y-[2.875rem]">
+      <!-- Card1 -->
+      <div>
+        <!-- tag -->
+        <div
+          class="bg-orange p-[1.25rem] text-white font-bold inline-block text-[1.875rem] tagradius"
+        >
+          <div class="flex items-center gap-x-[1.2rem]">
+            <Image src={icon1} alt="icon1" width={44.76} />
+            <p>Waste Management</p>
           </div>
         </div>
 
-        <!-- Card2 -->
-        <div>
-          <!-- tag -->
-          <div
-            class="bg-orange p-[1.25rem] text-white font-bold inline-block text-[1.875rem] tagradius"
+        <!-- div -->
+        <div class="py-[2.5rem] px-[4rem] bg-white drop-shadow-md radius">
+          <p class="font-bold text-[1.875rem] text-green">
+            What is Waste Management?
+          </p>
+          <p class="mt-[0.5rem]">
+            A waste management system is a streamlined process that
+            organizations use to dispose of, reduce, reuse, and prevent waste.
+          </p>
+          <p
+            class="font-bold text-[1.875rem] text-green text-center mt-[1.5rem]"
           >
-            <div class="flex items-center gap-x-[1.2rem]">
-              <Image src={icon1} alt="icon1" width={44.76} />
-              <p>Waste Management</p>
-            </div>
+            Our ALL-in-1 Smart Management Approach
+          </p>
+          <!-- Cards -->
+          <div
+            class="mt-[1.25rem] flex items-center flex-wrap justify-between gap-y-[1.875rem]"
+          >
+            <!-- Card -->
+            {
+              wastemanagementData.map((data: any) => (
+                <div class="w-[20.625rem] cardwidth">
+                  <Image
+                    src={data.image}
+                    alt="icon1"
+                    width={90}
+                    height={90}
+                    class="mx-auto"
+                  />
+                  <p class="mt-[2rem] text-[1.25rem]">{data.desctiprion}</p>
+                </div>
+              ))
+            }
           </div>
+        </div>
+      </div>
 
-          <!-- div -->
-          <div class="py-[2.5rem] px-[4rem] bg-white drop-shadow-md radius">
-            <!-- Flex -->
-            <div class="flex items-center gap-x-[1.8125rem] justify-between">
-              <div class="w-[66.57%] flex-shrink">
-                <p class="font-bold text-[1.875rem] text-green">
-                  Work with us on a customised programme
-                </p>
-                <p class="mt-[0.5rem]">
-                  Programmes such as events, workshops, talks can be done
-                  on-site or online, with a focus on reducing food waste in
-                  Singapore towards a zero waste future.
-                </p>
-              </div>
-              <div >
-                <Image src={csr} alt="csr" width={327} height={173} class="w-full"/>
-              </div>
-            </div>
+      <!-- Card2 -->
+      <div>
+        <!-- tag -->
+        <div
+          class="bg-orange p-[1.25rem] text-white font-bold inline-block text-[1.875rem] tagradius"
+        >
+          <div class="flex items-center gap-x-[1.2rem]">
+            <Image src={icon1} alt="icon1" width={44.76} />
+            <p>Waste Management</p>
+          </div>
+        </div>
 
-            <!--  -->
-            <div class="mt-[4.8125rem]">
+        <!-- div -->
+        <div class="py-[2.5rem] px-[4rem] bg-white drop-shadow-md radius">
+          <!-- Flex -->
+          <div class="flex items-center gap-x-[1.8125rem] justify-between">
+            <div class="w-[66.57%] flex-shrink">
               <p class="font-bold text-[1.875rem] text-green">
-                A learning and experiential opportunity
+                Work with us on a customised programme
               </p>
               <p class="mt-[0.5rem]">
-                Get educated on the food waste issue in Singapore through our
-                Programme, experience how food surplus is rescued, learn to
-                repurpose and/or redistribute your rescued items to
-                predetermined communities for quantifiable environmental and
-                social impact.
+                Programmes such as events, workshops, talks can be done on-site
+                or online, with a focus on reducing food waste in Singapore
+                towards a zero waste future.
               </p>
             </div>
+            <div>
+              <Image
+                src={csr}
+                alt="csr"
+                width={327}
+                height={173}
+                class="w-full"
+              />
+            </div>
+          </div>
 
-            <!-- Flex -->
-            <div
-              class="flex items-center mt-[2.3125rem] gap-x-[2rem] justify-center"
-            >
-              <div class="halfwidth">
-                <p class="font-bold text-green2 text-[1.5625rem] italic">
-                  Local Businesses
-                </p>
-                <p class="mt-[0.5rem]">
-                  D2L.sg partners with GoodHood.sg⁵ to leverage on their
-                  community for redistribution and we work closely to expand
-                  their app features.
-                </p>
-              </div>
-              <div class="halfwidth">
-                <p class="font-bold text-green2 text-[1.5625rem] italic">
-                  D2L.sg’s Partners
-                </p>
-                <p class="mt-[0.5rem]">
-                  Assist the businesses we partner with, such as importers and
-                  distributors, to manage their surplus food.
-                </p>
-              </div>
+          <!--  -->
+          <div class="mt-[4.8125rem]">
+            <p class="font-bold text-[1.875rem] text-green">
+              A learning and experiential opportunity
+            </p>
+            <p class="mt-[0.5rem]">
+              Get educated on the food waste issue in Singapore through our
+              Programme, experience how food surplus is rescued, learn to
+              repurpose and/or redistribute your rescued items to predetermined
+              communities for quantifiable environmental and social impact.
+            </p>
+          </div>
+
+          <!-- Flex -->
+          <div
+            class="flex items-center mt-[2.3125rem] gap-x-[2rem] justify-center"
+          >
+            <div class="halfwidth">
+              <p class="font-bold text-green2 text-[1.5625rem] italic">
+                Local Businesses
+              </p>
+              <p class="mt-[0.5rem]">
+                D2L.sg partners with GoodHood.sg⁵ to leverage on their community
+                for redistribution and we work closely to expand their app
+                features.
+              </p>
+            </div>
+            <div class="halfwidth">
+              <p class="font-bold text-green2 text-[1.5625rem] italic">
+                D2L.sg’s Partners
+              </p>
+              <p class="mt-[0.5rem]">
+                Assist the businesses we partner with, such as importers and
+                distributors, to manage their surplus food.
+              </p>
             </div>
           </div>
         </div>
       </div>
-      <!-- Get a quote! -->
-      <div class="mt-[3.25rem] mx-auto text-center">
-        <a
-          href="/"
-          class="drop-shadow-md py-[0.75rem] px-[1.406rem] bg-orange text-white text-[1.5625rem] leading-normal font-bold rounded-[1.25rem] inline-block w-[33.5625rem] max-w-full"
-          >Get A Quote</a
-        >
-      </div>
-    </Inner>
-  </div>
+    </div>
+    <!-- Get a quote! -->
+    <div class="mt-[3.25rem] mx-auto text-center">
+      <a
+        href="/"
+        class="drop-shadow-md py-[0.75rem] px-[1.406rem] bg-orange text-white text-[1.5625rem] leading-normal font-bold rounded-[1.25rem] inline-block w-[33.5625rem] max-w-full"
+        >Get A Quote</a
+      >
+    </div>
+  </Section>
 
   <!-- Our Impact -->
   <Impact impact={impactData} />
 
   <!-- CTA -->
-  <div class="bg-white ~px-[1rem]/[5rem] ~py-[3rem]/[3.75rem]">
-    <Inner>
-      <h3 class="text-green text-[2.8125rem] font-bold leading-none">
-        Wondering How Much Impact<br />Can One Person Make?
-      </h3>
+  <Section bg="white">
+    <SectionTitle textalign="left" color="green">
+      Wondering How Much Impact<br />Can One Person Make?
+    </SectionTitle>
 
-      <div class="flex justify-between items-center gap-x-[6rem]">
-        <div>
-          <p class="text-orange font-bold text-[3.4375rem]">Join as a DSS!</p>
-          <p class="mt-[2rem]">
-            D2L.sg Surplus Savers, or frequently known as DSS, are a subset of
-            D2L.sg’s team who are trained to divert Surplus/Waste to its highest
-            and best use according to the food recovery hierarchy.
-          </p>
-          <div class="mt-[2rem]">
-            <Button text="Learn more" href="/" />
-          </div>
+    <div class="flex justify-between items-center gap-x-[6rem]">
+      <div>
+        <p class="text-orange font-bold text-[3.4375rem]">Join as a DSS!</p>
+        <p class="mt-[2rem]">
+          D2L.sg Surplus Savers, or frequently known as DSS, are a subset of
+          D2L.sg’s team who are trained to divert Surplus/Waste to its highest
+          and best use according to the food recovery hierarchy.
+        </p>
+        <div class="mt-[2rem]">
+          <Button text="Learn more" href="/" />
         </div>
-
-        <Image src={cta} alt="Lin QingHui" width={480} height={381} />
       </div>
-    </Inner>
-  </div>
+
+      <Image src={cta} alt="Lin QingHui" width={480} height={381} />
+    </div>
+  </Section>
 </Layout>
 
 <style>

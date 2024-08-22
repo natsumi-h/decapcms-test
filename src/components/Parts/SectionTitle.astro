@@ -2,15 +2,16 @@
 interface Props {
   textalign: "center" | "left" | "right";
   color: string;
+  italic?: boolean;
 }
 
-const { textalign, color } = Astro.props;
+const { textalign, color, italic } = Astro.props;
 ---
 
 <h3
   class=`~text-[2rem]/[2.8125rem] leading-normal font-bold ${textalign === "center"
 ? "text-center" : textalign === "left" ? "text-left" : "text-right"} text-${color
-}`
+} ${italic ? "italic" : ""}`
 >
   <slot />
 </h3>

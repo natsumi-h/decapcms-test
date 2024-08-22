@@ -1,5 +1,4 @@
 ---
-import Inner from "@/components/Parts/Inner.astro";
 import Layout from "@/layouts/Layout.astro";
 import { Image } from "astro:assets";
 import surplusfood from "@/assets/images/education/surplusfood.png";
@@ -17,6 +16,8 @@ import sdg3 from "@/assets/images/education/sdg3.png";
 import sdg4 from "@/assets/images/education/sdg4.png";
 import sdg5 from "@/assets/images/education/sdg5.png";
 import PageTitleBanner from "@/components/Parts/PageTitleBanner.astro";
+import Section from "@/components/Parts/Section.astro";
+import SectionTitle from "@/components/Parts/SectionTitle.astro";
 
 const impactData = [
   {
@@ -89,377 +90,359 @@ const process = [
 ---
 
 <Layout title="Food Waste 101">
-  <PageTitleBanner title="Food Surplus & Waste 101" bgmv="/education/mvbg.png" />
+  <PageTitleBanner
+    title="Food Surplus & Waste 101"
+    bgmv="/education/mvbg.png"
+  />
 
   <!-- What is Food Waste? -->
-  <div class="bg-white ~px-[1rem]/[5rem] ~py-[3rem]/[3.75rem]">
-    <Inner>
-      <div>
-        <h3 class="text-green text-[2.8125rem] font-bold">
-          Actually, what is Food Waste?
-        </h3>
-        <p class="mt-[1rem] text-[1.25rem]">
-          Food Waste = Food that could have been consumed or channelled to
-          alternative use if better managed, but are consciously discarded (i.e.
-          scraps, blemished, surplus & unsellable food, or food past best before
-          date & expired food, etc).
-        </p>
-      </div>
+  <Section bg="white">
+    <div>
+      <SectionTitle color="green" textalign="left">
+        Actually, what is Food Waste?
+      </SectionTitle>
+      <p class="mt-[1rem] text-[1.25rem]">
+        Food Waste = Food that could have been consumed or channelled to
+        alternative use if better managed, but are consciously discarded (i.e.
+        scraps, blemished, surplus & unsellable food, or food past best before
+        date & expired food, etc).
+      </p>
+    </div>
 
-      <div class="mt-[1rem]">
-        <h3 class="text-green text-[2.8125rem] font-bold">
-          Why Focus on Surplus Food?
-        </h3>
+    <div class="mt-[1rem]">
+      <SectionTitle color="green" textalign="left">
+        Why Focus on Surplus Food?
+      </SectionTitle>
 
-        <div
-          class="flex
+      <div
+        class="flex
         justify-between
         items-center
         gap-x-[2.75rem]
         mt-[1rem]"
-        >
+      >
+        <div>
+          <Image src={surplusfood} alt="Lin QingHui" width={458} height={427} />
+          <p class="mt-[3.4375rem] text-[1.25rem]">
+            Source: <a class="underline" href="/" target="_blank"
+              >NEA News - Waste Generation And Recycling Rates Increased In 2022
+              As Economic Activity Picked Up</a
+            >
+          </p>
+        </div>
+
+        <div>
           <div>
-            <Image
-              src={surplusfood}
-              alt="Lin QingHui"
-              width={458}
-              height={427}
-            />
-            <p class="mt-[3.4375rem] text-[1.25rem]">
-              Source: <a class="underline" href="/" target="_blank"
-                >NEA News - Waste Generation And Recycling Rates Increased In
-                2022 As Economic Activity Picked Up</a
-              >
+            <p class="text-[1.875rem] text-green font-bold">
+              Environmental Impact
+            </p>
+            <p class="text-[1.25rem]">
+              With food waste being a direct contributor to GHGs, targeting food
+              waste is the most impactful solution for climate change to prevent
+              2˚C temperature rise by 2100 (Project Drawdown).
             </p>
           </div>
-
-          <div>
-            <div>
-              <p class="text-[1.875rem] text-green font-bold">
-                Environmental Impact
-              </p>
-              <p class="text-[1.25rem]">
-                With food waste being a direct contributor to GHGs, targeting
-                food waste is the most impactful solution for climate change to
-                prevent 2˚C temperature rise by 2100 (Project Drawdown).
-              </p>
-            </div>
-            <div class="mt-[2.4375rem]">
-              <p class="text-[1.875rem] text-green font-bold">
-                Community Impact
-              </p>
-              <p class="text-[1.25rem]">
-                The cost of living in Singapore is set to continue to rise,
-                along with it comes an increased stress on food security.
-              </p>
-              <p class="mt-[2rem] text-[1.25rem]">
-                Diverting even a portion of the food surplus to communities
-                instead of disposing it, will have an impact.
-              </p>
-            </div>
+          <div class="mt-[2.4375rem]">
+            <p class="text-[1.875rem] text-green font-bold">Community Impact</p>
+            <p class="text-[1.25rem]">
+              The cost of living in Singapore is set to continue to rise, along
+              with it comes an increased stress on food security.
+            </p>
+            <p class="mt-[2rem] text-[1.25rem]">
+              Diverting even a portion of the food surplus to communities
+              instead of disposing it, will have an impact.
+            </p>
           </div>
         </div>
       </div>
-    </Inner>
-  </div>
+    </div>
+  </Section>
 
   <!-- Impact -->
   <Impact impact={impactData} />
 
   <!-- Hierarchy -->
-  <div class="bg-white ~px-[1rem]/[5rem] ~py-[3rem]/[3.75rem]">
-    <Inner>
+  <Section bg="white">
+    <div>
+      <SectionTitle color="green" textalign="left">
+        Do you know that there is an official framework to manage food waste?
+      </SectionTitle>
+      <p class="mt-[1rem] text-[1.25rem]">
+        <span class="font-bold">Food recovery hierarchy</span> is a guide to minimize
+        food waste by prioritizing categories. <span class="font-bold"
+          >All Waste Generating Entities</span
+        > are encouraged to adopt recommended practices to prevent food waste and
+        redirect food surplus/waste
+      </p>
+    </div>
+
+    <!-- Flex -->
+    <div class="flex items-start mt-[1.875rem] justify-between">
       <div>
-        <h3 class="text-green text-[2.8125rem] font-bold leading-none">
-          Do you know that there is an official framework to manage food waste?
-        </h3>
-        <p class="mt-[1rem] text-[1.25rem]">
-          <span class="font-bold">Food recovery hierarchy</span> is a guide to minimize
-          food waste by prioritizing categories. <span class="font-bold"
-            >All Waste Generating Entities</span
-          > are encouraged to adopt recommended practices to prevent food waste and
-          redirect food surplus/waste
+        <Image src={hierarchy} alt="Lin QingHui" width={380} height={530} />
+        <p class="mt-[3.4375rem] text-[1.25rem]">
+          Source: <a
+            class="underline"
+            href="https://www.nea.gov.sg/our-services/waste-management/3r-programmes-and-resources/food-waste-management"
+            target="_blank"
+          >
+            National Environment Agency, 2024
+          </a>
         </p>
       </div>
 
-      <!-- Flex -->
-      <div class="flex items-start mt-[1.875rem] justify-between">
-        <div>
-          <Image src={hierarchy} alt="Lin QingHui" width={380} height={530} />
-          <p class="mt-[3.4375rem] text-[1.25rem]">
-            Source: <a
-              class="underline"
-              href="https://www.nea.gov.sg/our-services/waste-management/3r-programmes-and-resources/food-waste-management"
-              target="_blank"
-            >
-              National Environment Agency, 2024
-            </a>
-          </p>
-        </div>
-
-        <div class="w-[59%]">
-          <ul class="flex flex-col gap-y-[1.976rem]">
-            {
-              process.map((item, index) => (
-                <li
-                  class="drop-shadow-lg bg-beige rounded-[1.25rem]"
-                  id={`faq${index + 2}`}
-                >
-                  {/* <!-- Question --> */}
-                  <div class="transition-all duration-300 question py-[1.5625rem] px-[2.1875rem] bg-green text-white font-bold text-[1.875rem] rounded-[1.25rem] flex justify-between items-center">
-                    <p>{item.question}</p>
-                    <button class="toggle-button">
-                      <Image
-                        src={toggle}
-                        alt="Toggle"
-                        width={32}
-                        height={32}
-                        class="hamburger"
-                      />
-                      <Image
-                        src={arrow}
-                        alt="Toggle"
-                        width={32}
-                        height={32}
-                        class="arrow hidden"
-                      />
-                    </button>
-                  </div>
-                  {/* <!-- Answer --> */}
-                  <div class="answer px-[2.875rem] py-[1.8125rem] hidden">
-                    <p>
-                      {/* {faq.answer} */}
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      <br />
-                      Nullam a metus nec nunc ultrices. Nullam a metus nec nunc
-                      ultrices.Lorem ipsum dolor sit amet, consectetur
-                      adipiscing elit. Nullam a metus nec nunc ultrices.
-                      <br /> Nullam a metus nec nunc ultrices.Lorem ipsum dolor
-                      sit amet, consectetur adipiscing elit. Nullam a metus nec
-                      nunc ultrices.
-                      <br /> Nullam a metus nec nunc ultrices.
-                    </p>
-                  </div>
-                </li>
-              ))
-            }
-          </ul>
-        </div>
+      <div class="w-[59%]">
+        <ul class="flex flex-col gap-y-[1.976rem]">
+          {
+            process.map((item, index) => (
+              <li
+                class="drop-shadow-lg bg-beige rounded-[1.25rem]"
+                id={`faq${index + 2}`}
+              >
+                {/* <!-- Question --> */}
+                <div class="transition-all duration-300 question py-[1.5625rem] px-[2.1875rem] bg-green text-white font-bold text-[1.875rem] rounded-[1.25rem] flex justify-between items-center">
+                  <p>{item.question}</p>
+                  <button class="toggle-button">
+                    <Image
+                      src={toggle}
+                      alt="Toggle"
+                      width={32}
+                      height={32}
+                      class="hamburger"
+                    />
+                    <Image
+                      src={arrow}
+                      alt="Toggle"
+                      width={32}
+                      height={32}
+                      class="arrow hidden"
+                    />
+                  </button>
+                </div>
+                {/* <!-- Answer --> */}
+                <div class="answer px-[2.875rem] py-[1.8125rem] hidden">
+                  <p>
+                    {/* {faq.answer} */}
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    <br />
+                    Nullam a metus nec nunc ultrices. Nullam a metus nec nunc
+                    ultrices.Lorem ipsum dolor sit amet, consectetur adipiscing
+                    elit. Nullam a metus nec nunc ultrices.
+                    <br /> Nullam a metus nec nunc ultrices.Lorem ipsum dolor
+                    sit amet, consectetur adipiscing elit. Nullam a metus nec
+                    nunc ultrices.
+                    <br /> Nullam a metus nec nunc ultrices.
+                  </p>
+                </div>
+              </li>
+            ))
+          }
+        </ul>
       </div>
-    </Inner>
-  </div>
+    </div>
+  </Section>
 
   <!-- Moving Towards -->
-  <div class="bg-beige ~px-[1rem]/[5rem] ~py-[3rem]/[3.75rem]">
-    <Inner>
-      <div>
-        <h3 class="text-green text-[2.1875rem] font-bold italic">
-          Moving Towards...
-        </h3>
-        <!-- Cards -->
+  <Section bg="beige">
+    <div>
+      <SectionTitle color="green" textalign="left" italic>
+        Moving Towards...
+      </SectionTitle>
+      <!-- Cards -->
+      <div
+        class="max-w-[78.625rem] mx-auto mt-[2.75rem] flex gap-x-[1.5625rem]"
+      >
+        <!-- Card -->
         <div
-          class="max-w-[78.625rem] mx-auto mt-[2.75rem] flex gap-x-[1.5625rem]"
+          class="rounded-[1.25rem] overflow-hidden drop-shadow-md cardwidth2 flex flex-col"
         >
-          <!-- Card -->
           <div
-            class="rounded-[1.25rem] overflow-hidden drop-shadow-md cardwidth2 flex flex-col"
+            class="drop-shadow-md bg-orange text-white py-[1.6875rem] text-center px-[2.875rem] text-[1.875rem] leading-none font-bold flex items-center min-h-[7.125rem]"
           >
-            <div
-              class="drop-shadow-md bg-orange text-white py-[1.6875rem] text-center px-[2.875rem] text-[1.875rem] leading-none font-bold flex items-center min-h-[7.125rem]"
-            >
-              <p class="mx-auto">SG Green Plan 2030</p>
-            </div>
-            <div
-              class="bg-white py-[2rem] px-[2.1875rem] text-[1.25rem] leading-none flex-grow"
-            >
-              <Image
-                src={sggreen}
-                alt="SG Green Plan 2030"
-                width={373}
-                height={98}
-              />
-              <div class="mt-[1rem]">
-                <p class="text-[1.5625rem] font-bold text-green leading-normal">
-                  What is SG Green Plan?
-                </p>
-                <p class="text-[1.25rem] leading-normal">
-                  Singapore Green Plan 2030 charts ambitious and concrete
-                  targets to advance Singapore’s national agenda on sustainable
-                  development. With 5 key pillars.
-                </p>
-              </div>
-              <div class="mt-[1.375rem]">
-                <p class="text-[1.5625rem] font-bold text-green leading-normal">
-                  What are the 5 pillars?
-                </p>
-                <p class="text-[1.25rem] leading-normal">
-                  <ul class="text-[1.25rem] leading-normal">
-                    <li>City in Nature</li>
-                    <li>Sustainable Living</li>
-                    <li>Energy Reset</li>
-                    <li>Green Economy</li>
-                    <li>Resilient Future</li>
-                  </ul>
-                </p>
-              </div>
-            </div>
+            <p class="mx-auto">SG Green Plan 2030</p>
           </div>
-          <!-- Card -->
           <div
-            class="rounded-[1.25rem] overflow-hidden drop-shadow-md cardwidth2 flex flex-col"
+            class="bg-white py-[2rem] px-[2.1875rem] text-[1.25rem] leading-none flex-grow"
           >
-            <div
-              class="drop-shadow-md bg-orange text-white py-[1.6875rem] text-center px-[2.875rem] text-[1.875rem] leading-none font-bold flex items-center min-h-[7.125rem]"
-            >
-              <p class="mx-auto">Net Zero &<br /> ESG Reporting</p>
+            <Image
+              src={sggreen}
+              alt="SG Green Plan 2030"
+              width={373}
+              height={98}
+            />
+            <div class="mt-[1rem]">
+              <p class="text-[1.5625rem] font-bold text-green leading-normal">
+                What is SG Green Plan?
+              </p>
+              <p class="text-[1.25rem] leading-normal">
+                Singapore Green Plan 2030 charts ambitious and concrete targets
+                to advance Singapore’s national agenda on sustainable
+                development. With 5 key pillars.
+              </p>
             </div>
-            <div
-              class="bg-white py-[2rem] px-[2.1875rem] text-[1.25rem] leading-none flex-grow"
-            >
-              <Image
-                src={netzero}
-                alt="NetZero2050"
-                width={111}
-                height={111}
-                class="mx-auto"
-              />
-              <div class="mt-[1rem]">
-                <p class="text-[1.5625rem] font-bold text-green leading-normal">
-                  Net Zero
-                </p>
-                <p class="text-[1.25rem] leading-normal">
-                  Net zero means cutting carbon emissions to a small amount of
-                  residual emissions that can be absorbed and durably stored by
-                  nature and other carbon dioxide removal measures, leaving zero
-                  in the atmosphere.
-                </p>
-              </div>
-              <div class="mt-[1.375rem]">
-                <p class="text-[1.5625rem] font-bold text-green leading-normal">
-                  ESG Reporting
-                </p>
-                <p class="text-[1.25rem] leading-normal">
-                  Sustainability reports of environmental, social and governance
-                  (“ESG”) factors show the risks and opportunities within sight,
-                  managed for future returns.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card -->
-          <div
-            class="rounded-[1.25rem] overflow-hidden drop-shadow-md cardwidth2 flex flex-col"
-          >
-            <div
-              class="drop-shadow-md bg-orange text-white py-[1.6875rem] text-center px-[2.875rem] text-[1.875rem] leading-none font-bold flex items-center min-h-[7.125rem]"
-            >
-              <p class="mx-auto">UN SDGS 2030</p>
-            </div>
-            <div
-              class="bg-white py-[2rem] px-[2.1875rem] text-[1.25rem] leading-none flex-grow"
-            >
-              <ul class="flex flex-col gap-y-[1.375rem]">
-                <li class="flex gap-x-[0.875rem]">
-                  <Image src={sdg1} alt="Zero Hunger" width={80} height={80} />
-                  <p class="text-[1.25rem] font-bold text-green leading-normal">
-                    Zero Hunger
-                  </p>
-                </li>
-                <li class="flex gap-x-[0.875rem]">
-                  <Image
-                    src={sdg2}
-                    alt="Good Health & Wellbeing"
-                    width={80}
-                    height={80}
-                  />
-                  <p class="text-[1.25rem] font-bold text-green leading-normal">
-                    Good Health & Wellbeing
-                  </p>
-                </li>
-                <li class="flex gap-x-[0.875rem]">
-                  <Image
-                    src={sdg3}
-                    alt="Sustainable Cities & Communities"
-                    width={80}
-                    height={80}
-                  />
-                  <p class="text-[1.25rem] font-bold text-green leading-normal">
-                    Sustainable Cities & Communities
-                  </p>
-                </li>
-                <li class="flex gap-x-[0.875rem]">
-                  <Image
-                    src={sdg4}
-                    alt="Responsible Consumption & Production"
-                    width={80}
-                    height={80}
-                  />
-                  <p class="text-[1.25rem] font-bold text-green leading-normal">
-                    Responsible Consumption & Production
-                  </p>
-                </li>
-                <li class="flex gap-x-[0.875rem]">
-                  <Image
-                    src={sdg5}
-                    alt="Climate Action"
-                    width={80}
-                    height={80}
-                  />
-                  <p class="text-[1.25rem] font-bold text-green leading-normal">
-                    Climate Action
-                  </p>
-                </li>
-              </ul>
+            <div class="mt-[1.375rem]">
+              <p class="text-[1.5625rem] font-bold text-green leading-normal">
+                What are the 5 pillars?
+              </p>
+              <p class="text-[1.25rem] leading-normal">
+                <ul class="text-[1.25rem] leading-normal">
+                  <li>City in Nature</li>
+                  <li>Sustainable Living</li>
+                  <li>Energy Reset</li>
+                  <li>Green Economy</li>
+                  <li>Resilient Future</li>
+                </ul>
+              </p>
             </div>
           </div>
         </div>
+        <!-- Card -->
+        <div
+          class="rounded-[1.25rem] overflow-hidden drop-shadow-md cardwidth2 flex flex-col"
+        >
+          <div
+            class="drop-shadow-md bg-orange text-white py-[1.6875rem] text-center px-[2.875rem] text-[1.875rem] leading-none font-bold flex items-center min-h-[7.125rem]"
+          >
+            <p class="mx-auto">Net Zero &<br /> ESG Reporting</p>
+          </div>
+          <div
+            class="bg-white py-[2rem] px-[2.1875rem] text-[1.25rem] leading-none flex-grow"
+          >
+            <Image
+              src={netzero}
+              alt="NetZero2050"
+              width={111}
+              height={111}
+              class="mx-auto"
+            />
+            <div class="mt-[1rem]">
+              <p class="text-[1.5625rem] font-bold text-green leading-normal">
+                Net Zero
+              </p>
+              <p class="text-[1.25rem] leading-normal">
+                Net zero means cutting carbon emissions to a small amount of
+                residual emissions that can be absorbed and durably stored by
+                nature and other carbon dioxide removal measures, leaving zero
+                in the atmosphere.
+              </p>
+            </div>
+            <div class="mt-[1.375rem]">
+              <p class="text-[1.5625rem] font-bold text-green leading-normal">
+                ESG Reporting
+              </p>
+              <p class="text-[1.25rem] leading-normal">
+                Sustainability reports of environmental, social and governance
+                (“ESG”) factors show the risks and opportunities within sight,
+                managed for future returns.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card -->
+        <div
+          class="rounded-[1.25rem] overflow-hidden drop-shadow-md cardwidth2 flex flex-col"
+        >
+          <div
+            class="drop-shadow-md bg-orange text-white py-[1.6875rem] text-center px-[2.875rem] text-[1.875rem] leading-none font-bold flex items-center min-h-[7.125rem]"
+          >
+            <p class="mx-auto">UN SDGS 2030</p>
+          </div>
+          <div
+            class="bg-white py-[2rem] px-[2.1875rem] text-[1.25rem] leading-none flex-grow"
+          >
+            <ul class="flex flex-col gap-y-[1.375rem]">
+              <li class="flex gap-x-[0.875rem]">
+                <Image src={sdg1} alt="Zero Hunger" width={80} height={80} />
+                <p class="text-[1.25rem] font-bold text-green leading-normal">
+                  Zero Hunger
+                </p>
+              </li>
+              <li class="flex gap-x-[0.875rem]">
+                <Image
+                  src={sdg2}
+                  alt="Good Health & Wellbeing"
+                  width={80}
+                  height={80}
+                />
+                <p class="text-[1.25rem] font-bold text-green leading-normal">
+                  Good Health & Wellbeing
+                </p>
+              </li>
+              <li class="flex gap-x-[0.875rem]">
+                <Image
+                  src={sdg3}
+                  alt="Sustainable Cities & Communities"
+                  width={80}
+                  height={80}
+                />
+                <p class="text-[1.25rem] font-bold text-green leading-normal">
+                  Sustainable Cities & Communities
+                </p>
+              </li>
+              <li class="flex gap-x-[0.875rem]">
+                <Image
+                  src={sdg4}
+                  alt="Responsible Consumption & Production"
+                  width={80}
+                  height={80}
+                />
+                <p class="text-[1.25rem] font-bold text-green leading-normal">
+                  Responsible Consumption & Production
+                </p>
+              </li>
+              <li class="flex gap-x-[0.875rem]">
+                <Image src={sdg5} alt="Climate Action" width={80} height={80} />
+                <p class="text-[1.25rem] font-bold text-green leading-normal">
+                  Climate Action
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
-    </Inner>
-  </div>
+    </div>
+  </Section>
 
   <!-- Join Us -->
-  <div class="~px-[1rem]/[5rem] ~py-[3rem]/[3.75rem]">
-    <Inner>
-      <h3 class="text-[2.8125rem] font-bold text-green leading-none">
-        Want to contribute towards this goal?<br /> Join us!
-      </h3>
+  <Section bg="white">
+    <SectionTitle textalign="left" color="green">
+      Want to contribute towards this goal?<br /> Join us!
+    </SectionTitle>
 
-      <!-- Cards -->
-      <div
-        class="flex mt-[3.625rem] flex-wrap justify-between gap-x-[2.0625rem]"
-      >
-        <!-- Card -->
-        {
-          joiunusData.map((item: any) => (
-            <div class="rounded-[1.25rem] overflow-hidden drop-shadow-lg cardwidth cardwidth">
-              <a href={item.href}>
-                <div>
-                  {/* Image */}
-                  <div class="">
-                    <Image
-                      src={item.image}
-                      alt="image"
-                      class="w-full"
-                      width={627}
-                      height={372}
-                      class="bg-cover bg-top"
-                    />
-                  </div>
+    <!-- Cards -->
+    <div class="flex mt-[3.625rem] flex-wrap justify-between gap-x-[2.0625rem]">
+      <!-- Card -->
+      {
+        joiunusData.map((item: any) => (
+          <div class="rounded-[1.25rem] overflow-hidden drop-shadow-lg cardwidth cardwidth">
+            <a href={item.href}>
+              <div>
+                {/* Image */}
+                <div class="">
+                  <Image
+                    src={item.image}
+                    alt="image"
+                    class="w-full"
+                    width={627}
+                    height={372}
+                    class="bg-cover bg-top"
+                  />
                 </div>
-                <div class="bg-green py-[1.375rem] px-[1.75rem]">
-                  <p class="font-bold text-[1.875rem] leading-none text-white">
-                    {item.title}
-                  </p>
-                </div>
-              </a>
-            </div>
-          ))
-        }
-      </div>
-    </Inner>
-  </div>
+              </div>
+              <div class="bg-green py-[1.375rem] px-[1.75rem]">
+                <p class="font-bold text-[1.875rem] leading-none text-white">
+                  {item.title}
+                </p>
+              </div>
+            </a>
+          </div>
+        ))
+      }
+    </div>
+  </Section>
 </Layout>
+
 <style>
   .cardwidth {
     width: calc(50% - 2.0625rem / 2);
