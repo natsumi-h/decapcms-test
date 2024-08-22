@@ -1,5 +1,4 @@
 ---
-import Service from "@/components/Service.astro";
 import Layout from "@/layouts/Layout.astro";
 import service1 from "@/assets/images/service/service1.png";
 import Inner from "@/components/Parts/Inner.astro";
@@ -16,6 +15,7 @@ import logo from "@/assets/images/about/publishers/logo.png";
 import PageTitleBanner from "@/components/Parts/PageTitleBanner.astro";
 import Section from "@/components/Parts/Section.astro";
 import SectionTitle from "@/components/Parts/SectionTitle.astro";
+import SectionType3 from "@/components/SectionType3.astro";
 
 const serviceData = [
   {
@@ -158,7 +158,7 @@ const publicationData = [
   </section>
 
   <!-- How to get involved(Services) -->
-  <Service service={serviceData} />
+  <SectionType3 service={serviceData} />
 
   <!-- Founder -->
   <Section bg="white">

@@ -1,6 +1,4 @@
 ---
-import Category from "@/components/Category.astro";
-import Impact from "@/components/Impact.astro";
 import Layout from "@/layouts/Layout.astro";
 import impact1 from "@/assets/images/impact/impact1.png";
 import cta from "@/assets/images/services/cta.png";
@@ -12,6 +10,8 @@ import csr from "@/assets/images/services/ourservices/csr.png";
 import PageTitleBanner from "@/components/Parts/PageTitleBanner.astro";
 import Section from "@/components/Parts/Section.astro";
 import SectionTitle from "@/components/Parts/SectionTitle.astro";
+import SectionType1 from "@/components/SectionType1.astro";
+import SectionType2 from "@/components/SectionType2.astro";
 
 const categoryData = [
   {
@@ -95,7 +95,7 @@ const wastemanagementData = [
   <PageTitleBanner title="Our Services" bgmv="/services/mvbg.png" />
 
   <!-- Categories -->
-  <Category category={categoryData} />
+  <SectionType1 category={categoryData} />
 
   <!-- Services -->
   <Section bg="beige">
@@ -239,7 +239,7 @@ const wastemanagementData = [
   </Section>
 
   <!-- Our Impact -->
-  <Impact impact={impactData} />
+  <SectionType2 impact={impactData} />
 
   <!-- CTA -->
   <Section bg="white">

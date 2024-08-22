@@ -1,6 +1,4 @@
 ---
-import Category from "@/components/Category.astro";
-import Service from "@/components/Service.astro";
 import Layout from "@/layouts/Layout.astro";
 import service1 from "@/assets/images/service/service1.png";
 import Inner from "@/components/Parts/Inner.astro";
@@ -10,6 +8,8 @@ import signup from "@/assets/images/dss/signup.png";
 import Button from "@/components/Parts/Button.astro";
 import PageTitleBanner from "@/components/Parts/PageTitleBanner.astro";
 import SectionTitle from "@/components/Parts/SectionTitle.astro";
+import SectionType1 from "@/components/SectionType1.astro";
+import SectionType3 from "@/components/SectionType3.astro";
 
 const categoryData = [
   {
@@ -112,10 +112,10 @@ const serviceData = [
   </section>
 
   <!-- What you'll do -->
-  <Category category={categoryData} />
+  <SectionType1 category={categoryData} />
 
   <!-- What you'll get -->
-  <Service service={serviceData} />
+  <SectionType3 service={serviceData} />
 
   <!-- CTA What they say -->
   <section class="bg-white ~px-[1rem]/[5rem] ~pt-[3rem]/[3.75rem]">
