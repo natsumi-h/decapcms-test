@@ -1,0 +1,34 @@
+---
+import { Image } from "astro:assets";
+
+const { title, icon } = Astro.props;
+---
+
+<!-- Card2 -->
+<div>
+  <!-- tag -->
+  <div
+    class="bg-orange ~p-[0.9375rem]/[1.25rem] text-white font-bold inline-block text-[1.875rem] tagradius"
+  >
+    <div class="flex items-center gap-x-[1.2rem]">
+      <Image src={icon} alt="icon1" width={44.76} />
+      <p>{title}</p>
+    </div>
+  </div>
+
+  <!-- div -->
+  <div
+    class="~py-[0.9375rem]/[2.5rem] ~px-[0.9375rem]/[4rem] bg-white drop-shadow-md radius"
+  >
+    <slot />
+  </div>
+</div>
+<style>
+  .tagradius {
+    border-radius: 1.25rem 1.25rem 0 0;
+  }
+
+  .radius {
+    border-radius: 0 1.25rem 1.25rem 1.25rem;
+  }
+</style>

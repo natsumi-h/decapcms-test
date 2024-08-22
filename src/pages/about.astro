@@ -98,7 +98,9 @@ const publicationData = [
 
   <!-- Who we are -->
   <Section bg="white">
-    <div class="flex justify-between items-center gap-x-[2.75rem]">
+    <div
+      class="flex justify-between items-center gap-x-[2.75rem] flex-wrap gap-y-[3rem] md:flex-nowrap"
+    >
       <Image src={whoweare} alt="Lin QingHui" width={460} height={381} />
 
       <div>
@@ -126,11 +128,13 @@ const publicationData = [
   <Section bg="beige">
     <!-- <div class="bg-beige ~px-[1rem]/[5rem] ~py-[3rem]/[3.75rem]">
       <Inner> -->
-    <div class="flex justify-between items-center gap-x-[2.5rem]">
+    <div
+      class="flex justify-between items-center gap-x-[2.5rem] flex-wrap gap-y-[3rem] md:flex-nowrap"
+    >
       <div>
-        <h3 class="text-green text-[2.8125rem] font-bold">
+        <SectionTitle color="green" textalign="left">
           We Envision A<br /> Zero-Waste Singapore
-        </h3>
+        </SectionTitle>
         <p class="mt-[2rem]">
           where private, people, and public entities are working together,
           stewarding every resource mindfully, consciously, respectfully, and
@@ -165,7 +169,9 @@ const publicationData = [
     <SectionTitle textalign="center" color="green"
       >Meet Our Founder!</SectionTitle
     >
-    <div class="flex justify-between items-center gap-x-[3.1875rem] mt-[1rem]">
+    <div
+      class="flex justify-between items-center gap-x-[3.1875rem] mt-[1rem] flex-wrap gap-y-[3rem] md:flex-nowrap"
+    >
       <Image src={founder} alt="Lin QingHui" width={433} height={399} />
 
       <div>
@@ -186,7 +192,7 @@ const publicationData = [
 
   <!-- CTA -->
   <Section bg="beige">
-    <div class="flex justify-between items-center">
+    <div class="flex justify-between items-center flex-wrap gap-y-[3rem]">
       <div>
         <SectionTitle textalign="left" color="green">
           Learn more about food waste!
@@ -214,7 +220,8 @@ const publicationData = [
       <!-- Card -->
       {
         publicationData.map((item: any) => (
-          <div class="rounded-[1.25rem] overflow-hidden drop-shadow-lg cardwidth">
+          // cardwitdh
+          <div class="rounded-[1.25rem] overflow-hidden drop-shadow-lg w-full md:w-[calc(33.3%-2.625rem*2/3)]">
             <a href="/" target="_blank">
               <div>
                 {/* Image */}
@@ -250,10 +257,4 @@ const publicationData = [
       and many more...
     </p>
   </Section>
-
-  <style>
-    .cardwidth {
-      width: calc(33% - 2.625rem / 2);
-    }
-  </style>
 </Layout>

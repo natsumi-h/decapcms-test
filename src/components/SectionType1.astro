@@ -23,10 +23,10 @@ const { category } = Astro.props;
     {
       category.map((item: any) => (
         <div class="rounded-[1.25rem] overflow-hidden drop-shadow-md w-full">
-          <div class="drop-shadow-md bg-orange text-white py-[1.6875rem] text-center px-[2.875rem] text-[1.875rem] leading-none font-bold">
+          <div class="drop-shadow-md bg-orange text-white ~py-[0.9375rem]/[1.6875rem] text-center ~px-[0.9375rem]/[2.875rem] text-[1.875rem] leading-none font-bold">
             <p>{item.title}</p>
           </div>
-          <div class="bg-beige py-[2rem] px-[2.1875rem] text-[1.25rem] leading-normal">
+          <div class="bg-beige text-[1.25rem] leading-normal  ~py-[0.9375rem]/[2rem] ~px-[0.9375rem]/[2.1875rem]">
             <p>{item.description}</p>
           </div>
         </div>

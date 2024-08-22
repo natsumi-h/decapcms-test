@@ -12,6 +12,7 @@ import Section from "@/components/Parts/Section.astro";
 import SectionTitle from "@/components/Parts/SectionTitle.astro";
 import SectionType1 from "@/components/SectionType1.astro";
 import SectionType2 from "@/components/SectionType2.astro";
+import OurServicesCard from "@/components/OurServicesCard.astro";
 
 const categoryData = [
   {
@@ -99,134 +100,107 @@ const wastemanagementData = [
 
   <!-- Services -->
   <Section bg="beige">
-    <SectionTitle textalign="left" color="green"> Our Services </SectionTitle>
+    <SectionTitle textalign="left" color="green">Our Services</SectionTitle>
     <!-- Cards Wrapper -->
     <div class="mt-[1.4375rem] flex flex-col gap-y-[2.875rem]">
       <!-- Card1 -->
-      <div>
-        <!-- tag -->
+      <OurServicesCard title="Waste Management" icon={icon1}>
+        <p class="font-bold text-[1.875rem] text-green">
+          What is Waste Management?
+        </p>
+        <p class="mt-[0.5rem]">
+          A waste management system is a streamlined process that organizations
+          use to dispose of, reduce, reuse, and prevent waste.
+        </p>
+        <p class="font-bold text-[1.875rem] text-green text-center mt-[1.5rem]">
+          Our ALL-in-1 Smart Management Approach
+        </p>
+        <!-- Cards -->
         <div
-          class="bg-orange p-[1.25rem] text-white font-bold inline-block text-[1.875rem] tagradius"
+          class="mt-[1.25rem] flex items-center justify-between gap-y-[1.875rem] flex-wrap "
         >
-          <div class="flex items-center gap-x-[1.2rem]">
-            <Image src={icon1} alt="icon1" width={44.76} />
-            <p>Waste Management</p>
-          </div>
+          <!-- Card -->
+          {
+            wastemanagementData.map((data: any) => (
+              <div class="w-ful md:w-[calc(33%-2.625rem/2)]">
+                <Image
+                  src={data.image}
+                  alt="icon1"
+                  width={90}
+                  height={90}
+                  class="mx-auto"
+                />
+                <p class="mt-[2rem] text-[1.25rem]">{data.desctiprion}</p>
+              </div>
+            ))
+          }
         </div>
-
-        <!-- div -->
-        <div class="py-[2.5rem] px-[4rem] bg-white drop-shadow-md radius">
-          <p class="font-bold text-[1.875rem] text-green">
-            What is Waste Management?
-          </p>
-          <p class="mt-[0.5rem]">
-            A waste management system is a streamlined process that
-            organizations use to dispose of, reduce, reuse, and prevent waste.
-          </p>
-          <p
-            class="font-bold text-[1.875rem] text-green text-center mt-[1.5rem]"
-          >
-            Our ALL-in-1 Smart Management Approach
-          </p>
-          <!-- Cards -->
-          <div
-            class="mt-[1.25rem] flex items-center flex-wrap justify-between gap-y-[1.875rem]"
-          >
-            <!-- Card -->
-            {
-              wastemanagementData.map((data: any) => (
-                <div class="w-[20.625rem] cardwidth">
-                  <Image
-                    src={data.image}
-                    alt="icon1"
-                    width={90}
-                    height={90}
-                    class="mx-auto"
-                  />
-                  <p class="mt-[2rem] text-[1.25rem]">{data.desctiprion}</p>
-                </div>
-              ))
-            }
-          </div>
-        </div>
-      </div>
+      </OurServicesCard>
 
       <!-- Card2 -->
-      <div>
-        <!-- tag -->
+      <OurServicesCard title="Waste Management" icon={icon1}>
+        <!-- Flex -->
         <div
-          class="bg-orange p-[1.25rem] text-white font-bold inline-block text-[1.875rem] tagradius"
+          class="flex items-center gap-x-[1.8125rem] justify-between flex-wrap gap-y-[3rem] md:flex-nowrap"
         >
-          <div class="flex items-center gap-x-[1.2rem]">
-            <Image src={icon1} alt="icon1" width={44.76} />
-            <p>Waste Management</p>
-          </div>
-        </div>
-
-        <!-- div -->
-        <div class="py-[2.5rem] px-[4rem] bg-white drop-shadow-md radius">
-          <!-- Flex -->
-          <div class="flex items-center gap-x-[1.8125rem] justify-between">
-            <div class="w-[66.57%] flex-shrink">
-              <p class="font-bold text-[1.875rem] text-green">
-                Work with us on a customised programme
-              </p>
-              <p class="mt-[0.5rem]">
-                Programmes such as events, workshops, talks can be done on-site
-                or online, with a focus on reducing food waste in Singapore
-                towards a zero waste future.
-              </p>
-            </div>
-            <div>
-              <Image
-                src={csr}
-                alt="csr"
-                width={327}
-                height={173}
-                class="w-full"
-              />
-            </div>
-          </div>
-
-          <!--  -->
-          <div class="mt-[4.8125rem]">
+          <div class="w-full md:w-[66.57%] flex-shrink">
             <p class="font-bold text-[1.875rem] text-green">
-              A learning and experiential opportunity
+              Work with us on a customised programme
             </p>
             <p class="mt-[0.5rem]">
-              Get educated on the food waste issue in Singapore through our
-              Programme, experience how food surplus is rescued, learn to
-              repurpose and/or redistribute your rescued items to predetermined
-              communities for quantifiable environmental and social impact.
+              Programmes such as events, workshops, talks can be done on-site or
+              online, with a focus on reducing food waste in Singapore towards a
+              zero waste future.
             </p>
           </div>
-
-          <!-- Flex -->
-          <div
-            class="flex items-center mt-[2.3125rem] gap-x-[2rem] justify-center"
-          >
-            <div class="halfwidth">
-              <p class="font-bold text-green2 text-[1.5625rem] italic">
-                Local Businesses
-              </p>
-              <p class="mt-[0.5rem]">
-                D2L.sg partners with GoodHood.sg⁵ to leverage on their community
-                for redistribution and we work closely to expand their app
-                features.
-              </p>
-            </div>
-            <div class="halfwidth">
-              <p class="font-bold text-green2 text-[1.5625rem] italic">
-                D2L.sg’s Partners
-              </p>
-              <p class="mt-[0.5rem]">
-                Assist the businesses we partner with, such as importers and
-                distributors, to manage their surplus food.
-              </p>
-            </div>
+          <div>
+            <Image
+              src={csr}
+              alt="csr"
+              width={327}
+              height={173}
+              class="w-full"
+            />
           </div>
         </div>
-      </div>
+        <!--  -->
+        <div class="mt-[4.8125rem]">
+          <p class="font-bold text-[1.875rem] text-green">
+            A learning and experiential opportunity
+          </p>
+          <p class="mt-[0.5rem]">
+            Get educated on the food waste issue in Singapore through our
+            Programme, experience how food surplus is rescued, learn to
+            repurpose and/or redistribute your rescued items to predetermined
+            communities for quantifiable environmental and social impact.
+          </p>
+        </div>
+
+        <!-- Flex -->
+        <div
+          class="flex items-center mt-[2.3125rem] gap-x-[2rem] justify-center flex-wrap gap-y-[3rem] md:flex-nowrap"
+        >
+          <div class="md:w-[calc(50%-2rem/2)] w-full">
+            <p class="font-bold text-green2 text-[1.5625rem] italic">
+              Local Businesses
+            </p>
+            <p class="mt-[0.5rem]">
+              D2L.sg partners with GoodHood.sg⁵ to leverage on their community
+              for redistribution and we work closely to expand their app
+              features.
+            </p>
+          </div>
+          <div class="md:w-[calc(50%-2rem/2)] w-full">
+            <p class="font-bold text-green2 text-[1.5625rem] italic">
+              D2L.sg’s Partners
+            </p>
+            <p class="mt-[0.5rem]">
+              Assist the businesses we partner with, such as importers and
+              distributors, to manage their surplus food.
+            </p>
+          </div>
+        </div>
+      </OurServicesCard>
     </div>
     <!-- Get a quote! -->
     <div class="mt-[3.25rem] mx-auto text-center">
@@ -247,7 +221,9 @@ const wastemanagementData = [
       Wondering How Much Impact<br />Can One Person Make?
     </SectionTitle>
 
-    <div class="flex justify-between items-center gap-x-[6rem]">
+    <div
+      class="flex justify-between items-center gap-x-[6rem] flex-wrap gap-y-[3rem] md:flex-nowrap"
+    >
       <div>
         <p class="text-orange font-bold text-[3.4375rem]">Join as a DSS!</p>
         <p class="mt-[2rem]">
@@ -264,21 +240,3 @@ const wastemanagementData = [
     </div>
   </Section>
 </Layout>
-
-<style>
-  .tagradius {
-    border-radius: 1.25rem 1.25rem 0 0;
-  }
-
-  .radius {
-    border-radius: 0 1.25rem 1.25rem 1.25rem;
-  }
-
-  .cardwidth {
-    width: calc(33% - 2.625rem / 2);
-  }
-
-  .halfwidth {
-    width: calc(50% - 2rem / 2);
-  }
-</style>

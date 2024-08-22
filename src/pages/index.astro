@@ -16,6 +16,7 @@ import partner8 from "@/assets/images/home/partner8.png";
 import SectionType1 from "@/components/SectionType1.astro";
 import SectionType2 from "@/components/SectionType2.astro";
 import SectionType3 from "@/components/SectionType3.astro";
+import SectionTitle from "@/components/Parts/SectionTitle.astro";
 
 const impactData = [
   {
@@ -140,17 +141,17 @@ const categoryData = [
   <!-- Getintouch -->
   <Section bg="beige">
     <div
-      class="flex items-center gap-x-[7.125rem] max-w-[73rem] mx-auto justify-center"
+      class="flex items-center gap-x-[7.125rem] max-w-[73rem] mx-auto justify-center flex-wrap gap-y-[3rem]"
     >
       <!-- Image -->
-      <div class="w-[38%]">
+      <div class="w-full md:w-[38%]">
         <Image src={service1} alt="impact" />
       </div>
       <!-- Text -->
-      <div>
-        <h3 class="text-[2.8125rem] text-green leading-none font-bold">
+      <div class="w-full md:w-[calc(62%-7.125rem)]">
+        <SectionTitle color="green" textalign="left">
           Get in touch today!
-        </h3>
+        </SectionTitle>
         <p class="mt-[2rem] text-[1.25rem]">
           Ready to make real impact?
           <br />Join us in building a zero-waste Singapore.

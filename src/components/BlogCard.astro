@@ -1,0 +1,50 @@
+---
+import { Image } from "astro:assets";
+import avator from "@/assets/images/blog/avator.png";
+
+interface Props {
+  slug: string;
+  imageAlt: string;
+  imageSrc: Promise<{ default: ImageMetadata }>;
+  title: string;
+  author: string;
+}
+
+const { slug, imageAlt, imageSrc, title, author } = Astro.props;
+---
+
+<div
+  class="rounded-[1.25rem] overflow-hidden drop-shadow-lg flex flex-col md:w-[calc(33.3%-2.625rem*2/3)]"
+>
+  <a
+    href={`/blog/${slug}`}
+    class="hover:opacity-80 transition-all duration-300"
+  >
+    {/* Image */}
+    <div class="w-full pt-[62.87%] relative">
+      <Image
+        src={imageSrc}
+        alt={imageAlt}
+        class="w-full absolute top-0 left-0 object-cover h-full"
+        width={404}
+        height={254}
+      />
+    </div>
+
+    <div
+      class="bg-beige py-[1.25rem] px-[1.125rem] flex flex-col flex-grow min-h-[11.375rem] justify-between"
+    >
+      <p class="font-bold text-[1.5625rem] leading-none line-clamp-3">
+        {title}
+      </p>
+      <div class="flex items-center gap-x-[0.5rem]">
+        <Image src={avator} alt={author} width={30} height={30} />
+        <p class="italic">{author}</p>
+      </div>
+    </div>
+
+    <div class="bg-green py-[0.625rem] px-[1.125rem] text-white text-right">
+      Read more
+    </div>
+  </a>
+</div>

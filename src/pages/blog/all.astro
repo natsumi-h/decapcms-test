@@ -9,10 +9,10 @@ import { Image } from "astro:assets";
 import instagram from "@/assets/images/instagram.png";
 import facebook from "@/assets/images/facebook.png";
 import linkedin from "@/assets/images/linkedin.png";
-import avator from "@/assets/images/blog/avator.png";
 import type { ImageMetadata } from "astro";
 import Section from "@/components/Parts/Section.astro";
 import SectionTitle from "@/components/Parts/SectionTitle.astro";
+import BlogCard from "@/components/BlogCard.astro";
 const allPosts = await Astro.glob("@/content/blog/*.md");
 
 const sortedPostsByDate = allPosts.sort((a: any, b: any) => {
@@ -25,6 +25,7 @@ const sortedPostsByDate = allPosts.sort((a: any, b: any) => {
 const getSlug = (file: string) => {
   return file.replace(/^.*[\\\/]/, "").replace(/.md$/, "");
 };
+
 const images = import.meta.glob<{ default: ImageMetadata }>(
   "/src/assets/images/content/blog/*.{jpeg,jpg,png,gif}"
 );
@@ -47,42 +48,13 @@ const getFormattedImagePath = (imagePath: string) => {
       <!-- Card -->
       {
         sortedPostsByDate.map((item: any) => (
-          <div class="rounded-[1.25rem] overflow-hidden drop-shadow-lg cardwidth flex flex-col">
-            <a
-              href={`/blog/${getSlug(item.file)}`}
-              class="hover:opacity-80 transition-all duration-300"
-            >
-              {/* Image */}
-              <div class="w-full pt-[62.87%] relative">
-                <Image
-                  src={images[getFormattedImagePath(item.frontmatter.image)]()}
-                  alt={item.frontmatter.imageAlt}
-                  class="w-full absolute top-0 left-0 object-cover h-full"
-                  width={404}
-                  height={254}
-                />
-              </div>
-
-              <div class="bg-beige py-[1.25rem] px-[1.125rem] flex flex-col flex-grow min-h-[11.375rem] justify-between">
-                <p class="font-bold text-[1.5625rem] leading-none line-clamp-3">
-                  {item.frontmatter.title}
-                </p>
-                <div class="flex items-center gap-x-[0.5rem] ">
-                  <Image
-                    src={avator}
-                    alt={item.frontmatter.author}
-                    width={30}
-                    height={30}
-                  />
-                  <p class="italic">{item.frontmatter.author}</p>
-                </div>
-              </div>
-
-              <div class="bg-green py-[0.625rem] px-[1.125rem] text-white text-right">
-                Read more
-              </div>
-            </a>
-          </div>
+          <BlogCard
+            slug={getSlug(item.file)}
+            imageAlt={item.frontmatter.title}
+            imageSrc={images[getFormattedImagePath(item.frontmatter.image)]()}
+            title={item.frontmatter.title}
+            author={item.frontmatter.author}
+          />
         ))
       }
     </div>
@@ -125,7 +97,9 @@ const getFormattedImagePath = (imagePath: string) => {
 
   <!-- CTA -->
   <Section bg="white">
-    <div class="flex justify-between items-center">
+    <div
+      class="flex justify-between items-center flex-wrap gap-y-[3rem] md:flex-nowrap"
+    >
       <div>
         <SectionTitle color="green" textalign="left">
           Become our partner today!

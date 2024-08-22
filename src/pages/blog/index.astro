@@ -11,10 +11,10 @@ import facebook from "@/assets/images/facebook.png";
 import linkedin from "@/assets/images/linkedin.png";
 import recentevent1 from "@/assets/images/blog/recentevent1.png";
 import recentevent2 from "@/assets/images/blog/recentevent2.png";
-import avator from "@/assets/images/blog/avator.png";
 import type { ImageMetadata } from "astro";
 import Section from "@/components/Parts/Section.astro";
 import SectionTitle from "@/components/Parts/SectionTitle.astro";
+import BlogCard from "@/components/BlogCard.astro";
 const allPosts = await Astro.glob("@/content/blog/*.md");
 
 const sortedPostsByDate = allPosts.sort((a: any, b: any) => {
@@ -41,14 +41,14 @@ const getFormattedImagePath = (imagePath: string) => {
 
   <!-- Recent Events -->
   <Section bg="beige">
-    <SectionTitle color="green" textalign="left"> Recent Events </SectionTitle>
+    <SectionTitle color="green" textalign="left">Recent Events</SectionTitle>
     <!-- Cards Wrapper -->
     <div class="mt-[1.4375rem] flex flex-col gap-y-[2.875rem]">
       <!-- Card1 -->
       <div>
         <!-- tag -->
         <div
-          class="bg-orange p-[1.25rem] text-white font-bold inline-block text-[1.875rem] tagradius"
+          class="bg-orange ~p-[0.9375rem]/[1.25rem] text-white font-bold inline-block text-[1.875rem] tagradius"
         >
           <div class="flex items-center gap-x-[1.2rem]">
             <p>Go Green SG Launch</p>
@@ -56,8 +56,12 @@ const getFormattedImagePath = (imagePath: string) => {
         </div>
 
         <!-- body -->
-        <div class="py-[2.5rem] px-[4rem] bg-white drop-shadow-md radius">
-          <div class="flex gap-x-[2.9375rem]">
+        <div
+          class="~py-[0.9375rem]/[2.5rem] ~px-[0.9375rem]/[4rem] bg-white drop-shadow-md radius"
+        >
+          <div
+            class="flex gap-x-[2.9375rem] flex-wrap gap-y-[3rem] md:flex-nowrap"
+          >
             <div>
               <p class="text-[1.25rem]">
                 “Divert for 2nd Life, a community group, works with businesses
@@ -86,16 +90,17 @@ const getFormattedImagePath = (imagePath: string) => {
               alt="Recent Event 1"
               width={282}
               height={320}
+              class="w-full"
             />
           </div>
         </div>
       </div>
 
       <!-- Card2 -->
-      <div class="text-right">
+      <div class="md:text-right">
         <!-- tag -->
         <div
-          class="bg-orange p-[1.25rem] text-white font-bold inline-block text-[1.875rem] tagradius"
+          class="bg-orange ~p-[0.9375rem]/[1.25rem] text-white font-bold inline-block text-[1.875rem] tagradius"
         >
           <div class="flex items-center gap-x-[1.2rem]">
             <p>Go Green SG Launch</p>
@@ -104,9 +109,11 @@ const getFormattedImagePath = (imagePath: string) => {
 
         <!-- body -->
         <div
-          class="py-[2.5rem] px-[4rem] bg-white drop-shadow-md radius text-left radiusright"
+          class="~py-[0.9375rem]/[2.5rem] ~px-[0.9375rem]/[4rem] bg-white drop-shadow-md radius text-left radiusright"
         >
-          <div class="flex gap-x-[2.9375rem]">
+          <div
+            class="flex gap-x-[2.9375rem] flex-wrap gap-y-[3rem] md:flex-nowrap"
+          >
             <Image
               src={recentevent2}
               alt="Recent Event 2"
@@ -150,44 +157,17 @@ const getFormattedImagePath = (imagePath: string) => {
     >
       <!-- Card -->
       {
-        sortedPostsByDate.slice(0, 6).map((item: any) => (
-          <div class="rounded-[1.25rem] overflow-hidden drop-shadow-lg cardwidth flex flex-col">
-            <a
-              href={`/blog/${getSlug(item.file)}`}
-              class="hover:opacity-80 transition-all duration-300"
-            >
-              {/* Image */}
-              <div class="w-full pt-[62.87%] relative">
-                <Image
-                  src={images[getFormattedImagePath(item.frontmatter.image)]()}
-                  alt={item.frontmatter.imageAlt}
-                  class="w-full absolute top-0 left-0 object-cover h-full"
-                  width={404}
-                  height={254}
-                />
-              </div>
-
-              <div class="bg-beige py-[1.25rem] px-[1.125rem] flex flex-col flex-grow min-h-[11.375rem] justify-between">
-                <p class="font-bold text-[1.5625rem] leading-none line-clamp-3">
-                  {item.frontmatter.title}
-                </p>
-                <div class="flex items-center gap-x-[0.5rem] ">
-                  <Image
-                    src={avator}
-                    alt={item.frontmatter.author}
-                    width={30}
-                    height={30}
-                  />
-                  <p class="italic">{item.frontmatter.author}</p>
-                </div>
-              </div>
-
-              <div class="bg-green py-[0.625rem] px-[1.125rem] text-white text-right">
-                Read more
-              </div>
-            </a>
-          </div>
-        ))
+        sortedPostsByDate
+          .slice(0, 6)
+          .map((item: any) => (
+            <BlogCard
+              slug={getSlug(item.file)}
+              imageAlt={item.frontmatter.title}
+              imageSrc={images[getFormattedImagePath(item.frontmatter.image)]()}
+              title={item.frontmatter.title}
+              author={item.frontmatter.author}
+            />
+          ))
       }
     </div>
 
@@ -199,7 +179,7 @@ const getFormattedImagePath = (imagePath: string) => {
   <!-- Social Media -->
   <section class="bg-green ~px-[1rem]/[5rem] ~pt-[3rem]/[3.75rem]">
     <Inner>
-      <div class="flex justify-between items-center">
+      <div class="flex justify-between items-center flex-wrap md:flex-nowrap">
         <div class="~pb-[3rem]/[3.75rem]">
           <SectionTitle color="white" textalign="left">
             Follow us on Social Media!
@@ -225,7 +205,7 @@ const getFormattedImagePath = (imagePath: string) => {
           alt="Become our partner today!"
           width={742}
           height={464}
-          class="w-[51.5%] self-end"
+          class="w-full md:w-[51.5%] self-end"
         />
       </div>
     </Inner>
@@ -233,7 +213,9 @@ const getFormattedImagePath = (imagePath: string) => {
 
   <!-- CTA -->
   <Section bg="white">
-    <div class="flex justify-between items-center">
+    <div
+      class="flex justify-between items-center flex-wrap gap-y-[3rem] md:flex-nowrap"
+    >
       <div>
         <SectionTitle color="green" textalign="left">
           Become our partner today!
@@ -268,9 +250,5 @@ const getFormattedImagePath = (imagePath: string) => {
 
   .halfwidth {
     width: calc(50% - 2rem / 2);
-  }
-
-  .cardwidth {
-    width: calc(33% - 2.625rem / 2);
   }
 </style>
