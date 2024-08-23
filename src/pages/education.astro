@@ -3,7 +3,10 @@ import Layout from "@/layouts/Layout.astro";
 import { Image } from "astro:assets";
 import surplusfood from "@/assets/images/education/surplusfood.png";
 import joinus from "@/assets/images/education/joinus.png";
-import impact1 from "@/assets/images/home/impact/impact1.png";
+import reason1 from "@/assets/images/education/reason/reason1.png";
+import reason2 from "@/assets/images/education/reason/reason2.png";
+import reason3 from "@/assets/images/education/reason/reason3.png";
+import reason4 from "@/assets/images/education/reason/reason4.png";
 import hierarchy from "@/assets/images/education/hierarchy.png";
 import toggle from "@/assets/images/contact/toggle.png";
 import arrow from "@/assets/images/contact/arrow.png";
@@ -17,28 +20,32 @@ import sdg5 from "@/assets/images/education/sdg5.png";
 import PageTitleBanner from "@/components/Parts/PageTitleBanner.astro";
 import Section from "@/components/Parts/Section.astro";
 import SectionTitle from "@/components/Parts/SectionTitle.astro";
-import SectionType2 from "@/components/SectionType2.astro";
+import SectionType1Card from "@/components/SectionType1/SectionType1Card.astro";
+import SectionType1Cards from "@/components/SectionType1/SectionType1Cards.astro";
 
 const impactData = [
   {
-    title: "D2L.sg Surplus Savers (DSS) trained",
-    number: "400+",
-    image: impact1,
+    title: "Increased Carbon Footprint",
+    image: reason1,
+    description:
+      "Food cultivation and food production are energy intensive and produces a lot of carbon. This is even before we factor in transportation!",
   },
   {
-    title: "D2L.sg Surplus Savers (DSS) trained",
-    number: "400+",
-    image: impact1,
+    title: "Increased Blue Water Footprint",
+    image: reason2,
+    description: "Agriculture and food production are water intense",
   },
   {
-    title: "D2L.sg Surplus Savers (DSS) trained",
-    number: "400+",
-    image: impact1,
+    title: "Increased Greenhouse Gases (GHSs)",
+    image: reason3,
+    description:
+      "Food dumped in landfill breaks down to create methane, which is 86x more intense than carbon dioxide an equally harmful greenhouse gas",
   },
   {
-    title: "D2L.sg Surplus Savers (DSS) trained",
-    number: "400+",
-    image: impact1,
+    title: "Direct Economic Loss",
+    image: reason4,
+    description:
+      "Capital & resources channelled into food production are sunken",
   },
 ];
 
@@ -46,45 +53,34 @@ const joiunusData = [
   {
     title: "As a Business",
     image: joinus,
-    href: "/services",
+    href: "/services/",
   },
   {
-    title: "As a Business",
+    title: "As a Individual",
     image: joinus,
-    href: "/dss",
+    href: "/dss/",
   },
 ];
 
 const process = [
   {
-    question: "#1: Source Reduction",
-    answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a metus nec nunc ultrices. Nullam a metus nec nunc ultrices.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a metus nec nunc ultrices. Nullam a metus nec nunc ultrices.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a metus nec nunc ultrices. Nullam a metus nec nunc ultrices.",
+    question: "Strategy 1: Prevent and reduce food wastage at source",
+    answer: "Focus on prevention by not creating food waste in the first place",
   },
   {
-    question: "#2: Feeding Hungry People",
+    question: "Strategy 2: Redistribute unsold/excess food",
     answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a metus nec nunc ultrices. Nullam a metus nec nunc ultrices.",
+      "Redirecting edible food to those experiencing food insecurity is an impactful way for everyone to reduce waste and support the community.",
   },
   {
-    question: "#3: Feeding Animals",
+    question: "Strategy 3: Valorise/Treat food waste",
     answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a metus nec nunc ultrices. Nullam a metus nec nunc ultrices.",
+      "Food waste that cannot be avoided should be valorised or treated where possible. Hence, separating non food waste to food waste items at source is a must to ensure a successful valorisation or treatment.",
   },
   {
-    question: "#4: Industrial Uses",
+    question: "Strategy 4: Recover energy",
     answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a metus nec nunc ultrices. Nullam a metus nec nunc ultrices.",
-  },
-  {
-    question: "#5: Composting",
-    answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a metus nec nunc ultrices. Nullam a metus nec nunc ultrices.",
-  },
-  {
-    question: "#6: Landfill/Incineration",
-    answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a metus nec nunc ultrices. Nullam a metus nec nunc ultrices.",
+      "Food waste that is not valorised or treated will be disposed of at the waste-to-energy (WTE) plants for energy recovery.",
   },
 ];
 ---
@@ -159,30 +155,65 @@ const process = [
     </div>
   </Section>
 
-  <!-- Impact -->
-  <SectionType2 impact={impactData} />
+  <!-- Why does it matter? -->
+  <Section bg="green" text="white">
+    <SectionTitle textalign="center" color="white"
+      >Why does it matter?</SectionTitle
+    >
+    <p class="mt-[1rem] text-[1.25rem]">
+      <span class="font-bold">We Envision A Zero-Waste Singapore</span> where private,
+      people, and public entities are working together, stewarding every resource
+      mindfully, consciously, respectfully, and treading lightly on this earth, to
+      achieve zero food waste.
+    </p>
+
+    <div
+      class="flex justify-center align-middle text-center mt-[2.9375rem] flex-col md:flex-row gap-x-[1rem] gap-y-[2.5rem] flex-wrap"
+    >
+      {
+        impactData.map((item: any) => (
+          <div class="w-full md:w-[calc(25%-1rem*3/4)]">
+            <Image
+              src={item.image}
+              alt="Our Impact"
+              width={100}
+              height={100}
+              class="mx-auto"
+            />
+            <p class="text-[1.875rem] font-bold leading-none mt-[1rem]">
+              {item.title}
+            </p>
+            <p class="text-left mt-[1rem]">{item.description}</p>
+          </div>
+        ))
+      }
+    </div>
+  </Section>
 
   <!-- Hierarchy -->
   <Section bg="white">
     <div>
       <SectionTitle color="green" textalign="left">
-        Do you know that there is an official framework to manage food waste?
+        Understanding the Food Recovery Hierarchy
       </SectionTitle>
       <p class="mt-[1rem] text-[1.25rem]">
-        <span class="font-bold">Food recovery hierarchy</span> is a guide to minimize
-        food waste by prioritizing categories. <span class="font-bold"
-          >All Waste Generating Entities</span
-        > are encouraged to adopt recommended practices to prevent food waste and
-        redirect food surplus/waste
+        <span class="font-bold">Food recovery hierarchy</span>
+
+        is a guide to <span class="font-bold">minimize & handle</span> food waste
+        by prioritizing based on categories.<br />
+        <span class="font-bold">All Waste Generating Entities</span> are encouraged
+        to adopt recommended practices to prevent food waste and redirect food surplus/waste.
+        At D2L.sg, we follow this hierarchy so that All TYPES of food surplus and
+        waste can go to their best and highest use.
       </p>
     </div>
 
     <!-- Flex -->
     <div
-      class="flex items-start mt-[1.875rem] justify-between flex-wrap gap-y-[3rem] md:flex-nowrap"
+      class="flex items-start mt-[3.5rem] justify-between flex-wrap gap-y-[3rem] md:flex-nowrap gap-x-[1rem]"
     >
       <div>
-        <Image src={hierarchy} alt="Lin QingHui" width={380} height={530} />
+        <Image src={hierarchy} alt="Hierarchy" width={750} />
         <p class="mt-[3.4375rem] text-[1.25rem]">
           Source: <a
             class="underline"
@@ -223,19 +254,8 @@ const process = [
                   </button>
                 </div>
                 {/* <!-- Answer --> */}
-                <div class="answer px-[2.875rem] py-[1.8125rem] hidden">
-                  <p>
-                    {/* {faq.answer} */}
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    <br />
-                    Nullam a metus nec nunc ultrices. Nullam a metus nec nunc
-                    ultrices.Lorem ipsum dolor sit amet, consectetur adipiscing
-                    elit. Nullam a metus nec nunc ultrices.
-                    <br /> Nullam a metus nec nunc ultrices.Lorem ipsum dolor
-                    sit amet, consectetur adipiscing elit. Nullam a metus nec
-                    nunc ultrices.
-                    <br /> Nullam a metus nec nunc ultrices.
-                  </p>
+                <div class="answer px-[2.875rem] py-[1.8125rem] hidden text-[1.25rem]">
+                  <p>{item.answer}</p>
                 </div>
               </li>
             ))
@@ -251,22 +271,15 @@ const process = [
       <SectionTitle color="green" textalign="left" italic>
         Moving Towards...
       </SectionTitle>
+
       <!-- Cards -->
-      <div
-        class="max-w-[78.625rem] mx-auto mt-[2.75rem] flex gap-[1.5625rem] flex-wrap"
-      >
-        <!-- Card -->
-        <div
-          class="rounded-[1.25rem] overflow-hidden drop-shadow-md flex flex-col w-full md:w-[calc(33.333333%-1.5625rem*2/3)]"
-        >
-          <div
-            class="drop-shadow-md bg-orange text-white py-[1.6875rem] text-center px-[2.875rem] text-[1.875rem] leading-none font-bold flex items-center min-h-[7.125rem]"
-          >
-            <p class="mx-auto">SG Green Plan 2030</p>
-          </div>
-          <div
-            class="bg-white py-[2rem] px-[2.1875rem] text-[1.25rem] leading-none flex-grow"
-          >
+      <SectionType1Cards>
+        <!-- Card1 -->
+        <SectionType1Card bgcolor="white">
+          <Fragment slot="title">
+            <p>SG Green Plan 2030</p>
+          </Fragment>
+          <Fragment slot="description">
             <Image
               src={sggreen}
               alt="SG Green Plan 2030"
@@ -297,20 +310,14 @@ const process = [
                 </ul>
               </p>
             </div>
-          </div>
-        </div>
-        <!-- Card -->
-        <div
-          class="rounded-[1.25rem] overflow-hidden drop-shadow-md flex flex-col w-full md:w-[calc(33.333333%-1.5625rem*2/3)]"
-        >
-          <div
-            class="drop-shadow-md bg-orange text-white py-[1.6875rem] text-center px-[2.875rem] text-[1.875rem] leading-none font-bold flex items-center min-h-[7.125rem]"
-          >
-            <p class="mx-auto">Net Zero &<br /> ESG Reporting</p>
-          </div>
-          <div
-            class="bg-white py-[2rem] px-[2.1875rem] text-[1.25rem] leading-none flex-grow"
-          >
+          </Fragment>
+        </SectionType1Card>
+        <!-- Card2 -->
+        <SectionType1Card bgcolor="white">
+          <Fragment slot="title">
+            <p>Net Zero & ESG Reporting</p>
+          </Fragment>
+          <Fragment slot="description">
             <Image
               src={netzero}
               alt="NetZero2050"
@@ -339,21 +346,14 @@ const process = [
                 managed for future returns.
               </p>
             </div>
-          </div>
-        </div>
-
-        <!-- Card -->
-        <div
-          class="rounded-[1.25rem] overflow-hidden drop-shadow-md flex flex-col w-full md:w-[calc(33.333333%-1.5625rem*2/3)]"
-        >
-          <div
-            class="drop-shadow-md bg-orange text-white py-[1.6875rem] text-center px-[2.875rem] text-[1.875rem] leading-none font-bold flex items-center min-h-[7.125rem]"
-          >
-            <p class="mx-auto">UN SDGS 2030</p>
-          </div>
-          <div
-            class="bg-white py-[2rem] px-[2.1875rem] text-[1.25rem] leading-none flex-grow"
-          >
+          </Fragment>
+        </SectionType1Card>
+        <!-- Card3 -->
+        <SectionType1Card bgcolor="white">
+          <Fragment slot="title">
+            <p>UN SDGS 2030</p>
+          </Fragment>
+          <Fragment slot="description">
             <ul class="flex flex-col gap-y-[1.375rem]">
               <li class="flex gap-x-[0.875rem]">
                 <Image src={sdg1} alt="Zero Hunger" width={80} height={80} />
@@ -401,9 +401,9 @@ const process = [
                 </p>
               </li>
             </ul>
-          </div>
-        </div>
-      </div>
+          </Fragment>
+        </SectionType1Card>
+      </SectionType1Cards>
     </div>
   </Section>
 

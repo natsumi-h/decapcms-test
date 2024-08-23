@@ -1,6 +1,8 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import service1 from "@/assets/images/home/service/service1.png";
+import service1 from "@/assets/images/about/service/service1.png";
+import service2 from "@/assets/images/about/service/service2.png";
+import service3 from "@/assets/images/about/service/service3.png";
 import Inner from "@/components/Parts/Inner.astro";
 import founder from "@/assets/images/linqinghui.png";
 import { Image } from "astro:assets";
@@ -32,33 +34,32 @@ const serviceData = [
     image: service1,
     description: [
       "Cut & Recoup Cost from Food Surplus/Waste",
-      "Cut & Recoup Cost from Food Surplus/Waste",
-      "Cut & Recoup Cost from Food Surplus/Waste",
-      "Cut & Recoup Cost from Food Surplus/Waste",
+      "Food Surplus/Waste Management",
+      "Impact Reports and Analytics Dashboard",
+      "ESG & NEA Reporting",
     ],
-    link: "/products",
+    link: "/services",
   },
   {
-    title: "Waste Management",
-    image: service1,
+    title: "CSR & Employee Engagement",
+    image: service2,
     description: [
-      "Cut & Recoup Cost from Food Surplus/Waste",
-      "Cut & Recoup Cost from Food Surplus/Waste",
-      "Cut & Recoup Cost from Food Surplus/Waste",
-      "Cut & Recoup Cost from Food Surplus/Waste",
+      "CSR & Employee Engagement Programmes",
+      "Surplus Food Provision",
+      "Streamlined DSS engagement through comprehensive training model",
+      "Community Outreach Expansion",
     ],
-    link: "/products",
+    link: "/services/",
   },
   {
-    title: "Waste Management",
-    image: service1,
+    title: "Join as a DSS!",
+    image: service3,
     description: [
-      "Cut & Recoup Cost from Food Surplus/Waste",
-      "Cut & Recoup Cost from Food Surplus/Waste",
-      "Cut & Recoup Cost from Food Surplus/Waste",
-      "Cut & Recoup Cost from Food Surplus/Waste",
+      "Make a tangible difference and contribute to a worthy cause",
+      "Network with changemakers",
+      "Gain new skills on food surplus & waste management, logistics, and community outreach at your convenience",
     ],
-    link: "/products",
+    link: "/dss/",
   },
 ];
 
@@ -177,7 +178,11 @@ const publicationData = [
   </section>
 
   <!-- How to get involved(Services) -->
-  <SectionType3 service={serviceData} />
+  <SectionType3
+    service={serviceData}
+    title="How to get involved?"
+    bgimagepath="/about/bg.png"
+  />
 
   <!-- Founder -->
   <Section bg="white">

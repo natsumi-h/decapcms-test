@@ -1,37 +1,59 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import impact1 from "@/assets/images/home/impact/impact1.png";
+import impact2 from "@/assets/images/home/impact/impact2.png";
+import impact3 from "@/assets/images/home/impact/impact3.png";
+import impact4 from "@/assets/images/home/impact/impact4.png";
 import cta from "@/assets/images/services/cta.png";
 import { Image } from "astro:assets";
 import Button from "@/components/Parts/Button.astro";
 import icon1 from "@/assets/images/services/ourservices/icon1.png";
+import icon2 from "@/assets/images/services/ourservices/icon2.png";
+import icon3 from "@/assets/images/services/ourservices/icon3.png";
 import approach1 from "@/assets/images/services/ourservices/approach1.png";
+import approach2 from "@/assets/images/services/ourservices/approach2.png";
+import approach3 from "@/assets/images/services/ourservices/approach3.png";
+import approach4 from "@/assets/images/services/ourservices/approach4.png";
+import approach5 from "@/assets/images/services/ourservices/approach5.png";
+import approach6 from "@/assets/images/services/ourservices/approach6.png";
 import csr from "@/assets/images/services/ourservices/csr.png";
 import PageTitleBanner from "@/components/Parts/PageTitleBanner.astro";
 import Section from "@/components/Parts/Section.astro";
 import SectionTitle from "@/components/Parts/SectionTitle.astro";
-import SectionType1 from "@/components/SectionType1.astro";
 import SectionType2 from "@/components/SectionType2.astro";
 import OurServicesCard from "@/components/OurServicesCard.astro";
+import SectionType1Card from "@/components/SectionType1/SectionType1Card.astro";
+import SectionType1Cards from "@/components/SectionType1/SectionType1Cards.astro";
 
 const categoryData = [
   {
-    title: "Focus on Growing\nYour Business!",
-
-    description:
-      "We handle ALL TYPES of your food surplus and waste, effortlessly so that you can focus growing your business!",
+    title: "For Businesses",
+    icon: icon1,
+    description: [
+      "No change of business  operations required",
+      "Hassle free",
+      "Meeting of ESG targets",
+      "Saving $$$",
+    ],
   },
   {
-    title: "Focus on Growing\nYour Business!",
-
-    description:
-      "We handle ALL TYPES of your food surplus and waste, effortlessly so that you can focus growing your business!",
+    title: "For Communities",
+    icon: icon2,
+    description: [
+      "Addressing food insecurity",
+      "Strengthening social fabric",
+      "Improving community resilience",
+      "Empowering communities through D2L.sg Surplus Savers training",
+    ],
   },
   {
-    title: "Focus on Growing\nYour Business!",
-
-    description:
-      "We handle ALL TYPES of your food surplus and waste, effortlessly so that you can focus growing your business!",
+    title: "For the Environment",
+    icon: icon3,
+    description: [
+      "Reduce Singapore’s carbon emissions",
+      "Reduce pressure on landfill",
+      "Recovered food surplus/waste is diverted into valuable resources for humans, animals, and event plants",
+    ],
   },
 ];
 
@@ -42,19 +64,34 @@ const impactData = [
     image: impact1,
   },
   {
-    title: "D2L.sg Surplus Savers (DSS) trained",
-    number: "400+",
-    image: impact1,
+    title: "tonnes of surplus food diverted",
+    number: "700+",
+    image: impact2,
   },
   {
-    title: "D2L.sg Surplus Savers (DSS) trained",
-    number: "400+",
-    image: impact1,
+    title: "million saved",
+    number: "$7.1",
+    image: impact3,
   },
   {
-    title: "D2L.sg Surplus Savers (DSS) trained",
-    number: "400+",
-    image: impact1,
+    title: "families benefitted",
+    number: "10,000+",
+    image: impact4,
+  },
+  {
+    title: "merchant partners",
+    number: "60+",
+    image: impact4,
+  },
+  {
+    title: "liters of water saved",
+    number: "441+M",
+    image: impact4,
+  },
+  {
+    title: "tonnes CO2 emissions prevented",
+    number: "3000+",
+    image: impact4,
   },
 ];
 
@@ -65,29 +102,29 @@ const wastemanagementData = [
       "Achieve Zero Food Waste with quantified environmental and social impact",
   },
   {
-    image: approach1,
+    image: approach2,
     desctiprion:
-      "Achieve Zero Food Waste with quantified environmental and social impact",
+      "Impact reports/certificates for your ESG and sustainability reporting",
   },
   {
-    image: approach1,
+    image: approach3,
     desctiprion:
-      "Achieve Zero Food Waste with quantified environmental and social impact",
+      "Hassle free and timely collections with optimal diversion through trained D2L.sg Surplus Savers⁴ (DSS)",
   },
   {
-    image: approach1,
+    image: approach4,
     desctiprion:
-      "Achieve Zero Food Waste with quantified environmental and social impact",
+      "Tracking and data analytics inform business decisions for source reduction and optimisation",
   },
   {
-    image: approach1,
+    image: approach5,
     desctiprion:
-      "Achieve Zero Food Waste with quantified environmental and social impact",
+      "A circular solution, wherein diversion outputs such as compost can be redirected to the client’s business facilities upon request",
   },
   {
-    image: approach1,
+    image: approach6,
     desctiprion:
-      "Achieve Zero Food Waste with quantified environmental and social impact",
+      "In consultation with client’s specifications, we do the heavy lifting so no extra work on your end",
   },
 ];
 ---
@@ -95,8 +132,45 @@ const wastemanagementData = [
 <Layout title="Our Services">
   <PageTitleBanner title="Our Services" bgmv="/services/mvbg.png" />
 
-  <!-- Categories -->
-  <SectionType1 category={categoryData} />
+  <!-- It’s a WIN, WIN, WIN! -->
+  <Section bg="white">
+    <SectionTitle textalign="center" color="green">
+      It’s a WIN, WIN, WIN!
+    </SectionTitle>
+    <p class="mt-[1rem] text-[1.25rem]">
+      Partnering with D2L.sg enables your business to make a tangible impact on
+      sustainability while meeting ESG criteria. Our commitment to zero food
+      waste and social impact helps you align with the Resource Sustainability
+      Act and the Singapore Green Plan 2030, demonstrating your company's
+      dedication to sustainable practices.
+    </p>
+    <!-- Cards -->
+    <SectionType1Cards>
+      <!-- Card -->
+      {
+        categoryData.map((item: any) => (
+          <SectionType1Card bgcolor="beige">
+            <Fragment slot="title">
+              {/* <p>{item.title}</p>
+               */}
+              <div class="flex items-center gap-x-[1rem]">
+                <Image src={item.icon} alt="icon1" width={44.76} />
+                <p>{item.title}</p>
+              </div>
+            </Fragment>
+            <Fragment slot="description">
+              {/* <p>{item.description}</p> */}
+              <ul class="text-text mt-[1rem] text-[1.25rem] leading-normal px-[1rem]">
+                {item.description.map((desc: any) => (
+                  <li class="list-['✓']">{desc}</li>
+                ))}
+              </ul>
+            </Fragment>
+          </SectionType1Card>
+        ))
+      }
+    </SectionType1Cards>
+  </Section>
 
   <!-- Services -->
   <Section bg="beige">
@@ -205,7 +279,7 @@ const wastemanagementData = [
     <!-- Get a quote! -->
     <div class="mt-[3.25rem] mx-auto text-center">
       <a
-        href="/"
+        href="/contact/"
         class="drop-shadow-md py-[0.75rem] px-[1.406rem] bg-orange text-white text-[1.5625rem] leading-normal font-bold rounded-[1.25rem] inline-block w-[33.5625rem] max-w-full"
         >Get A Quote</a
       >

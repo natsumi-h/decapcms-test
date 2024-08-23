@@ -3,12 +3,12 @@ import { Image } from "astro:assets";
 import Section from "@/components/Parts/Section.astro";
 import SectionTitle from "@/components/Parts/SectionTitle.astro";
 
-const { service } = Astro.props;
+const { service, title, bgimagepath } = Astro.props;
 ---
 
-<Section bg="bg" text="white">
+<Section bg="bg" text="white" bgimagepath={bgimagepath}>
   <SectionTitle textalign="center" color="white">
-    How to get involved?
+    {title}
   </SectionTitle>
   <!-- Cards -->
   <div

@@ -19,10 +19,11 @@ import partner5 from "@/assets/images/home/partner/partner5.png";
 import partner6 from "@/assets/images/home/partner/partner6.png";
 import partner7 from "@/assets/images/home/partner/partner7.png";
 import partner8 from "@/assets/images/home/partner/partner8.png";
-import SectionType1 from "@/components/SectionType1.astro";
 import SectionType2 from "@/components/SectionType2.astro";
 import SectionType3 from "@/components/SectionType3.astro";
 import SectionTitle from "@/components/Parts/SectionTitle.astro";
+import SectionType1Card from "@/components/SectionType1/SectionType1Card.astro";
+import SectionType1Cards from "@/components/SectionType1/SectionType1Cards.astro";
 
 const categoryData = [
   {
@@ -135,13 +136,39 @@ const serviceData = [
   </div>
 
   <!-- Categories -->
-  <SectionType1 category={categoryData} />
+  <Section bg="white">
+    <SectionTitle textalign="center" color="green">
+      So, You Think Sustainability is a Hassle?<br />
+      We Say, <span class="font-bold">Challenge Accepted!</span>
+    </SectionTitle>
+
+    <!-- Cards -->
+    <SectionType1Cards>
+      <!-- Card -->
+      {
+        categoryData.map((item: any) => (
+          <SectionType1Card bgcolor="beige">
+            <Fragment slot="title">
+              <p>{item.title}</p>
+            </Fragment>
+            <Fragment slot="description">
+              <p>{item.description}</p>
+            </Fragment>
+          </SectionType1Card>
+        ))
+      }
+    </SectionType1Cards>
+  </Section>
 
   <!-- Our Impact -->
   <SectionType2 impact={impactData} />
 
   <!-- How to get involved(Services) -->
-  <SectionType3 service={serviceData} />
+  <SectionType3
+    service={serviceData}
+    title="How to get involved?"
+    bgimagepath="/home/bg2.png"
+  />
 
   <!-- Getintouch -->
   <Section bg="beige">
@@ -193,7 +220,7 @@ const serviceData = [
     <div class="mt-[2.8125rem]">
       <p class="text-center text-[1.25rem]">Powered by</p>
       <div
-        class="flex items-center mt-[1.25rem] flex-wrap justify-between gap-y-[1.25rem] "
+        class="flex items-center mt-[1.25rem] flex-wrap justify-between gap-y-[1.25rem]"
       >
         <Image src={partner3} alt="partner" width={186} height={111} />
         <Image src={partner4} alt="partner" width={137.68} height={111} />

@@ -1,76 +1,84 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import service1 from "@/assets/images/home/service/service1.png";
 import Inner from "@/components/Parts/Inner.astro";
 import { Image } from "astro:assets";
+import whatyouget1 from "@/assets/images/dss/whatyouget/whatyouget1.png";
+import whatyouget2 from "@/assets/images/dss/whatyouget/whatyouget2.png";
+import whatyouget3 from "@/assets/images/dss/whatyouget/whatyouget3.png";
+import whatyouget4 from "@/assets/images/dss/whatyouget/whatyouget4.png";
 import dss from "@/assets/images/dss/dss.png";
 import signup from "@/assets/images/dss/signup.png";
 import Button from "@/components/Parts/Button.astro";
 import PageTitleBanner from "@/components/Parts/PageTitleBanner.astro";
 import SectionTitle from "@/components/Parts/SectionTitle.astro";
-import SectionType1 from "@/components/SectionType1.astro";
-import SectionType3 from "@/components/SectionType3.astro";
+import Section from "@/components/Parts/Section.astro";
+import SectionType1Card from "@/components/SectionType1/SectionType1Card.astro";
+import SectionType1Cards from "@/components/SectionType1/SectionType1Cards.astro";
+import icon1 from "@/assets/images/services/ourservices/icon1.png";
+import icon2 from "@/assets/images/services/ourservices/icon2.png";
+import icon3 from "@/assets/images/services/ourservices/icon3.png";
 
 const categoryData = [
   {
-    title: "Focus on Growing\nYour Business!",
-
-    description:
-      "We handle ALL TYPES of your food surplus and waste, effortlessly so that you can focus growing your business!",
+    title: "Food Recovery Activities",
+    icon: icon1,
+    description: [
+      "Recover food surplus/waste from businesses near you",
+      "Store staff at businesses we work with will set aside edible food surplus/waste for you to collect.",
+    ],
   },
   {
-    title: "Focus on Growing\nYour Business!",
-
-    description:
-      "We handle ALL TYPES of your food surplus and waste, effortlessly so that you can focus growing your business!",
+    title: "Help the Community & Planet",
+    icon: icon2,
+    description: [
+      "Share food with members of your community",
+      "You’ll then list it on GoodHood.sg’s app. People nearby will request it and collect it from you.",
+    ],
   },
   {
-    title: "Focus on Growing\nYour Business!",
-
-    description:
-      "We handle ALL TYPES of your food surplus and waste, effortlessly so that you can focus growing your business!",
+    title: "Contribute to A Cause",
+    icon: icon3,
+    description: [
+      "Feel good knowing you’re helping people and our planet",
+      "By becoming a DSS, you’re doing your bit to fight food waste, saving the planet and help the communities in need!",
+    ],
   },
 ];
 
 const serviceData = [
   {
-    title: "Waste Management",
-    image: service1,
-    description: [
-      "Cut & Recoup Cost from Food Surplus/Waste",
-      "Cut & Recoup Cost from Food Surplus/Waste",
-      "Cut & Recoup Cost from Food Surplus/Waste",
-      "Cut & Recoup Cost from Food Surplus/Waste",
-    ],
+    title: "Make a Tangible Difference",
+    image: whatyouget1,
+    description:
+      "Your efforts will have a measurable impact on the lives of individuals and families who struggle to access food",
     link: "/products",
   },
   {
-    title: "Waste Management",
-    image: service1,
-    description: [
-      "Cut & Recoup Cost from Food Surplus/Waste",
-      "Cut & Recoup Cost from Food Surplus/Waste",
-      "Cut & Recoup Cost from Food Surplus/Waste",
-      "Cut & Recoup Cost from Food Surplus/Waste",
-    ],
+    title: "Environmental consciousness",
+    image: whatyouget2,
+    description:
+      "Your efforts will have a measurable impact on the lives of individuals and families who struggle to access food",
     link: "/products",
   },
   {
-    title: "Waste Management",
-    image: service1,
-    description: [
-      "Cut & Recoup Cost from Food Surplus/Waste",
-      "Cut & Recoup Cost from Food Surplus/Waste",
-      "Cut & Recoup Cost from Food Surplus/Waste",
-      "Cut & Recoup Cost from Food Surplus/Waste",
-    ],
+    title: "Expand your network",
+    image: whatyouget3,
+    description:
+      "Your efforts will have a measurable impact on the lives of individuals and families who struggle to access food",
+    link: "/products",
+  },
+  {
+    title: "Gain New Skills",
+    image: whatyouget4,
+    description:
+      "Your efforts will have a measurable impact on the lives of individuals and families who struggle to access food",
     link: "/products",
   },
 ];
 ---
 
 <Layout title="DSS">
-  <PageTitleBanner title="D2L.sg Surplus Savers" bgmv="/dss/mvbg.png" />
+  <PageTitleBanner title="D2L.sg Surplus Savers (DSS)" bgmv="/dss/mvbg.png" />
 
   <!-- What is DSS -->
   <section class="bg-white ~px-[1rem]/[5rem] ~py-[3rem]/[3.75rem]">
@@ -112,10 +120,68 @@ const serviceData = [
   </section>
 
   <!-- What you'll do -->
-  <SectionType1 category={categoryData} />
+  <Section bg="beige">
+    <SectionTitle textalign="left" color="green"> What YOU’ll do </SectionTitle>
+    <!-- Cards -->
+    <SectionType1Cards>
+      <!-- Card -->
+      {
+        categoryData.map((item: any) => (
+          <SectionType1Card bgcolor="white">
+            <Fragment slot="title">
+              <div class="flex items-center gap-x-[1rem]">
+                <Image src={item.icon} alt="icon1" width={44.76} />
+                <p>{item.title}</p>
+              </div>
+            </Fragment>
+            <Fragment slot="description">
+              <ul class="text-text mt-[1rem] text-[1.25rem] leading-normal px-[1rem] flex flex-col gap-y-[1rem]">
+                {item.description.map((desc: any) => (
+                  <li>{desc}</li>
+                ))}
+              </ul>
+            </Fragment>
+          </SectionType1Card>
+        ))
+      }
+    </SectionType1Cards>
+  </Section>
 
   <!-- What you'll get -->
-  <SectionType3 service={serviceData} />
+  <Section bg="bg" text="white" bgimagepath="/dss/bg.png">
+    <SectionTitle textalign="center" color="white">
+      What YOU’ll get
+    </SectionTitle>
+    <!-- Cards -->
+    <div
+      class="max-w-[57.75rem] mx-auto mt-[1.25rem] flex flex-col gap-y-[1.25rem]"
+    >
+      <!-- Card -->
+      {
+        serviceData.map((item: any) => (
+          <div class="rounded-[1.25rem] overflow-hidden w-full">
+            <div class="bg-white ~py-[0.9375rem]/[2rem] ~px-[0.9375rem]/[2.1875rem]">
+              <div class="flex items-center gap-[2.75rem] md:flex-row flex-col-reverse">
+                {/* Text */}
+                <div class="md:w-[53.27%]">
+                  <h3 class="text-green2 italic font-bold leading-none text-[2.8125rem]">
+                    {item.title}
+                  </h3>
+                  <p class="text-text mt-[1rem] text-[1.25rem] leading-normal">
+                    {item.description}
+                  </p>
+                </div>
+                {/* Image */}
+                <div class="inline text-text">
+                  <Image src={item.image} alt="Waste Management" />
+                </div>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </Section>
 
   <!-- CTA What they say -->
   <section class="bg-white ~px-[1rem]/[5rem] ~pt-[3rem]/[3.75rem]">

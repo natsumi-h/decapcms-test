@@ -1,0 +1,24 @@
+---
+interface Props {
+  bgcolor: "white" | "beige";
+}
+const { bgcolor } = Astro.props;
+---
+
+<div
+  class="rounded-[1.25rem] overflow-hidden drop-shadow-md w-full flex flex-col"
+>
+  <!-- Header -->
+   <!-- ~px-[0.9375rem]/[2.875rem] -->
+  <div
+    class="drop-shadow-md bg-orange items-center text-white ~py-[0.9rem]/[1.6875rem] px-[1.6875rem] text-center  text-[1.875rem] leading-none font-bold"
+  >
+    <slot name="title" />
+  </div>
+  <!-- Content -->
+  <div
+    class=`bg-${bgcolor} text-[1.25rem] leading-normal ~py-[0.9375rem]/[2rem] ~px-[0.9375rem]/[2.1875rem] flex-grow`
+  >
+    <slot name="description" />
+  </div>
+</div>

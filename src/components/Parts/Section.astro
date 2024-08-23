@@ -5,9 +5,10 @@ interface Props {
   bg: string;
   text?: string;
   id?: string;
+  bgimagepath?: string;
 }
-
-const { bg, text, id } = Astro.props;
+const { bg, text, id, bgimagepath } = Astro.props;
+const bgurl = `url(${bgimagepath})`;
 ---
 
 <section
@@ -19,9 +20,10 @@ const { bg, text, id } = Astro.props;
     <slot />
   </Inner>
 </section>
-<style>
+<style define:vars={{ bgurl }}>
   .bg-bg {
-    background-image: url("/home/bg2.png");
+    /* background-image: url("/home/bg2.png"); */
+    background-image: var(--bgurl);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
