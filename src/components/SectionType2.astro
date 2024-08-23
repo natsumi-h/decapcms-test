@@ -11,11 +11,11 @@ const { impact } = Astro.props;
   <SectionTitle textalign="left" color="white">Our Impact</SectionTitle>
 
   <div
-    class="flex justify-between align-middle text-center mt-[1.25rem] gap-[1rem] flex-col md:flex-row"
+    class="flex justify-between align-middle text-center mt-[1.25rem] flex-col md:flex-row gap-y-[1rem] flex-wrap"
   >
     {
       impact.map((item: any) => (
-        <div>
+        <div class="w-full md:w-[calc(25%-1rem*3/4)]">
           <Image
             src={item.image}
             alt="Our Impact"
@@ -23,7 +23,9 @@ const { impact } = Astro.props;
             height={100}
             class="mx-auto"
           />
-          <p class="text-[4.6875rem] font-bold leading-normal">{item.number}</p>
+          <p class="~text-[2rem]/[4.6875rem] font-bold leading-normal">
+            {item.number}
+          </p>
           <p class="text-[1.875rem] font-bold leading-none">{item.title}</p>
         </div>
       ))

@@ -1,81 +1,28 @@
 ---
-import impact1 from "@/assets/images/impact/impact1.png";
-import service1 from "@/assets/images/service/service1.png";
+import impact1 from "@/assets/images/home/impact/impact1.png";
+import impact2 from "@/assets/images/home/impact/impact2.png";
+import impact3 from "@/assets/images/home/impact/impact3.png";
+import impact4 from "@/assets/images/home/impact/impact4.png";
+import service1 from "@/assets/images/home/service/service1.png";
+import service2 from "@/assets/images/home/service/service2.png";
+import service3 from "@/assets/images/home/service/service3.png";
+import getintouch from "@/assets/images/home/getintouch.png";
 import Layout from "../layouts/Layout.astro";
 import Section from "@/components/Parts/Section.astro";
 import Button from "@/components/Parts/Button.astro";
 import { Image } from "astro:assets";
-import partner1 from "@/assets/images/home/partner1.png";
-import partner2 from "@/assets/images/home/partner2.png";
-import partner3 from "@/assets/images/home/partner3.png";
-import partner4 from "@/assets/images/home/partner4.png";
-import partner5 from "@/assets/images/home/partner5.png";
-import partner6 from "@/assets/images/home/partner6.png";
-import partner7 from "@/assets/images/home/partner7.png";
-import partner8 from "@/assets/images/home/partner8.png";
+import partner1 from "@/assets/images/home/partner/partner1.png";
+import partner2 from "@/assets/images/home/partner/partner2.png";
+import partner3 from "@/assets/images/home/partner/partner3.png";
+import partner4 from "@/assets/images/home/partner/partner4.png";
+import partner5 from "@/assets/images/home/partner/partner5.png";
+import partner6 from "@/assets/images/home/partner/partner6.png";
+import partner7 from "@/assets/images/home/partner/partner7.png";
+import partner8 from "@/assets/images/home/partner/partner8.png";
 import SectionType1 from "@/components/SectionType1.astro";
 import SectionType2 from "@/components/SectionType2.astro";
 import SectionType3 from "@/components/SectionType3.astro";
 import SectionTitle from "@/components/Parts/SectionTitle.astro";
-
-const impactData = [
-  {
-    title: "D2L.sg Surplus Savers (DSS) trained",
-    number: "400+",
-    image: impact1,
-  },
-  {
-    title: "D2L.sg Surplus Savers (DSS) trained",
-    number: "400+",
-    image: impact1,
-  },
-  {
-    title: "D2L.sg Surplus Savers (DSS) trained",
-    number: "400+",
-    image: impact1,
-  },
-  {
-    title: "D2L.sg Surplus Savers (DSS) trained",
-    number: "400+",
-    image: impact1,
-  },
-];
-
-const serviceData = [
-  {
-    title: "Waste Management",
-    image: service1,
-    description: [
-      "Cut & Recoup Cost from Food Surplus/Waste",
-      "Cut & Recoup Cost from Food Surplus/Waste",
-      "Cut & Recoup Cost from Food Surplus/Waste",
-      "Cut & Recoup Cost from Food Surplus/Waste",
-    ],
-    link: "/products",
-  },
-  {
-    title: "Waste Management",
-    image: service1,
-    description: [
-      "Cut & Recoup Cost from Food Surplus/Waste",
-      "Cut & Recoup Cost from Food Surplus/Waste",
-      "Cut & Recoup Cost from Food Surplus/Waste",
-      "Cut & Recoup Cost from Food Surplus/Waste",
-    ],
-    link: "/products",
-  },
-  {
-    title: "Waste Management",
-    image: service1,
-    description: [
-      "Cut & Recoup Cost from Food Surplus/Waste",
-      "Cut & Recoup Cost from Food Surplus/Waste",
-      "Cut & Recoup Cost from Food Surplus/Waste",
-      "Cut & Recoup Cost from Food Surplus/Waste",
-    ],
-    link: "/products",
-  },
-];
 
 const categoryData = [
   {
@@ -85,16 +32,74 @@ const categoryData = [
       "We handle ALL TYPES of your food surplus and waste, effortlessly so that you can focus growing your business!",
   },
   {
-    title: "Focus on Growing\nYour Business!",
+    title: "Reporting? We Got You Covered!",
 
     description:
-      "We handle ALL TYPES of your food surplus and waste, effortlessly so that you can focus growing your business!",
+      "We track your waste, calculate your impact, and generate sustainability reports for you (ESG, NEA, you got it!). Hassle-free!",
   },
   {
-    title: "Focus on Growing\nYour Business!",
+    title: "CSR & Employee Engagement ",
 
     description:
-      "We handle ALL TYPES of your food surplus and waste, effortlessly so that you can focus growing your business!",
+      "Say hello to engaging CSR/Employee Engagement programmes. Get ready to have a blast with your team!",
+  },
+];
+
+const impactData = [
+  {
+    title: "D2L.sg Surplus Savers (DSS) trained",
+    number: "400+",
+    image: impact1,
+  },
+  {
+    title: "tonnes of surplus food diverted",
+    number: "700+",
+    image: impact2,
+  },
+  {
+    title: "million saved",
+    number: "$7.1",
+    image: impact3,
+  },
+  {
+    title: "families benefitted",
+    number: "10,000+",
+    image: impact4,
+  },
+];
+
+const serviceData = [
+  {
+    title: "Waste Management",
+    image: service1,
+    description: [
+      "Cut & Recoup Cost from Food Surplus/Waste",
+      "Food Surplus/Waste Management",
+      "Impact Reports and Analytics Dashboard",
+      "ESG & NEA Reporting",
+    ],
+    link: "/services",
+  },
+  {
+    title: "CSR & Employee Engagement",
+    image: service2,
+    description: [
+      "CSR & Employee Engagement Programmes",
+      "Surplus Food Provision",
+      "Streamlined DSS engagement through comprehensive training model",
+      "Community Outreach Expansion",
+    ],
+    link: "/services/",
+  },
+  {
+    title: "Join as a DSS!",
+    image: service3,
+    description: [
+      "Make a tangible difference and contribute to a worthy cause",
+      "Network with changemakers",
+      "Gain new skills on food surplus & waste management, logistics, and community outreach at your convenience",
+    ],
+    link: "/dss/",
   },
 ];
 ---
@@ -145,7 +150,7 @@ const categoryData = [
     >
       <!-- Image -->
       <div class="w-full md:w-[38%]">
-        <Image src={service1} alt="impact" />
+        <Image src={getintouch} alt="impact" />
       </div>
       <!-- Text -->
       <div class="w-full md:w-[calc(62%-7.125rem)]">
@@ -175,7 +180,9 @@ const categoryData = [
         </div>
       </div>
       <div>
-        <p class="text-center text-[1.25rem] pt-[2.8125rem] md:pt-0">Proud member of</p>
+        <p class="text-center text-[1.25rem] pt-[2.8125rem] md:pt-0">
+          Proud member of
+        </p>
         <div class="flex items-center justify-center flex-wrap mt-[1.25rem]">
           <Image src={partner2} alt="partner" width={253} height={120} />
         </div>
@@ -186,7 +193,7 @@ const categoryData = [
     <div class="mt-[2.8125rem]">
       <p class="text-center text-[1.25rem]">Powered by</p>
       <div
-        class="flex items-center mt-[1.25rem] flex-wrap justify-center gap-y-[1.25rem] gap-x-[1.25rem]"
+        class="flex items-center mt-[1.25rem] flex-wrap justify-between gap-y-[1.25rem] "
       >
         <Image src={partner3} alt="partner" width={186} height={111} />
         <Image src={partner4} alt="partner" width={137.68} height={111} />
