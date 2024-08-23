@@ -4,20 +4,22 @@ import Inner from "./Parts/Inner.astro";
 import footerlogo from "@/assets/images/footerlogo.png";
 ---
 
-<div
-  class="text-white bg-green ~px-[1rem]/[5rem] ~py-[3rem]/[3.75rem] text-[0.75rem]"
+<footer
+  class="text-white bg-green ~px-[1rem]/[5rem] ~py-[1.5625rem]/[3.75rem] text-[0.75rem]"
 >
   <Inner>
     <!-- Flex -->
-    <div class="flex pb-[4.93rem] justify-between w-[85%]">
+    <div
+      class="flex pb-[1.5626rem] md:pb-[4.93rem] justify-between md:w-[85%] w-full flex-col gap-y-[1.5625rem] md:flex-row"
+    >
       <!-- Logo -->
-      <div>
+      <div class="m-auto md:m-0">
         <a href="/">
           <Image src={footerlogo} alt="D2L.sg" width={111} height={49} />
         </a>
       </div>
       <!-- Text -->
-      <div class="max-w-[20.3125rem]">
+      <div class="md:max-w-[20.3125rem]">
         <p>
           D2L.sg is a holistic, one-stop, end-to-end food surplus and waste
           management social enterprise; managing ALL TYPES of food surplus and
@@ -28,7 +30,7 @@ import footerlogo from "@/assets/images/footerlogo.png";
       </div>
 
       <!-- Links Wrapper -->
-      <div class="flex gap-x-[3.625rem]">
+      <div class="flex gap-x-[3.625rem] flex-col gap-y-[1.5625rem] md:flex-row">
         <!-- Relevant links -->
         <div>
           <p class="font-bold uppercase">Relevant Links</p>
@@ -73,7 +75,7 @@ import footerlogo from "@/assets/images/footerlogo.png";
       </div>
     </div>
   </Inner>
-</div>
+</footer>
 <div class="text-white bg-green text-[1rem] font-bold py-[1.5rem] belt">
   <span>
     ♥ Transform Waste, Transform Lives ♥ START YOUR FREE TRIAL TODAY ♥

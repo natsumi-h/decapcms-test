@@ -57,110 +57,236 @@ const isCurrentPath = (itemlink: string) => {
 <!-- Header -->
 <div
   id="header"
-  class="py-[1.25rem] px-[1rem] fixed bg-white z-50 drop-shadow-md rounded-[1.25rem] w-[97.2%] max-w-full top-[4.5rem] left-2/4 translate-x-[-50%]"
+  class="fixed z-50 md:w-[97.2%] w-full max-w-full top-[4.5rem] left-2/4 translate-x-[-50%] bg-white rounded-[1.25rem] drop-shadow-md"
 >
+  <!-- header -->
   <div
-    class="flex items-center justify-between max-w-[85.375rem] mx-auto w-full"
+    class="py-[0.75rem] md:py-[1.25rem] px-[1rem] drop-shadow-md rounded-[1.25rem] bg-white"
   >
-    <!-- Logo -->
-    <h1 class="shrink-0">
-      <a href="/">
-        <Image src={headerlogo} alt="D2L Singapore" width="78" height="110" />
-      </a>
-    </h1>
-    <div class="shrink w-[90.48%]">
-      <!-- Top Buttons -->
-      <div class="text-right">
-        <nav
-          class="bg-beige inline-block rounded-full py-[0.1875rem] px-[0.25rem] drop-shadow-md"
-        >
-          <ul class="flex itens-center gap-x-[0.5rem] bold text-[0.75rem]">
-            <li>
-              <a
-                href="/"
-                class="inline-block text-white bg-orange px-[1rem] py-[0.5rem] rounded-full font-bold border-[0.1875rem] border-orange"
-              >
-                For Businesses
-              </a>
-            </li>
-            <li>
-              <a
-                href="/"
-                class="inline-block text-text hover:text-white hover:bg-orange px-[1rem] py-[0.5rem] rounded-full font-bold border-[0.1875rem] border-beige hover:border-orange hover:transition-all duration-300"
-              >
-                Join Community
-              </a>
-            </li>
+    <div
+      class="flex items-center justify-between max-w-[85.375rem] mx-auto w-full"
+    >
+      <!-- Logo -->
+      <h1 class="shrink-0">
+        <a href="/">
+          <Image
+            src={headerlogo}
+            alt="D2L Singapore"
+            width="78"
+            height="110"
+            class="~w-[2rem]/[4.875rem]"
+          />
+        </a>
+      </h1>
+
+      <!-- Hamburger -->
+      <button class="cs-toggle md:hidden flex" aria-label="mobile menu toggle">
+        <div class="cs-box" aria-hidden="true">
+          <span class="cs-line cs-line1" aria-hidden="true"></span>
+          <span class="cs-line cs-line2" aria-hidden="true"></span>
+          <span class="cs-line cs-line3" aria-hidden="true"></span>
+        </div>
+      </button>
+
+      <div class="shrink w-[90.48%] hidden md:block">
+        <!-- Top Buttons -->
+        <div class="text-right">
+          <nav
+            class="bg-beige inline-block rounded-full py-[0.1875rem] px-[0.25rem] drop-shadow-md"
+          >
+            <ul class="flex itens-center gap-x-[0.5rem] bold text-[0.75rem]">
+              <li>
+                <a
+                  href="/"
+                  class="inline-block text-white bg-orange px-[1rem] py-[0.5rem] rounded-full font-bold border-[0.1875rem] border-orange"
+                >
+                  For Businesses
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/"
+                  class="inline-block text-text hover:text-white hover:bg-orange px-[1rem] py-[0.5rem] rounded-full font-bold border-[0.1875rem] border-beige hover:border-orange hover:transition-all duration-300"
+                >
+                  Join Community
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        <!-- Menu -->
+        <nav class="mt-[0.5625rem] text-center">
+          <ul class="flex items-center justify-between">
+            {
+              menu.map((item) => (
+                <li
+                  class={`shrink w-[9.5625rem]  text-text rounded-full  ${isCurrentPath(item.link) ? "text-white bg-green" : "hover:text-white  hover:bg-green3 hover:transition-all duration-300"}`}
+                >
+                  {pathname == item.link ? (
+                    <span class="py-[0.9375rem] block text-[1.25rem]">
+                      {item.name}
+                    </span>
+                  ) : (
+                    <a
+                      href={item.link}
+                      class="py-[0.9375rem] block text-[1.25rem]"
+                    >
+                      {item.name}
+                    </a>
+                  )}
+                </li>
+              ))
+            }
           </ul>
         </nav>
       </div>
-
-      <!-- Menu -->
-      <nav class="mt-[0.5625rem] text-center">
-        <ul class="flex items-center justify-between">
-          {
-            menu.map((item) => (
-              <li
-                class={`shrink w-[9.5625rem]  text-text rounded-full  ${isCurrentPath(item.link) ? "text-white bg-green" : "hover:text-white  hover:bg-green3 hover:transition-all duration-300"}`}
-              >
-                {pathname == item.link ? (
-                  <span class="py-[0.9375rem] block text-[1.25rem]">
-                    {item.name}
-                  </span>
-                ) : (
-                  <a
-                    href={item.link}
-                    class="py-[0.9375rem] block text-[1.25rem]"
-                  >
-                    {item.name}
-                  </a>
-                )}
-              </li>
-            ))
-          }
-        </ul>
-      </nav>
     </div>
   </div>
 
-  <style is:global>
-    .belt {
-      overflow: hidden;
-      position: relative;
-      white-space: nowrap;
-    }
-
-    .belt span {
-      display: inline-block;
-      padding-left: 100%;
-      animation: belt 30s linear infinite;
-    }
-
-    @keyframes belt {
-      from {
-        transform: translateX(0);
-      }
-      to {
-        transform: translateX(-100%);
-      }
-    }
-  </style>
-  <script is:inline>
-    const header = document.getElementById("header");
-    let lastScrollTop = 0;
-
-    window.addEventListener("scroll", () => {
-      let scrollTop = window.scrollY || document.documentElement.scrollTop;
-
-      if (scrollTop > lastScrollTop && scrollTop > 0) {
-        header.style.top = "0";
-        header.style.transition = "top 0.3s ease-in-out";
-      } else if (scrollTop <= 0) {
-        header.style.top = "4.5rem";
-        header.style.transition = "top 0.3s ease-in-out";
-      }
-
-      lastScrollTop = scrollTop;
-    });
-  </script>
+  <!-- SP nav manu -->
+  <div class="py-[2rem] px-[1rem] text-center hidden spmenu">
+    <nav>
+      <ul class="flex flex-col gap-y-[1.976rem]">
+        {
+          menu.map((item) => (
+            <li>
+              {pathname == item.link ? (
+                <span>{item.name}</span>
+              ) : (
+                <a class="block" href={item.link}>
+                  {item.name}
+                </a>
+              )}
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
 </div>
+
+<style is:global lang="scss">
+  .belt {
+    overflow: hidden;
+    position: relative;
+    white-space: nowrap;
+  }
+
+  .belt span {
+    display: inline-block;
+    padding-left: 100%;
+    animation: belt 30s linear infinite;
+  }
+
+  @keyframes belt {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+  .cs-toggle {
+    /* width: calc(56 / 16 * 1rem);
+      height: calc(56 / 16 * 1rem); */
+    width: calc(25 / 16 * 1rem);
+    height: calc(20 / 16 * 1rem);
+    margin: 0 0 0 auto;
+    border: none;
+    border-radius: calc(4 / 16 * 1rem);
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transition: transform 0.6s;
+
+    .cs-line {
+      background-color: #1a1a1a;
+      width: 100%;
+      height: 2px;
+      border-radius: 2px;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .cs-line1 {
+      top: 0;
+      transition:
+        transform 0.5s,
+        top 0.3s,
+        left 0.3s;
+      animation-duration: 0.7s;
+      animation-timing-function: ease;
+      animation-direction: normal;
+      animation-fill-mode: forwards;
+      transform-origin: center;
+    }
+
+    .cs-line2 {
+      top: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      transition:
+        top 0.3s,
+        left 0.3s,
+        transform 0.5s;
+      animation-duration: 0.7s;
+      animation-timing-function: ease;
+      animation-direction: normal;
+      animation-fill-mode: forwards;
+    }
+
+    .cs-line3 {
+      bottom: 0;
+      transition:
+        bottom 0.3s,
+        opacity 0.3s;
+    }
+
+    &.cs-active {
+      .cs-line1 {
+        top: 50%;
+        transform: translate(-50%, -50%) rotate(225deg);
+      }
+
+      .cs-line2 {
+        top: 50%;
+        transform: translate(-50%, -50%) translateY(0) rotate(-225deg);
+        transform-origin: center;
+      }
+
+      .cs-line3 {
+        opacity: 0;
+        bottom: 100%;
+      }
+    }
+  }
+</style>
+<script is:inline>
+  const header = document.getElementById("header");
+  let lastScrollTop = 0;
+
+  window.addEventListener("scroll", () => {
+    let scrollTop = window.scrollY || document.documentElement.scrollTop;
+
+    if (scrollTop > lastScrollTop && scrollTop > 0) {
+      header.style.top = "0";
+      header.style.transition = "top 0.3s ease-in-out";
+    } else if (scrollTop <= 0) {
+      header.style.top = "4.5rem";
+      header.style.transition = "top 0.3s ease-in-out";
+    }
+
+    lastScrollTop = scrollTop;
+  });
+
+  // SP toggle
+  $(document).ready(function () {
+    $(".cs-toggle").click(function () {
+      var spmenu = $(".spmenu");
+      spmenu.slideToggle();
+      $(this).toggleClass("cs-active");
+    });
+  });
+</script>
