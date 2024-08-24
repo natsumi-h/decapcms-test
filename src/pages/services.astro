@@ -151,16 +151,13 @@ const wastemanagementData = [
         categoryData.map((item: any) => (
           <SectionType1Card bgcolor="beige">
             <Fragment slot="title">
-              {/* <p>{item.title}</p>
-               */}
               <div class="flex items-center gap-x-[1rem]">
                 <Image src={item.icon} alt="icon1" width={44.76} />
                 <p>{item.title}</p>
               </div>
             </Fragment>
             <Fragment slot="description">
-              {/* <p>{item.description}</p> */}
-              <ul class="text-text mt-[1rem] text-[1.25rem] leading-normal px-[1rem]">
+              <ul class="text-text text-[1.25rem] leading-normal px-[1rem]">
                 {item.description.map((desc: any) => (
                   <li class="list-['✓']">{desc}</li>
                 ))}
@@ -197,12 +194,12 @@ const wastemanagementData = [
         </p>
         <!-- Cards -->
         <div
-          class="mt-[1.25rem] flex items-center justify-between gap-y-[1.875rem] flex-wrap"
+          class="mt-[1.25rem] gap-y-[1.875rem] gap-x-[2.25rem] grid grid-cols-1 md:grid-cols-3"
         >
           <!-- Card -->
           {
             wastemanagementData.map((data: any) => (
-              <div class="w-ful md:w-[calc(33%-2.625rem/2)]">
+              <div class="w-ful grid grid-rows-subgrid row-span-2 gap-[2rem]">
                 <Image
                   src={data.image}
                   alt="icon1"
@@ -210,7 +207,7 @@ const wastemanagementData = [
                   height={90}
                   class="mx-auto"
                 />
-                <p class="mt-[2rem] text-[1.25rem]">{data.desctiprion}</p>
+                <p class="text-[1.25rem]">{data.desctiprion}</p>
               </div>
             ))
           }
