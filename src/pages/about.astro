@@ -195,7 +195,9 @@ const publicationData = [
       <Image src={founder} alt="Lin QingHui" width={433} height={399} />
 
       <div>
-        <p class="text-orange text-[2.8125rem] font-bold italic">Lin QingHui</p>
+        <p class="text-orange ~text-[2rem]/[2.8125rem] font-bold italic">
+          Lin QingHui
+        </p>
         <p class="mt-[1rem]">
           Stemming from her “pathological hatred” for food waste, Lin QingHui
           founded D2L.sg back in 2018 by participating in the DBS Foundation
@@ -245,7 +247,11 @@ const publicationData = [
         publicationData.map((item: any) => (
           // cardwitdh
           <div class="rounded-[1.25rem] overflow-hidden drop-shadow-lg w-full md:w-[calc(33.3%-2.625rem*2/3)]">
-            <a href={item.href} target="_blank">
+            <a
+              href={item.href}
+              target="_blank "
+              class="hover:opacity-80 transition-all duration-300"
+            >
               <div>
                 {/* Image */}
                 <div class="">

@@ -108,9 +108,9 @@ const faqs = [
               id={`faq${index + 2}`}
             >
               {/* <!-- Question --> */}
-              <div class="transition-all duration-300 question py-[1.5625rem] px-[2.1875rem] bg-green text-white font-bold text-[1.875rem] rounded-[1.25rem] flex justify-between items-center">
+              <div class="transition-all duration-300 question ~py-[1.25rem]/[1.5625rem] ~px-[1rem]/[2.1875rem] bg-green text-white font-bold ~text-[1.25rem]/[1.875rem] rounded-[1.25rem] flex justify-between items-center gap-x-[1rem]">
                 <p>{faq.question}</p>
-                <button class="toggle-button">
+                <button class="toggle-button w-[1.875rem] shrink-0">
                   <Image
                     src={toggle}
                     alt="Toggle"
