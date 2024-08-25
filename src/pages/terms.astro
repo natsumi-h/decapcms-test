@@ -179,7 +179,7 @@ import SectionTitle from "@/components/Parts/SectionTitle.astro";
       </ul>
     </div>
   </Section>
-  
+
   <!-- PP -->
   <Section bg="white" id="privacy">
     <SectionTitle color="green" textalign="left"> Privacy Policy </SectionTitle>
@@ -487,3 +487,24 @@ import SectionTitle from "@/components/Parts/SectionTitle.astro";
     </div>
   </Section>
 </Layout>
+<script is:inline>
+  $(document).ready(function () {
+    var headerHeight = $("#header").height();
+    var urlHash = location.hash;
+    if (urlHash) {
+      $("body,html").stop().scrollTop(0);
+      setTimeout(function () {
+        var target = $(urlHash);
+        var position = target.offset().top - headerHeight;
+        $("body,html").stop().animate({ scrollTop: position }, 500);
+      }, 100);
+    }
+    $('a[href^="#"]').click(function () {
+      var href = $(this).attr("href");
+      var target = $(href);
+      var position = target.offset().top - headerHeight;
+      $("body,html").stop().animate({ scrollTop: position }, 500);
+      return false; 
+    });
+  });
+</script>
