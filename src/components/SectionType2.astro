@@ -4,6 +4,15 @@ import Button from "@/components/Parts/Button.astro";
 import Section from "@/components/Parts/Section.astro";
 import SectionTitle from "@/components/Parts/SectionTitle.astro";
 
+interface Props {
+  impact: {
+    title: string;
+    number: number;
+    unit: string;
+    image: ImageMetadata;
+  }[];
+}
+
 const { impact } = Astro.props;
 ---
 
@@ -19,7 +28,10 @@ const { impact } = Astro.props;
       impact.map((item: any) => (
         // Card
         <div
-          class="w-full md:w-[calc(25%-1rem*3/4)] flex flex-col"
+          class="w-full md:w-[calc(25%-1rem*3/4)] flex flex-col impactitem"
+          data-from="0"
+          data-to={item.number}
+          data-duration="500"
         >
           <Image
             src={item.image}
@@ -28,8 +40,11 @@ const { impact } = Astro.props;
             height={100}
             class="mx-auto"
           />
-          <p class="~text-[2rem]/[4.6875rem] font-bold leading-normal">
-            {item.number}
+          {/* number */}
+          <p class="~text-[2rem]/[4.6875rem] font-bold leading-normal ">
+            {item.unit === "$" && <span>$</span>}
+            <span class="impactnumber">0</span>
+            {item.unit !== "$" && <span>{item.unit}</span>}
           </p>
           <p class="text-[1.875rem] font-bold leading-none self-center flex flex-grow items-center">
             {item.title}
@@ -43,3 +58,60 @@ const { impact } = Astro.props;
     <Button text="Learn more" href="/education" />
   </div>
 </Section>
+<script is:inline>
+  const items = document.querySelectorAll(".impactitem");
+
+  const getDecimalPointLength = (n) => {
+    return (String(n).split(".")[1] || "").length;
+  };
+
+  const observeAction = (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        if (!entry.target.classList.contains("is-visible")) {
+          const counterEle = entry.target.querySelector(".impactnumber");
+          const from = parseFloat(entry.target.dataset.from || 0);
+          const to = parseFloat(entry.target.dataset.to || 0);
+          const duration = parseInt(entry.target.dataset.duration) || 1500;
+
+          if (!Number.isFinite(from) || !Number.isFinite(to) || from > to) {
+            return false;
+          }
+
+          const increment = to - from;
+          const deciamlPointLength = getDecimalPointLength(increment);
+          const startTime = performance.now();
+
+          const countUp = () => {
+            const elapsed = performance.now() - startTime;
+            const countValue = (
+              from +
+              (elapsed / duration) * increment
+            ).toFixed(deciamlPointLength);
+
+            if (countValue >= to) {
+              counterEle.innerText = to.toLocaleString();
+            } else {
+              counterEle.innerText = parseFloat(countValue).toLocaleString();
+              requestAnimationFrame(countUp);
+            }
+          };
+
+          requestAnimationFrame(countUp);
+
+          entry.target.classList.add("is-visible");
+        }
+      }
+    });
+  };
+
+  const options = {
+    threshold: 1,
+  };
+
+  const obsever = new IntersectionObserver(observeAction, options);
+
+  items.forEach((target) => {
+    obsever.observe(target);
+  });
+</script>
