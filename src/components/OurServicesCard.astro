@@ -18,17 +18,22 @@ const { title, icon } = Astro.props;
 
   <!-- div -->
   <div
-    class="~py-[0.9375rem]/[2.5rem] ~px-[0.9375rem]/[4rem] bg-white drop-shadow-md radius"
+    class="~py-[0.9375rem]/[2.5rem] ~px-[0.9375rem]/[4rem] bg-white drop-shadow-xl radius"
   >
     <slot />
   </div>
 </div>
-<style>
+<style style="scss">
   .tagradius {
     border-radius: 1.25rem 1.25rem 0 0;
   }
 
   .radius {
-    border-radius: 0 1.25rem 1.25rem 1.25rem;
+    border-radius: 0 0 1.25rem 1.25rem;
+
+    @media screen and (min-width: 768px) {
+      border-radius: 0 1.25rem 1.25rem 1.25rem;
+    }
   }
+
 </style>
