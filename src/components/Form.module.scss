@@ -1,0 +1,15 @@
+.select {
+  position: relative;
+  &::after {
+    display: inline-block;
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid #cddae8;
+    border-right: 2px solid #cddae8;
+    transform: translateY(-50%) rotate(135deg);
+  }
+}
