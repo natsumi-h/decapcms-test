@@ -1,9 +1,18 @@
 export { renderers } from '../../renderers.mjs';
 
 const prerender = false;
-const POST = async ({ request, redirect }) => {
+const POST = async ({ request }) => {
   const portalId = "47226251";
   const formGuid = "60cff913-c749-44e2-a352-17635a6152be";
+  const formData = await request.formData();
+  const email = formData.get("email")?.toString();
+  const firstname = formData.get("firstname")?.toString();
+  const lastname = formData.get("lastname")?.toString();
+  const company = formData.get("company")?.toString();
+  const contact = formData.get("contact")?.toString();
+  const interest = formData.get("interest")?.toString();
+  const heardfrom = formData.get("heardfrom")?.toString();
+  const message = formData.get("message")?.toString();
   try {
     const res = await fetch(
       `https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formGuid}`,
@@ -17,27 +26,42 @@ const POST = async ({ request, redirect }) => {
             {
               objectTypeId: "0-1",
               name: "email",
-              value: "natsmy.1211@gmail.com"
+              value: email
             },
             {
               objectTypeId: "0-1",
               name: "firstname",
-              value: "菜摘"
+              value: firstname
             },
             {
               objectTypeId: "0-1",
               name: "lastname",
-              value: "堀"
+              value: lastname
             },
             {
               objectTypeId: "0-1",
               name: "company",
-              value: "株式会社 問い合わせ連携"
+              value: company
+            },
+            {
+              objectTypeId: "0-1",
+              name: "phone",
+              value: contact
+            },
+            {
+              objectTypeId: "0-1",
+              name: "interest",
+              value: interest
+            },
+            {
+              objectTypeId: "0-1",
+              name: "heardfrom",
+              value: heardfrom
             },
             {
               objectTypeId: "0-1",
               name: "message",
-              value: "製品について問い合わせします。"
+              value: message
             }
           ]
         })
@@ -46,12 +70,12 @@ const POST = async ({ request, redirect }) => {
     const data = await res.json();
     console.log(data);
     if (!res.ok) {
-      return new Response("サーバーエラー", { status: 500 });
+      return new Response("Server error", { status: 500 });
     }
-    return new Response("登録が正常に完了しました", { status: 200 });
+    return new Response("Success", { status: 200 });
   } catch (error) {
     console.log(error);
-    return new Response("ユーザーの作成に失敗しました", { status: 400 });
+    return new Response("Something went wrong", { status: 400 });
   }
 };
 
